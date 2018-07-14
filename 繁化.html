@@ -4,8 +4,27 @@
     <meta charset="UTF-8">    
     <title>繁化 - 繁簡轉換</title>
     <script type="text/javascript" src="資料/一簡多繁.js"></script>
+    <script type="text/javascript" src="字處理.js"></script>
+    <script type="text/javascript" src="繁化.js"></script>
     <script type="text/javascript" src="dom.js"></script>
+    <script type="text/javascript">
+      window.addEventListener('load', function(){
+      btn.addEventListener('click', function(){
+      文 = 繁化(input.value)
+      document.body.appendChild(文.介面)
+      })
+      })
+    </script>
+    <style>
+      .選擇面板 { border: 2px solid hsl(0, 0%, 15%); max-width: 8em; }      
+      .選項 { display: flex; justify-content: space-between; }
+      .選項 { padding: 0.2em; border-bottom: 1px solid hsl(0, 0%, 20%); }
+      .例詞 { margin-left: 0.25em; }
+      .注解 { padding: 0.2em; }
+    </style>
   </head>
   <body>
+    <input id="input" type="text" />
+    <button id="btn">S2T</button>
   </body>
 </html>
