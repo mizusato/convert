@@ -12,6 +12,10 @@ function $$(selector){
 
 
 function create(data) {
+
+  if ( typeof data == 'undefined' ) {
+    return undefined;
+  }
   
   if ( typeof data != 'object' || data == null ) {
     throw Error('create(): Invalid Argument');
@@ -40,7 +44,9 @@ function create(data) {
 	    element.$fields[field.name] = function update(value) {
 	      element[hash_property][current_key] = value;
 	    };
-	    element[hash_property][current_key] = field.def_val;
+	    if ( typeof field.def_val != 'undefined' ) {
+	      element[hash_property][current_key] = field.def_val;
+	    }
 	  } else {
 	    element[hash_property][key] = data[hash_property][key];
 	  } // field or value
@@ -50,13 +56,13 @@ function create(data) {
   });
 
   if (data.handlers) {
-    for ( let event_name of Object.keys(handlers) ) {
-      element.addEventListener(event_name, handlers[event_name]);
+    for ( let event_name of Object.keys(data.handlers) ) {
+      element.addEventListener(event_name, data.handlers[event_name]);
     }
   }
 
   for ( let property of Object.keys(data) ) {
-    if ( data[property] || typeof data[property] == 'boolean' ) {
+    if ( typeof data[property] != 'undefined' ) {
       if ( reserved.indexOf(property) == -1 ) {
 	if ( data[property] instanceof field ) {
 	  let field = data[property];
@@ -64,17 +70,23 @@ function create(data) {
 	  element.$fields[field.name] = function update (value) {
 	    element[current_property] = value;
 	  };
-	  element[current_property] = field.def_val;
+	  if ( typeof field.def_val != 'undefined' ) {
+	    element[current_property] = field.def_val;
+	  }
 	} else {
 	  element[property] = data[property];
 	} // field or value
       } // property is not children or processed property
-    } // boolean type or true value of other types
+    } // property data exists
   }
 
   if (data.children) {
     for ( let child of data.children ) {
-      element.appendChild(create(child));
+      if ( child instanceof HTMLElement ) {
+	element.appendChild(child);
+      } else if ( typeof child != 'undefined' ) {
+	element.appendChild(create(child));
+      }
     }
   }
 
@@ -86,7 +98,7 @@ function create(data) {
 function map(list, f) {
   var result = [];
   for ( let I of list ) {    
-    result.append(f(I));
+    result.push(f(I));
   }
   return result;
 }
@@ -101,11 +113,20 @@ function field(name, default_value) {
 
 function update(element, data) {
   for ( let field_name of Object.keys(element.$fields) ) {
-    if ( data[field_name] || typeof data[field_name] == 'boolean' ) {
+    if ( typeof data[field_name] != 'undefined' ) {
       element.$fields[field_name].call(element, data[field_name]);
     }
   }
   for ( let child of element.children ) {
     update(child, data);
   }
+}
+
+
+function concat(args) {
+  var result = [];  
+  for(let i=0; i<arguments.length; i++) {
+    result = result.concat(arguments[i]);
+  }
+  return result;
 }
