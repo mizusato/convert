@@ -82,25 +82,25 @@
       a, a:visited { color: color: hsl(233, 80%, 48%); }
     </style>
     <style>
-      .選擇面板 { border: 1px solid hsl(0, 0%, 90%); }
+      .選擇面板 { border: 1px solid hsl(0, 0%, 85%); }
       .選擇面板 { width: 13.5em; margin-top: 0.2em; }
       .選擇面板 { background-color: hsla(50, 1%, 97%, 0.97); }
-      .選擇面板 { box-shadow: 0 3px 9px hsla(0, 0%, 40%, 0.3); }
+      .選擇面板 { box-shadow: 0 4px 10px hsla(0, 0%, 35%, 0.4); }
       .選項 { display: flex; justify-content: space-between; }
-      .選項 { padding: 0.5em 1em; }
+      .選項, .注解 { padding: 0.3em 0.6em; }
       .選項 { cursor: pointer; }
       .選項:hover { background-color: hsla(68, 91%, 75%, 0.97); }
       .候選字 { font-size: 1.2em; color: hsl(0, 0%, 2%); }
       .例詞表 { display: flex; align-items: center; }
       .例詞 { margin-left: 0.25em;  }
       .例詞 { color: hsl(0, 0%, 12%); }
-      .注解 { padding: 0.5em 1em; }
       .注解 { color: color: hsl(0, 0%, 6%); }
       .字位 { border: 1px solid hsl(0, 0%, 100%, 0); border-radius: 2px; }
       .字位 { padding: 0.15em; margin: 0.25em 0.1em; }
       .字位 { font-family: sans-serif; font-size: 1.1em; }
       .字位 { color: hsl(0, 0%, 10%); }
       .字位.一對多字 { cursor: pointer; }
+      .字位.一對一字, .字位.無對應字 { color: hsl(0, 0%, 30%); }
       .字位[data-狀態=未選擇] { background-color: hsl(55, 90%, 60%); }
       .字位[data-狀態=已選擇] { background-color: hsl(127, 90%, 70%); }
     </style>
