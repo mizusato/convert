@@ -150,3 +150,48 @@ function concat(args) {
   }
   return result;
 }
+
+
+class CompatEventTarget {
+  constructor () {
+    this.$handlers = {};
+  }
+
+  addEventListener (name, callback) {
+    if ( typeof callback != 'function' ) {
+      throw Error(
+	'CompatEventTarget.prototype.addEventListener: Invalid Argument'
+      )
+    }
+    if ( !this.$handlers[name] ) {
+      this.$handlers[name] = [];
+    }
+    for ( let handler of this.$handlers[name] ) {
+      if ( handler == callback ) {
+	return false;
+      }
+    }
+    this.$handlers[name].push(callback);
+    return true;
+  }
+
+  removeEventListener (name, callback) {
+    if ( this.$handlers[name] ) {
+      this.$handlers[name] = this.$handlers[name].filter(
+	handler => handler != callback
+      );
+      return true;
+      // return true does not mean there must exist a handler == callback
+    } else {
+      return false;
+    }
+  }
+
+  dispatchEvent (event) {
+    if ( this.$handlers[event.type] ) {
+      for ( let handler of this.$handlers[event.type] ) {
+	handler.call(this, event);
+      }
+    }
+  }
+}

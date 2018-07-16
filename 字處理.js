@@ -17,18 +17,25 @@ class 轉換規則 {
 }
 
 
-class 文章 {
+class 文章 extends CompatEventTarget {
   constructor (待轉換字表, 轉換規則) {
+    super()
     var 文章 = this
     文章.待轉換字表 = 待轉換字表
     文章.轉換規則 = 轉換規則
     文章.字位表 = map(
       待轉換字表, function (字) {
+	var 此字位;
 	if ( typeof 字 == 'string' ) {
-	  return new 字位(字, 文章)
+	  此字位 = new 字位(字, 文章)
 	} else {
-	  return new 字位(字.待轉換字, 文章, 字.已確定對應字)
+	  此字位 = new 字位(字.待轉換字, 文章, 字.已確定對應字)
 	}
+	此字位.addEventListener(
+	  '狀態更新',
+	  ()=>文章.dispatchEvent(new Event('狀態更新'))
+	)
+	return 此字位
       }
     )
     文章.介面 = 文章.生成介面()
@@ -73,7 +80,7 @@ class 文章 {
 
 
 
-class 字位 {
+class 字位 extends CompatEventTarget {
   /**
    *  【物件說明】
    *    被轉換的單個字的抽象化
@@ -99,6 +106,7 @@ class 字位 {
    *    ・更新介面: [private]
    */
   constructor ( 待轉換字, 文章, 已確定對應字='' ) {
+    super()
     var 字位 = this
     字位.待轉換字 = 待轉換字
     字位.文章 = 文章
@@ -132,6 +140,7 @@ class 字位 {
     字位.當前選擇的對應字 = 新字
     字位.狀態 = '已選擇'
     字位.更新介面()
+    字位.dispatchEvent(new Event('狀態更新'))
   }
 
   使用預設字 () {
@@ -139,6 +148,7 @@ class 字位 {
     確認( 字位.類型 == '一對多字' )
     字位.狀態 = '已選擇'
     字位.更新介面()
+    字位.dispatchEvent(new Event('狀態更新'))
   }
 
   取得顯示字 () {
