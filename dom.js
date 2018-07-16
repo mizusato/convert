@@ -41,9 +41,14 @@ function create(data) {
 	  if ( data[hash_property][key] instanceof field )  {
 	    let field = data[hash_property][key];
 	    let current_key = key;
-	    element.$fields[field.name] = function update(value) {
-	      element[hash_property][current_key] = value;
-	    };
+	    element.$fields[field.name] = {
+	      'read': function () {
+		return element[hash_property][current_key];
+	      },
+	      'update': function (value) {
+		element[hash_property][current_key] = value;
+	      }
+	    }
 	    if ( typeof field.def_val != 'undefined' ) {
 	      element[hash_property][current_key] = field.def_val;
 	    }
@@ -67,9 +72,14 @@ function create(data) {
 	if ( data[property] instanceof field ) {
 	  let field = data[property];
 	  let current_property = property;
-	  element.$fields[field.name] = function update (value) {
-	    element[current_property] = value;
-	  };
+	  element.$fields[field.name] = {
+	    'read': function (value) {
+	      return element[current_property];
+	    },
+	    'update': function (value) {
+	      element[current_property] = value;
+	    }
+	  }
 	  if ( typeof field.def_val != 'undefined' ) {
 	    element[current_property] = field.def_val;
 	  }
@@ -111,10 +121,20 @@ function field(name, default_value) {
 }
 
 
+function read(element, field_name) {
+  if ( typeof element.$fields[field_name] != 'undefined' ) {
+    return element.$fields[field_name].read.call(element);
+  }
+  for ( let child of element.children ) {
+    read(child, field_name);
+  }
+}
+
+
 function update(element, data) {
   for ( let field_name of Object.keys(element.$fields) ) {
     if ( typeof data[field_name] != 'undefined' ) {
-      element.$fields[field_name].call(element, data[field_name]);
+      element.$fields[field_name].update.call(element, data[field_name]);
     }
   }
   for ( let child of element.children ) {

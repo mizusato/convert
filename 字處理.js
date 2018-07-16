@@ -108,6 +108,7 @@ class 字位 {
     var 字位 = this
     確認( 字位.類型 == '一對多字' )
     字位.狀態 = '已選擇'
+    字位.更新介面()
   }
 
   取得顯示字 () {
@@ -129,7 +130,7 @@ class 字位 {
       dataset: { 狀態: field('狀態', 字位.狀態) },
       textContent: field('顯示字', 字位.取得顯示字()),	
       handlers: {
-	click: ev => 一對多 && 字位.選擇器.顯示介面() + ev.stopPropagation(),
+	click: ev => 一對多 && 字位.選擇器.切換介面() + ev.stopPropagation(),
 	contextmenu: ev => 一對多 && 字位.使用預設字() + ev.preventDefault()
       }
     })
@@ -198,7 +199,8 @@ class 選擇器 {
 		選擇器.字位.變更對應字(選項.候選字) + 選擇器.隠藏介面()
 	    } })
 	) },
-	{ tag: 'div', className: '注解', textContent: 選擇器.注解 }
+	  { tag: 'div', className: '注解', textContent: 選擇器.注解,
+	    handlers: { click: ev => ev.stopPropagation() } }
       ] }
     );
   }
@@ -217,6 +219,15 @@ class 選擇器 {
   隠藏介面 () {
     var 選擇器 = this
     update(選擇器.介面, {display: 'none'})
+  }
+
+  切換介面 () {
+    var 選擇器 = this
+    if ( read(選擇器.介面, 'display') == 'none' ) {
+      選擇器.顯示介面();
+    } else {
+      選擇器.隠藏介面();
+    }
   }
 
   static 隠藏全部() {
