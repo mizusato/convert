@@ -125,15 +125,21 @@ class 字位 {
   生成介面 () {
     var 字位 = this
     var 一對多 = ( 字位.類型 == '一對多字' )
-    return create({
-      tag: 'span', classList: ['字位', 字位.類型],
-      dataset: { 狀態: field('狀態', 字位.狀態) },
-      textContent: field('顯示字', 字位.取得顯示字()),	
-      handlers: {
-	click: ev => 一對多 && 字位.選擇器.切換介面() + ev.stopPropagation(),
-	contextmenu: ev => 一對多 && 字位.使用預設字() + ev.preventDefault()
-      }
-    })
+    if ( 字位.待轉換字 == '\n' ) {
+      return create({
+	tag: 'br', classList: ['字位', 字位.類型]
+      })
+    } else {
+      return create({
+	tag: 'span', classList: ['字位', 字位.類型],
+	dataset: { 狀態: field('狀態', 字位.狀態) },
+	textContent: field('顯示字', 字位.取得顯示字()),	
+	handlers: {
+	  click: ev => 一對多 && 字位.選擇器.切換介面() + ev.stopPropagation(),
+	  contextmenu: ev => 一對多 && 字位.使用預設字() + ev.preventDefault()
+	}
+      })
+    }
   }
 
   更新介面 () {
