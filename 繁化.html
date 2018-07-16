@@ -10,6 +10,7 @@
     <script type="text/javascript" src="dom.js"></script>
     <script type="text/javascript">
       var workspace;
+      var 文;
       window.addEventListener('load', function(){
       workspace = $('#workspace')
       btn.addEventListener('click', function(){
@@ -31,7 +32,7 @@
       align-items: flex-start;
       }
       #container {
-      width: 55vw;
+      width: 40vw;
       padding: 2.5em;
       margin: 3.6em 0em;
       box-shadow: 0 3px 9px hsla(0, 0%, 40%, 0.3);
@@ -41,17 +42,18 @@
       #input {
       width: 100%;
       height: 20em;
+      resize: none;
       }
     </style>
     <style>
       .選擇面板 { border: 1px solid hsl(0, 0%, 90%); }
-      .選擇面板 { max-width: 13.5em; margin-top: 0.2em; }
+      .選擇面板 { width: 13.5em; margin-top: 0.2em; }
       .選擇面板 { background-color: hsla(50, 1%, 97%, 0.97); }
       .選擇面板 { box-shadow: 0 3px 9px hsla(0, 0%, 40%, 0.3); }
       .選項 { display: flex; justify-content: space-between; }
       .選項 { padding: 0.5em 1em; }
       .選項 { cursor: pointer; }
-      .選項:hover { background-color: hsla(50, 90%, 77%, 0.97); }
+      .選項:hover { background-color: hsla(68, 91%, 75%, 0.97); }
       .候選字 { font-size: 1.2em; color: hsl(0, 0%, 2%); }
       .例詞表 { display: flex; align-items: center; }
       .例詞 { margin-left: 0.25em;  }
