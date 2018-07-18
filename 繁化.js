@@ -23,13 +23,14 @@ function 生成取捨表 (取捨設定) {
     delete 取捨表[簡化字]
   }
   for ( let 條目 of Object.keys(正異取捨表) ) {
-    let 條目字 = 正異取捨表[條目][0][0]
-    let 選項 = 正異取捨表[條目][0] // 下標從 1 開始有效, 目前只設 1, 2 兩選項
+    var 字組表 = 正異取捨表[條目]
+    let 條目字 = 字組表[0][0]
+    let 選項 = 字組表[0] // 下標從 1 開始有效, 目前只設 1, 2 兩選項
     let 取字 = 1
     if ( 取捨設定[條目字] && 取捨設定[條目字] == 選項[2] ) {
       取字 = 2
     }
-    for ( let 字組 of 正異取捨表[條目] ) {
+    for ( let 字組 of 字組表 ) {
       let 簡化字 = 字組[0]
       取捨表[簡化字] = 字組[取字]
     }
@@ -38,41 +39,41 @@ function 生成取捨表 (取捨設定) {
 
 
 function 生成取捨設定介面() {
-  var 取捨設定 = read_config('取捨設定')
+  var 取捨設定 = load_config('取捨設定')
   return create(
-    { tag: 'table', className: '正異取捨設定', children: [
-      { tag: 'tbody', children: map (
-	正異取捨表, function 生成選項介面 (字組表) {
-	  var 條目字 = 字組表[0][0]
-	  var 選項 = 字組表[0] // 同上
-	  var 取字 = 1
-	  if ( 取捨設定[條目字] && 取捨設定[條目字] == 選項[2] ) {
-	    取字 = 2
-	  }
-	  function 更改選擇 (新取字) {
-	    取捨設定[條目字] = 選項[新取字]
-	    生成取捨表(取捨設定)
-	    save_config('取捨設定', 取捨設定)	    
-	  }
-	  return {
-	    tag: 'tr', children: map(
-	      [1,2], 選項號 => ({
-		tag: 'td', classList: ['正異選項', 選項號],
-		dataset: { selected: field('已選標記', 取字==選項號) },
-		textContent: 選項[選項號],
-		handlers: {
-		  click: function (ev) {
-		    update( this.parentElement, {已選標記: String(false)} )
-		    update( this, {已選標記: String(true)} )
-		    更改選擇(選項號)
-		  }
+    { tag: 'div', className: '正異取捨設定', children: map (
+      Object.keys(正異取捨表), function 生成選項介面 (條目) {
+	var 字組表 = 正異取捨表[條目]
+	var 條目字 = 字組表[0][0]
+	var 選項 = 字組表[0] // 同上
+	var 取字 = 1
+	if ( 取捨設定[條目字] && 取捨設定[條目字] == 選項[2] ) {
+	  取字 = 2
+	}
+	function 更改選擇 (新取字) {
+	  取捨設定[條目字] = 選項[新取字]
+	  生成取捨表(取捨設定)
+	  save_config('取捨設定', 取捨設定)	    
+	}
+	return {
+	  tag: 'div', className: '正異條目', children: map(
+	    [1,2], 選項號 => ({
+	      tag: 'span', classList: ['正異選項', 選項號],
+	      dataset: { selected: field('已選標記', 取字==選項號) },
+	      textContent: 選項[選項號],
+	      handlers: {
+		click: function (ev) {
+		  update( this.parentElement, {已選標記: String(false)} )
+		  update( this, {已選標記: String(true)} )
+		  更改選擇(選項號)
+		  this.dispatchEvent(new Event('設定更改', {bubbles:true}))
 		}
-	      }) // <td>
-	    ) // <td> generator
-	  } // return <tr>
-	} // <tr> generator
-      ) } // tbody
-    ] } // table
+	      }
+	    }) // 選項
+	  ) // 選項列表
+	} // 條目
+      } // 生成條目
+    ) } // 條目列表
   )
 }
 
