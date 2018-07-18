@@ -195,3 +195,16 @@ class CompatEventTarget {
     }
   }
 }
+
+
+function load_config (name) {
+  if ( !localStorage[name] ) {
+    localStorage[name] = JSON.stringify({});
+  }
+  return JSON.parse(localStorage[name])
+}
+
+
+function save_config (name, obj) {
+  localStorage[name] = JSON.stringify(obj);
+}
