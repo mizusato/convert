@@ -8,14 +8,41 @@ class 轉換規則 {
    *    ・一對多表: hash<資料[1]:object>
    *    ・選擇器生成函數: (字位: 字位, 資料: 資料[1]) => 選擇器: 選擇器
    *    ・取捨表: hash<char>
+   *    ・地區表: hash<char>
    */
-  constructor (一對一表, 一對多表, 選擇器生成函數, 取捨表 = {}) {
+  constructor (一對一表, 一對多表, 選擇器生成函數, 取捨表 = {}, 地區表 = {}) {
     var 轉換規則 = this
     轉換規則.一對一表 = 一對一表
     轉換規則.一對多表 = 一對多表
     轉換規則.選擇器生成函數 = 選擇器生成函數
     轉換規則.取捨表 = 取捨表
+    轉換規則.地區表 = 地區表
+    轉換規則.生成地區詞首字表()
   }
+
+  生成地區詞首字表 () {
+    var 轉換規則 = this
+    var 首字表 = {}
+    for ( let 被轉換用語 of Object.keys(轉換規則.地區表) ) {
+      let 對應詞列表 = 轉換規則.地區表[被轉換用語]
+      let 首字 = 被轉換用語[0]
+      if ( 首字表.不存在(首字) ) {
+	首字表[首字] = {}
+      }
+      首字表[首字][被轉換用語] = 對應詞列表
+    }
+    for ( let 首字 of Object.keys(首字表) ) {
+      let 最大長度 = 0
+      for ( let 被轉換用語 of Object.keys(首字表[首字]) ) {
+	if ( 被轉換用語.length > 最大長度 ) {
+	  最大長度 = 被轉換用語.length
+	}
+	首字表[首字].$最大長度 = 最大長度
+      }
+    }
+    轉換規則.地區詞首字表 = 首字表
+  }
+  
 }
 
 
@@ -291,9 +318,39 @@ class 選擇器 {
 }
 
 
+class 地區詞選項 {
+  constructor ( 原詞, 對應詞, 起點位置, 終點位置, 附加資訊 = {} ) {
+    var 地區詞選項 = this
+    確認 ( 起點位置 <= 終點位置 )
+    地區詞選項.原詞 = 原詞
+    地區詞選項.對應詞 = 對應詞
+    地區詞選項.起點位置 = 起點位置
+    地區詞選項.終點位置 = 終點位置
+    地區詞選項.附加資訊 = 附加資訊    
+  }
+
+  static 有重合 (選項一, 選項二) {
+    return (
+      選項一.終點位置 > 選項二.起點位置 && 選項一.起點位置 < 選項二.終點位置
+    )
+  }
+}
+
+
+class 地區詞提示位 {
+
+}
+
+
 function 確認(bool_value) {
   if(!bool_value) return "Assertion Error";
 }
 Object.prototype['存在'] = function (property) {
   return this.hasOwnProperty(property)
-};
+}
+Object.prototype['不存在'] = function (property) {
+  return !this.hasOwnProperty(property)
+}
+Array.prototype['添加'] = function (item) {
+  return this.push(item)
+}

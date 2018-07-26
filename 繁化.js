@@ -16,9 +16,6 @@ function 繁化選擇器生成(字位, 資料) {
 }
 
 
-var 繁化規則 = new 轉換規則(繁化表, 一簡多繁表, 繁化選擇器生成, 取捨表)
-
-
 function 生成地區表 () {
   const 中國大陸 = '中'
   const 香港 = '港'
@@ -36,11 +33,11 @@ function 生成地區表 () {
     for ( let 用語 of 地區用詞表[類別] ) {
       let 內地用語表 = 生成用語列表(用語[中國大陸])
       for ( let 內地用語 of 內地用語表 ) {
-	if ( typeof 地區表[內地用語] == 'undefined' ) {
+	if ( 地區表.不存在(內地用語) ) {
 	  地區表[內地用語] = []
 	}
 	for ( let 其它地區 of [台灣, 香港] ) {
-	  if ( typeof 用語[其它地區] != 'undefined' ) {
+	  if ( 用語.存在(其它地區) ) {
 	    let 對應用語表 = 生成用語列表(用語[其它地區])
 	    for ( let 對應用語 of 對應用語表 ) {
 	      地區表[內地用語].添加({
@@ -118,11 +115,13 @@ function 生成取捨設定介面() {
 }
 
 
+// 放在函式定義之前，保證在轉換之前能够 initialize
+生成取捨表(load_config('取捨設定'))
+生成地區表()
+var 繁化規則 = new 轉換規則(繁化表, 一簡多繁表, 繁化選擇器生成, 取捨表, 地區表)
+
+
 function 繁化(字串) {
-  // 保證取捨設定能在轉換之前讀進取捨表
-  if ( Object.keys(取捨表).length == 0 ) {
-    生成取捨表(load_config('取捨設定'))
-  }
   var 字表 = []
   var 索引;
   for(索引 = 0; 索引 < 字串.length; ) {
@@ -150,4 +149,4 @@ function 繁化(字串) {
 }
 
 
-Array.prototype['添加'] = function (項目) { return this.push(項目) }
+
