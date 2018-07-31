@@ -94,6 +94,8 @@
       .選項, .注解 { padding: 0.15em 0.6em; }
       .選項 { cursor: pointer; }
       .選項:hover { background-color: hsla(68, 91%, 75%, 0.97); }
+      .地區詞選項::before { content: "・"; visibility: hidden; }
+      .地區詞選項[data-selected=true]::before { visibility: visible; }
       .候選字 { font-size: 1.2em; color: hsl(0, 0%, 2%); }
       .例詞表 { display: flex; align-items: center; }
       .例詞 { margin-left: 0.25em;  }

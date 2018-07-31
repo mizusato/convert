@@ -5,19 +5,17 @@ class 轉換規則 {
   /**
    *  【構造器】
    *    ・一對一表: hash<char>
-   *    ・一對多表: hash<資料[1]:object>
-   *    ・選擇器生成函式: (字位: 字位, 資料: 資料[1]) => 選擇器: 選擇器
+   *    ・一對多表: hash<object>
    *    ・取捨表: hash<char> = {}
    *    ・地區表: hash<char> = {}
    *  【注】
    *    ・取捨表是會動態改變的，應看作引用
    *    ・而地區表是不變的，應看作值
    */
-  constructor (一對一表, 一對多表, 選擇器生成函式, 取捨表 = {}, 地區表 = {}) {
+  constructor (一對一表, 一對多表, 取捨表 = {}, 地區表 = {}) {
     var 轉換規則 = this
     轉換規則.一對一表 = 一對一表
     轉換規則.一對多表 = 一對多表
-    轉換規則.選擇器生成函式 = 選擇器生成函式
     轉換規則.取捨表 = 取捨表
     轉換規則.地區表 = 地區表
     轉換規則.生成地區詞首字表()
@@ -58,12 +56,7 @@ class 文章 extends CompatEventTarget {
     文章.轉換規則 = 轉換規則
     文章.字位表 = map(
       待轉換字表, function (字) {
-	var 此字位;
-	if ( typeof 字 == 'string' ) {
-	  此字位 = new 字位(字, 文章)
-	} else {
-	  此字位 = new 字位(字.待轉換字, 文章, 字.已確定對應字)
-	}
+	let 此字位 = new 字位(字.待轉換字, 文章, 字.已確定對應字)
 	此字位.addEventListener(
 	  '選字更改',
 	  ev => 文章.dispatchEvent(new Event('選項更改'))
@@ -71,9 +64,17 @@ class 文章 extends CompatEventTarget {
 	return 此字位
       }
     )
-    文章.地區詞分組表 = 文章.生成地區詞分組表()
+    文章.地區詞表 = 文章.生成地區詞表()
+    for ( let 選項 of 文章.地區詞表.線性表 ) {
+      if ( 待轉換字表[選項.起點位置].存在('預設地區詞') ) {
+	let 預設 = 待轉換字表[選項.起點位置].預設地區詞
+	if ( 選項.原詞 == 預設.原詞 && 選項.對應詞 == 預設.對應詞 ) {
+	  選項.選擇此項()
+	}
+      }
+    }
     文章.地區詞提示位表 = hash_map(
-      文章.地區詞分組表, function (選項表) {
+      文章.地區詞表.分組表, function (選項表) {
 	var 提示位 = new 地區詞提示位(選項表)
 	提示位.addEventListener(
 	  '選詞更改',
@@ -86,7 +87,7 @@ class 文章 extends CompatEventTarget {
     文章.介面 = 文章.生成介面()
   }
 
-  生成地區詞分組表 () {
+  生成地區詞表 () {
     /**
      * 如果兩個或多個可能被轉換的地區詞發生重疊，
      * 就把它們分成一組，在同一個提示位中處理。
@@ -96,7 +97,7 @@ class 文章 extends CompatEventTarget {
     // 待轉列表中或存在已定一對多，把它們 map 回原字
     var 待轉換字元表 = map(
       文章.待轉換字表,
-      字 => (typeof 字 == 'string') && 字 || 字.待轉換字
+      字 => 字.待轉換字
     )
     var 線性表 = [] // Array of 地區詞選項 order by 起點位置
     for ( let 索引=0; 索引<待轉換字元表.length; 索引++ ) {
@@ -137,29 +138,33 @@ class 文章 extends CompatEventTarget {
 	}
       }
     }
-    // 最終的表，以各個組中最靠前的區間的起始位置為組號
-    var 分組選項表 = {}
+    // 分組表，以各個組中最靠前的區間的起始位置為組號
+    var 分組表 = {}
     for ( let I=0; I<線性表.length; I++ ) {
       let 組號 = 線性表[分組[I]].起點位置
-      if ( 分組選項表.不存在(組號) ) {
-	分組選項表[組號] = []
+      if ( 分組表.不存在(組號) ) {
+	分組表[組號] = []
       }
-      分組選項表[組號].push(線性表[I])
+      分組表[組號].push(線性表[I])
     }
-    分組選項表['線性表'] = 線性表
-    return 分組選項表
+    var 起點表 = {}
+    for ( let 選項 of 線性表 ) {
+	if ( 起點表.不存在(選項.起點位置) ) {
+	  起點表[選項.起點位置] = []
+	}
+	起點表[選項.起點位置].push(選項)
+    }
+    var 總表 = {}
+    總表['分組表'] = 分組表
+    總表['線性表'] = 線性表
+    總表['起點表'] = 起點表
+    return 總表
   }
 
   生成擴展字位表 () {
     var 文章 = this
     return getlist((function* generator (){
-      var 起點分組表 = {}
-      for ( let 地區詞選項 of 文章.地區詞分組表.線性表 ) {
-	if ( 起點分組表.不存在(地區詞選項.起點位置) ) {
-	  起點分組表[地區詞選項.起點位置] = []
-	}
-	起點分組表[地區詞選項.起點位置].push(地區詞選項)
-      }
+      var 起點分組表 = 文章.地區詞表.起點表
       for ( let 索引=0; 索引<文章.字位表.length; 索引++) {
 	if ( 文章.地區詞提示位表.存在(索引) ) {
 	  yield 文章.地區詞提示位表[索引]
@@ -171,6 +176,7 @@ class 文章 extends CompatEventTarget {
 	    }
 	  }
 	}
+	//文章.字位表[索引].$原索引 = 索引
 	yield 文章.字位表[索引]
       }	  
     })())
@@ -183,24 +189,40 @@ class 文章 extends CompatEventTarget {
 
   取得修飾原文 () {
     var 文章 = this
-    return map(文章.字位表, function (字位) {
-      if ( 字位.類型 == '一對多字' && 字位.狀態 == '已選擇' ) {
-	return `${字位.待轉換字}[${字位.取得顯示字()}]`
+    var 起點表 = 文章.地區詞表.起點表
+    return (map(文章.字位表, function (字位, 索引) {
+      if ( 起點表.存在(索引) && exists(起點表[索引], 選項 => 選項.被選擇) ) {
+	for ( let 地區詞選項 of 起點表[索引] ) {
+	  if ( 地區詞選項.被選擇 ) {
+	    return jump(
+	      (地區詞選項.原詞.length - 1),
+	      `[${地區詞選項.原詞}:${地區詞選項.對應詞}]`
+	    )
+	  }
+	}
+      } else {
+	if ( 字位.類型 == '一對多字' && 字位.狀態 == '已選擇' ) {
+	  return `${字位.待轉換字}[${字位.取得顯示字()}]`
+	}
+	return 字位.待轉換字
       }
-      return 字位.待轉換字
-    }).join('')
+    })).join('')
   }
 
   取得轉換文 () {
     var 文章 = this
-    return map(
-      文章.擴展字位表,
-      字位或提示位 =>
-	( 字位或提示位 instanceof 字位 )
-	&& 字位或提示位.enabled
-	&& 字位或提示位.取得顯示字()
-	|| ''
-    ).join('')
+    return (map(文章.擴展字位表, function (字位或提示位) {
+      if ( 字位或提示位 instanceof 字位 ) {
+	let 字位 = 字位或提示位
+	if (字位.enabled) {
+	  return 字位.取得顯示字()
+	} else {
+	  return ''
+	}
+      } else {
+	return ''
+      }
+    })).join('')
   }
 
   生成介面 () {
@@ -218,6 +240,65 @@ class 文章 extends CompatEventTarget {
 	contextmenu: ev => 選擇面板.隠藏全部()
       }
     })
+  }
+
+  static 生成字表 (字串, 轉換規則) {
+    var 字表 = []
+    for ( let 索引=0; 索引<字串.length; ) {
+      // 暫不攷慮擴展區的字，直接取下標
+      let 字 = 字串[索引]
+      if ( 字串[索引+1] == '[' && 字串[索引+3] == ']' ) {
+	let 已確定對應字 = 字串[索引+2]
+	if ( typeof 已確定對應字 != 'undefined' ) {
+	  if ( 轉換規則.一對多表.存在(字) ) {
+	    if ( 轉換規則.一對多表[字].對應字.存在(已確定對應字) ) {
+	      字表.添加({待轉換字: 字, 已確定對應字: 已確定對應字})
+	      索引 += 4
+	      continue
+	    }
+	  }
+	}
+      }
+      字表.添加({待轉換字:字})
+      索引 += 1
+    }
+    var 括弧內 = false
+    var 括弧位置 = -1
+    var 括弧內容 = {}
+    for ( let 索引=0; 索引<字表.length; 索引++ ) {
+      if ( 字表[索引].待轉換字 == ']' ) {
+	括弧內 = false
+      }
+      if ( 括弧內 ) {
+	if ( 括弧內容.不存在(括弧位置) ) {
+	  括弧內容[括弧位置] = ''
+	}
+	括弧內容[括弧位置] += 字表[索引].待轉換字
+      }
+      if ( 字表[索引].待轉換字 == '[' ) {
+	括弧內 = true
+	括弧位置 = 索引
+      }
+    }
+    var 淨字表 = []
+    for ( let 索引=0; 索引<字表.length; ) {
+      if ( 括弧內容.存在(索引) ) {
+	let 內容 = 括弧內容[索引]
+	let 原詞 = 內容.split(':')[0]
+	let 對應詞 = 內容.split(':')[1]
+	if ( 轉換規則.地區表.存在(原詞) ) {
+	  if ( exists(轉換規則.地區表[原詞], 條目 => 條目.用語 == 對應詞) ) {
+	    字表[索引+1]['預設地區詞'] = { 原詞: 原詞, 對應詞: 對應詞 }
+	    map(字表.slice(索引+1, 索引+1+原詞.length), 字=>淨字表.push(字))
+	    索引 = (索引+1) + 原詞.length + 1 + 對應詞.length + 1
+	    continue
+	  }
+	}
+      }
+      淨字表.push(字表[索引])
+      索引++
+    }
+    return 淨字表
   }
 }
 
@@ -253,7 +334,7 @@ class 字位 extends CompatEventTarget {
    *    ・生成介面: [private]
    *    ・更新介面: [private]
    */
-  constructor ( 待轉換字, 文章, 已確定對應字='', 附加字=false ) {
+  constructor ( 待轉換字, 文章, 已確定對應字=undefined, 附加字=false ) {
     super()
     var 字位 = this
     字位.待轉換字 = 待轉換字
@@ -261,7 +342,6 @@ class 字位 extends CompatEventTarget {
     var 一對一表 = 文章.轉換規則.一對一表
     var 一對多表 = 文章.轉換規則.一對多表
     var 取捨表 = 文章.轉換規則.取捨表
-    var 選擇器生成函式 = 文章.轉換規則.選擇器生成函式
     if ( 附加字 == false ) {
       if ( 取捨表.存在(待轉換字) ) {
 	字位.類型 = '一對一字'
@@ -271,7 +351,15 @@ class 字位 extends CompatEventTarget {
 	字位.對應字 = 一對一表[待轉換字]
       } else if ( 一對多表.存在(待轉換字) ) {
 	字位.類型 = '一對多字'
-	字位.選擇器 = 選擇器生成函式(字位, 一對多表[待轉換字])
+	字位.選擇器 = (function (字位, 資料) {
+	  const 例詞數 = 3
+	  var 例詞表 = 資料.對應字
+	  var 選項表 = map(
+	    Object.keys(例詞表),
+	    候選字 => new 選項(候選字,例詞表[候選字].slice(0, 例詞數))
+	  )
+	  return new 選擇器(字位, 選項表, 選項表[0].候選字, 資料.辨義)
+	})(字位, 一對多表[待轉換字])
 	字位.當前選擇的對應字 = 字位.選擇器.預設選項
 	字位.狀態 = '未選擇'
       } else {
@@ -283,7 +371,7 @@ class 字位 extends CompatEventTarget {
       字位.enabled = false
     }
     字位.介面 = 字位.生成介面()
-    if ( 已確定對應字 != '' ) {
+    if ( typeof 已確定對應字 == 'string' ) {
       確認( 字位.類型 == '一對多字' )
       字位.變更對應字(已確定對應字)
     }
@@ -445,19 +533,20 @@ class 選擇器 extends 選擇面板 {
 	  display: field('display', 'none')
 	},
 	children: [
-	{ tag: 'div', className: '選項列表', children: map(
-	  選擇器.選項表, 選項 =>
-	    ({ tag: 'div', className: '選項', children: [
-	      { tag: 'span', className: '候選字', textContent: 選項.候選字 },
-	      { tag: 'span', className: '例詞表', children: map(
-		選項.例詞表, 例詞 =>
-		  ({ tag: 'span', className: '例詞', textContent: 例詞 })
-	      ) }
-	    ], handlers: {
-	      click: ev =>
-		選擇器.字位.變更對應字(選項.候選字) + 選擇器.隠藏介面()
-	    } })
-	) },
+	  { tag: 'div', className: '選項列表', children: map(
+	    選擇器.選項表, 選項 =>
+	      ({ tag: 'div', classList: ['一對多選項', '選項'], children: [
+		{ tag: 'span', className: '候選字', textContent: 選項.候選字 },
+		{ tag: 'span', className: '例詞表', children: map(
+		  選項.例詞表, 例詞 =>
+		    ({ tag: 'span', className: '例詞', textContent: 例詞 })
+		) }
+	      ], handlers: {
+		click: ev =>
+		  選擇器.字位.變更對應字(選項.候選字)
+		  + 選擇器.隠藏介面()
+	      } })
+	  ) },
 	  { tag: 'div', className: '注解', textContent: 選擇器.注解,
 	    handlers: { click: ev => ev.stopPropagation() } }
       ] }
@@ -487,6 +576,7 @@ class 地區詞選項 {
     地區詞選項.終點位置 = 終點位置
     地區詞選項.文章 = 文章
     地區詞選項.附加資訊 = 附加資訊
+    地區詞選項.被選擇 = false
     地區詞選項.字位組 = 地區詞選項.生成字位組()
   }
 
@@ -494,7 +584,7 @@ class 地區詞選項 {
     var 地區詞選項 = this
     return map(
       地區詞選項.對應詞,
-      字 => new 字位(字, 地區詞選項.文章, '', true)
+      字 => new 字位(字, 地區詞選項.文章, undefined, true)
       // constructor (待轉換字, 文章, 已確定對應字, 附加字)
     )
   }
@@ -503,11 +593,13 @@ class 地區詞選項 {
     var 地區詞選項 = this
     map(
       地區詞選項.字位組,
-      字位 => 字位.enable()
+      字位 => 確認( 字位.enabled == false ) + 字位.enable()
     )
     for ( let 索引=地區詞選項.起點位置; 索引<地區詞選項.終點位置; 索引++ ) {
+      確認 ( 地區詞選項.文章.字位表[索引].enabled == true )
       地區詞選項.文章.字位表[索引].disable()
     }
+    地區詞選項.被選擇 = true
   }
 
   取消選擇 () {
@@ -519,6 +611,7 @@ class 地區詞選項 {
     for ( let 索引=地區詞選項.起點位置; 索引<地區詞選項.終點位置; 索引++ ) {
       地區詞選項.文章.字位表[索引].enable()
     }
+    地區詞選項.被選擇 = false
   }
 
   static 有重合 (選項一, 選項二) {
@@ -581,29 +674,47 @@ class 地區詞選單 extends 選擇面板 {
 	},
 	children: concat(
 	  [{
-	    tag: 'div', className: '地區詞選項', textContent: '不轉換',
+	    tag: 'div', classList: ['地區詞選項', '選項'],
+	    dataset: {
+	      selected: field(
+		'selected', !exists(選項表, 選項 => 選項.被選擇)
+	      )
+	    },
+	    textContent: '不轉換',
 	    handlers: {
-	      click: ev =>
+	      click: function (ev) {
 		地區詞選單.清除選項()
-		+ 地區詞選單.隠藏介面()
-		+ 地區詞選單.提示位.dispatchEvent(new Event('選詞更改'))
+		update(地區詞選單.介面, {selected: false})
+		update(this, {selected: true})
+		地區詞選單.隠藏介面()
+		地區詞選單.提示位.dispatchEvent(new Event('選詞更改'))
+	      }
 	    }
 	  }],
 	  map(
 	    選項表,
 	    選項 => ({
-	      tag: 'div', className: ['地區詞選項', '選項'], children: [
+	      tag: 'div', classList: ['地區詞選項', '選項'],
+	      dataset: {
+		selected: field(
+		  'selected', 選項.被選擇
+		)
+	      },
+	      children: [
 		{ tag: 'span', className: '原詞', textContent: 選項.原詞 },
 		{ tag: 'span', className: '箭頭', textContent: '->' },
 		{ tag: 'span', className: '對應詞', textContent: 選項.對應詞 },
 		{ tag: 'span', className: '地區名', textContent: 選項.附加資訊['地區'] },
 		{ tag: 'span', className: '英文', textContent: 選項.附加資訊['英文'] },
 	      ], handlers: {
-		click: ev =>
+		click: function (ev) {
 		  地區詞選單.清除選項()
-		  + 選項.選擇此項()
-		  + 地區詞選單.隠藏介面()
-		  + 地區詞選單.提示位.dispatchEvent(new Event('選詞更改'))
+		  選項.選擇此項()
+		  update(地區詞選單.介面, {selected: false})
+		  update(this, {selected: true})
+		  地區詞選單.隠藏介面()
+		  地區詞選單.提示位.dispatchEvent(new Event('選詞更改'))
+		}
 	      }
 	    })
 	  ) // map
