@@ -105,12 +105,45 @@ function create(data) {
 }
 
 
+function exists(list, f) {
+  for ( let I of list ) {
+    if ( f(I) ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
 function map(list, f) {
   var result = [];
-  for ( let I of list ) {    
-    result.push(f(I));
+  var index = 0;
+  var jump_amount = 0
+  for ( let I of list ) {
+    if ( jump_amount > 0 ) {
+      jump_amount--;
+      index++;
+      continue
+    }
+    let J = f(I, index)
+    if ( J instanceof jump ) {
+      jump_amount = J.amount
+      if ( typeof J.value != 'undefined' ) {
+	result.push(J.value)
+      }
+    } else {
+      result.push(J);
+    }
+    index++;
   }
   return result;
+}
+
+
+function jump(amount, value = undefined) {
+  var object = { amount: amount, value: value };
+  object.__proto__ = jump.prototype;
+  return object;
 }
 
 
