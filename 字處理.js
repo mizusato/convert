@@ -1,16 +1,38 @@
 'use strict';
 
 
+/**
+ *  【檔名】
+ *    ・字處理.js
+ *
+ *  【描述說明】
+ *    ・轉換器的主要程式檔，包含數個 class, 各司其職
+ *
+ *  【規範】
+ *    ・如非特殊說明，所有屬性在 class 的定義之外均*假定*為 read only propertry
+*/
+
+
 class 轉換規則 {
   /**
+   *  【描述說明】
+   *    ・進行轉換的規則，由各種轉換表組成
+   *
    *  【構造器】
-   *    ・一對一表: hash<char>
-   *    ・一對多表: hash<object>
-   *    ・取捨表: hash<char> = {}
-   *    ・地區表: hash<char> = {}
+   *    ・一對一表: hash<char> [原字->對應字]
+   *    ・一對多表: hash<{對應字:hash<array>[對應字->例詞表], 辨義:string}>
+   *    ・取捨表: hash<char> = {} [規範字->選取的正體字]
+   *    ・地區表: hash<array<{用語,地區,...}>> = {} [被轉換地區用詞->對應詞表]
+   *  
    *  【注】
    *    ・取捨表是會動態改變的，應看作引用
    *    ・而地區表是不變的，應看作值
+   *  
+   *  【屬性】
+   *    ・構造器引數
+   *  
+   *  【方法】
+   *    ・[private] 生成地區詞首字表 (void) -> void
    */
   constructor (一對一表, 一對多表, 取捨表 = {}, 地區表 = {}) {
     var 轉換規則 = this
@@ -44,11 +66,58 @@ class 轉換規則 {
     }
     轉換規則.地區詞首字表 = 首字表
   }
-  
+  // END［轉換規則］
 }
 
 
 class 文章 extends CompatEventTarget {
+  /**
+   *  【描述說明】
+   *    ・被轉換文章的抽象，保存各種資訊，有 Controller 的作用
+   *
+   *  【構造器】
+   *    ・待轉換字表: array<{待轉換字,(已確定對應字,預設地區詞)}>
+   *    ・轉換規則: 轉換規則
+   *
+   *  【注】
+   *    ・這裡的引數「待轉換字表」指的是「字表」，即一種結構化資料
+   *    ・轉換字串需先用 static 生成字表 (字串, 轉換規則) 將字串轉為字表
+   *
+   *  【屬性】
+   *    ・構造器引數
+   *    ・字位表: array<字位> // 與待轉換字表構成一一對應
+   *    ・地區詞表: {分組表, 線性表, 起點表} // 詳見 生成地區詞表()
+   *    ・地區詞提示位表: array<地區詞提示位> // 與分組表之每一組對應
+   *    ・擴展字位表: array<字位 or 地區詞提示位> // 所有可能顯示的字或提示位
+   *    ・介面: HTMLElement
+   *
+   *  【注】
+   *    ・字位表中每一個字位同待轉換字表中的字對應，對於其中的一對多字，
+   *    ・可以選擇不同的字；而擴展字位表包含了所有可能顯示的字位和提示位，
+   *    ・其中有些字位是地區詞的對應詞所含字，在未選擇對應地區詞時處於
+   *    ・隠藏狀態。提示位是指地區詞提示位，詳見其 class 定義。
+   *
+   *  【例】
+   *    ・字位表: [字位<应>, 字位<用>, 字位<程>, 字位<序>]
+   *    ・擴展字位表: [
+   *                    字位<应>, 字位<用>,
+   *                    地區詞提示位,
+   *                    字位<程,disabled>, 字位<式,disabled>,
+   *                    字位<程>, 字位<序>
+   *                  ]
+   *
+   *  【方法】
+   *    ・取得原文 (void) => string // 原文
+   *    ・取得修飾原文 (void) => string // 修飾過的原文用於保存狀態
+   *    ・取得轉換文 (void) => string // 轉換結果
+   *    ・[static] 生成字表 (字串, 轉換規則) => *constructor<待轉換字表>
+   *    ・[private] 生成地區詞表 (void) => *property<地區詞表>
+   *    ・[private] 生成擴展字位表 (void) => *property<擴展字位表>
+   *    ・[private] 生成介面 (void) => HTMLElement
+   *
+   *  【事件】
+   *    ・選項更改 // 當一對多選字更改或地區詞選詞更改時触發
+   */
   constructor (待轉換字表, 轉換規則) {
     super()
     var 文章 = this
@@ -68,6 +137,8 @@ class 文章 extends CompatEventTarget {
     for ( let 選項 of 文章.地區詞表.線性表 ) {
       if ( 待轉換字表[選項.起點位置].存在('預設地區詞') ) {
 	let 預設 = 待轉換字表[選項.起點位置].預設地區詞
+	// 此處找不到選項與預設值對應也不會報錯
+	// 不經過 生成字表() 而直接構造 待轉換字表 時請加以註意
 	if ( 選項.原詞 == 預設.原詞 && 選項.對應詞 == 預設.對應詞 ) {
 	  選項.選擇此項()
 	}
@@ -99,7 +170,7 @@ class 文章 extends CompatEventTarget {
       文章.待轉換字表,
       字 => 字.待轉換字
     )
-    var 線性表 = [] // Array of 地區詞選項 order by 起點位置
+    var 線性表 = [] // array<地區詞選項> order by 起點位置
     for ( let 索引=0; 索引<待轉換字元表.length; 索引++ ) {
       let 字元 = 待轉換字元表[索引]
       if ( 首字表.存在(字元) ) {
@@ -120,7 +191,7 @@ class 文章 extends CompatEventTarget {
 	} // 遍歷偏移量
       } // 首字表有此字
     } // 遍歷字表索引
-    var 分組 = {} // 分組: hash<選項的索引@線性表, 本組最靠前選項的索引@線性表>
+    var 分組 = {} // hash [選項的索引@線性表 -> 本組最靠前選項的索引@線性表]
     // 初始化，先假設每個選項的區間都不重合
     for ( let I=0; I<線性表.length; I++ ) {
       分組[I] = I
@@ -139,7 +210,7 @@ class 文章 extends CompatEventTarget {
       }
     }
     // 分組表，以各個組中最靠前的區間的起始位置為組號
-    var 分組表 = {}
+    var 分組表 = {} // hash<array<地區詞選項>> [組號->地區詞選項表]
     for ( let I=0; I<線性表.length; I++ ) {
       let 組號 = 線性表[分組[I]].起點位置
       if ( 分組表.不存在(組號) ) {
@@ -147,7 +218,7 @@ class 文章 extends CompatEventTarget {
       }
       分組表[組號].push(線性表[I])
     }
-    var 起點表 = {}
+    var 起點表 = {} // hash<array<地區詞選項>> [起點位置->地區詞選項表]
     for ( let 選項 of 線性表 ) {
 	if ( 起點表.不存在(選項.起點位置) ) {
 	  起點表[選項.起點位置] = []
@@ -300,19 +371,20 @@ class 文章 extends CompatEventTarget {
     }
     return 淨字表
   }
+  // END［文章］
 }
 
 
 
 class 字位 extends CompatEventTarget {
   /**
-   *  【物件說明】
+   *  【描述說明】
    *    被轉換的單個字的抽象化
    *
    *  【構造器】
    *    ・待轉換字: char
    *    ・文章: 文章
-   *    ・已確定對應字: char = ''
+   *    ・已確定對應字: char = undefined
    *    ・附加字: bool = false
    *
    *  【屬性】
@@ -328,11 +400,11 @@ class 字位 extends CompatEventTarget {
    *  【方法】
    *    ・變更對應字: (新字: char) => void ［一對多字］
    *    ・使用預設字: (void) => void ［一對多字］
+   *    ・取得顯示字: (void) => char
    *    ・enable: (void) => void
    *    ・disable: (void) => void
-   *    ・取得顯示字: (void) => char
-   *    ・生成介面: [private]
-   *    ・更新介面: [private]
+   *    ・[private] 生成介面 (void) => HTMLElement
+   *    ・[private] 更新介面 (void) => void
    */
   constructor ( 待轉換字, 文章, 已確定對應字=undefined, 附加字=false ) {
     super()
@@ -449,6 +521,7 @@ class 字位 extends CompatEventTarget {
     字位.enabled = false
     字位.更新介面()
   }
+  // END［字位］
 }
 
 
