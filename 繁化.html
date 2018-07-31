@@ -21,7 +21,7 @@
 	workspace.id = 'workspace'
 	workspace.style.display = 'none'
 	result.value = 文.取得轉換文()
-	文.addEventListener('狀態更新', ev => machine_update())
+	文.addEventListener('選項更改', ev => machine_update())
       }
       function machine_update() {
 	var 修飾原文 = 文.取得修飾原文()
@@ -107,6 +107,7 @@
       .字位.一對一字, .字位.無對應字 { color: hsl(0, 0%, 30%); }
       .字位[data-狀態=未選擇] { background-color: hsl(55, 90%, 60%); }
       .字位[data-狀態=已選擇] { background-color: hsl(127, 90%, 70%); }
+      .字位[data-enabled=false] { display: none; }
       .正異取捨設定 { column-count: 4; }
       .正異條目 { display: flex; }
       .正異選項 { flex-grow: 1; padding: 0.3em 0em; margin: 0.3em 0em; }
