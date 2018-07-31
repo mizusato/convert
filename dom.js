@@ -114,6 +114,15 @@ function map(list, f) {
 }
 
 
+function hash_map(hash, f) {
+  var result = {};
+  for ( let key of Object.keys(hash) ) {
+    result[key] = f(hash[key])
+  }
+  return result;
+}
+
+
 function field(name, default_value) {
   var field_object = {'name': name, 'def_val': default_value};
   field_object.__proto__ = field.prototype;
@@ -143,10 +152,26 @@ function update(element, data) {
 }
 
 
-function concat(args) {
-  var result = [];  
-  for(let i=0; i<arguments.length; i++) {
-    result = result.concat(arguments[i]);
+function* concat(args) {
+  for ( let i=0; i<arguments.length; i++ ) {
+    for ( let element of arguments[i] ) {
+      yield element;
+    }
+  }
+}
+
+
+function* values(object) {
+  for ( let key of Object.keys(object) ) {
+    yield object[key];
+  }
+}
+
+
+function getlist(iterable) {
+  var result = [];
+  for ( let I of iterable ) {
+    result.push(I);    
   }
   return result;
 }
