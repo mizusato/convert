@@ -644,7 +644,7 @@ class 選擇器 extends 選擇面板 {
   生成介面 () {
     var 選擇器 = this
     return create(
-      { tag: 'div', className: '選擇面板',
+      { tag: 'div', classList: ['選擇器', '選擇面板'],
 	style: {
 	  position: 'absolute',
 	  left: field('x'),
@@ -852,7 +852,9 @@ class 地區詞選單 extends 選擇面板 {
 		'selected', !exists(選項表, 選項 => 選項.被選擇)
 	      )
 	    },
-	    textContent: '不轉換',
+	    children: [
+	      { tag: 'span', className:'條目名', textContent: '不轉換' }
+	    ],
 	    handlers: {
 	      click: function (ev) {
 		地區詞選單.清除選項()
@@ -873,11 +875,20 @@ class 地區詞選單 extends 選擇面板 {
 		)
 	      },
 	      children: [
-		{ tag: 'span', className: '原詞', textContent: 選項.原詞 },
-		{ tag: 'span', className: '箭頭', textContent: '->' },
-		{ tag: 'span', className: '對應詞', textContent: 選項.對應詞 },
-		{ tag: 'span', className: '地區名', textContent: 選項.附加資訊['地區'] },
-		{ tag: 'span', className: '英文', textContent: 選項.附加資訊['英文'] },
+		{ tag: 'div', className: '上', children: [
+		  { tag: 'span', className: '條目名', children: [
+		    { tag: 'span', className: '原詞', textContent: 選項.原詞 },
+		    { tag: 'span', className: '箭頭', textContent: ' ⇢ ' },
+		    { tag: 'span', className: '對應詞',
+		      textContent: 選項.對應詞 },
+		  ] },
+		  { tag: 'span', className: '類別',
+		    textContent: '[' + 選項.附加資訊['類別'] + '] '},
+		] },
+		{ tag: 'div', className: '下', children: [
+		  { tag: 'span', className: '英文',
+		    textContent: 選項.附加資訊['英文'] }
+		] }
 	      ], handlers: {
 		click: function (ev) {
 		  地區詞選單.清除選項()

@@ -87,16 +87,24 @@
     </style>
     <style>
       .選擇面板 { border: 1px solid hsl(0, 0%, 85%); }
-      .選擇面板 { width: 13.5em; margin-top: 0.2em; }
+      .選擇面板 { margin-top: 0.2em; }
       .選擇面板 { background-color: hsla(50, 1%, 97%, 0.97); }
       .選擇面板 { box-shadow: 0 4px 10px hsla(0, 0%, 35%, 0.4); }
-      .選項 { display: flex; justify-content: space-between; }
-      .選項, .注解 { padding: 0.15em 0.6em; }
+      .選擇器 { width: 13.5em; }
+      .地區詞選單 { width: 16.5em; }
+      .選擇器 .選項 { display: flex; justify-content: space-between; }
+      .地區詞選單 .上 { display: flex; justify-content: space-between; }
+      .選項 { padding: 0.15em 0.6em; }
+      .注解 { padding: 0.15em 0.6em 0.5em 0.6em; }
       .選項 { cursor: pointer; }
       .選項:hover { background-color: hsla(68, 91%, 75%, 0.97); }
-      .地區詞選項::before { content: "・"; visibility: hidden; }
-      .地區詞選項[data-selected=true]::before { visibility: visible; }
-      .候選字 { font-size: 1.2em; color: hsl(0, 0%, 2%); }
+      .地區詞選項 .條目名::before { content: "・"; visibility: hidden; }
+      .地區詞選項[data-selected=true] .條目名::before { visibility: visible; }
+      .地區詞選項 .類別 { padding-top: 0.1em; }
+      .地區詞選項 .下 { margin-top: -0.36em; padding-bottom: 0.15em; }
+      .地區詞選項 .英文 { font-size: 80%; color: hsl(0, 0%, 35%); }
+      .地區詞選項 .英文::before { content: "・ "; visibility: hidden; }
+      .候選字 { font-size: 120%; color: hsl(0, 0%, 2%); }
       .例詞表 { display: flex; align-items: center; }
       .例詞 { margin-left: 0.25em;  }
       .例詞 { color: hsl(0, 0%, 12%); }
@@ -106,11 +114,13 @@
       .格子 { display: flex; justify-content: center; align-items: center; }
       .格子 { box-sizing: border-box; width: 24px; height: 24px; }
       .格子 { font-family: monospace; font-size: 18px; }
+      .格子 { -moz-user-select: none; -webkit-user-select: none; }
       .字位 { color: hsl(0, 0%, 10%); }
-      .字位.一對多字 { cursor: pointer; }
+      .字位.一對多字, .地區詞提示位 { cursor: pointer; }
       .字位.一對一字, .字位.無對應字 { color: hsl(0, 0%, 30%); }
-      .字位[data-狀態=未選擇] { background-color: hsl(55, 90%, 60%); }
-      .字位[data-狀態=已選擇] { background-color: hsl(127, 90%, 70%); }
+      .字位.附加字 { color: hsl(150, 80%, 35%); }
+      .字位[data-狀態=未選擇] { background-color: hsla(55, 90%, 60%, 0.9); }
+      .字位[data-狀態=已選擇] { background-color: hsla(127, 90%, 70%, 0.8); }
       .字位[data-enabled=false] { display: none; }
       .正異取捨設定 { column-count: 4; }
       .正異條目 { display: flex; }
