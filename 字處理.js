@@ -492,7 +492,8 @@ class 字位 extends CompatEventTarget {
     var 一對多 = ( 字位.類型 == '一對多字' )
     if ( 字位.待轉換字 == '\n' ) {
       return create({
-	tag: 'br', classList: ['字位', 字位.類型]
+//	tag: 'br', classList: ['字位', 字位.類型]
+	tag: 'span', classList: ['字位', 字位.類型, '格子']
       })
     } else {
       return create({
