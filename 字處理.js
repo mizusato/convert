@@ -110,13 +110,13 @@ class 文章 extends CompatEventTarget {
    *    ・取得原文 (void) => string // 原文
    *    ・取得修飾原文 (void) => string // 修飾過的原文用於保存狀態
    *    ・取得轉換文 (void) => string // 轉換結果
-   *    ・[static] 生成字表 (字串, 轉換規則) => *constructor<待轉換字表>
-   *    ・[private] 生成地區詞表 (void) => *property<地區詞表>
-   *    ・[private] 生成擴展字位表 (void) => *property<擴展字位表>
+   *    ・[static] 生成字表 (字串, 轉換規則) => @constructor<待轉換字表>
+   *    ・[private] 生成地區詞表 (void) => @property<地區詞表>
+   *    ・[private] 生成擴展字位表 (void) => @property<擴展字位表>
    *    ・[private] 生成介面 (void) => HTMLElement
    *
    *  【事件】
-   *    ・選項更改 // 當一對多選字更改或地區詞選詞更改時触發
+   *    ・選項更改 // 當一對多選字更改或地區詞選詞更改時觸發
    */
   constructor (待轉換字表, 轉換規則) {
     super()
@@ -266,7 +266,7 @@ class 文章 extends CompatEventTarget {
 	for ( let 地區詞選項 of 起點表[索引] ) {
 	  if ( 地區詞選項.被選擇 ) {
 	    return jump(
-	      (地區詞選項.原詞.length - 1),
+	      (地區詞選項.原詞.length - 1), // 覆寫原詞，加入括弧
 	      `[${地區詞選項.原詞}:${地區詞選項.對應詞}]`
 	    )
 	  }
@@ -335,7 +335,7 @@ class 文章 extends CompatEventTarget {
     }
     var 括弧內 = false
     var 括弧位置 = -1
-    var 括弧內容 = {}
+    var 括弧內容 = {} // 左括弧索引 -> '[content]'
     for ( let 索引=0; 索引<字表.length; 索引++ ) {
       if ( 字表[索引].待轉換字 == ']' ) {
 	括弧內 = false
@@ -348,10 +348,10 @@ class 文章 extends CompatEventTarget {
       }
       if ( 字表[索引].待轉換字 == '[' ) {
 	括弧內 = true
-	括弧位置 = 索引
+	括弧位置 = 索引 // 左括弧的索引
       }
     }
-    var 淨字表 = []
+    var 淨字表 = [] // 處理掉預設地區詞的字表
     for ( let 索引=0; 索引<字表.length; ) {
       if ( 括弧內容.存在(索引) ) {
 	let 內容 = 括弧內容[索引]
@@ -360,6 +360,12 @@ class 文章 extends CompatEventTarget {
 	if ( 轉換規則.地區表.存在(原詞) ) {
 	  if ( exists(轉換規則.地區表[原詞], 條目 => 條目.用語 == 對應詞) ) {
 	    字表[索引+1]['預設地區詞'] = { 原詞: 原詞, 對應詞: 對應詞 }
+	    // [abcd:efg]
+	    // 0123456789
+	    //  1   1+l 
+	    //       1+l+1
+	    //          1+l+1+l'
+	    //           1+l+1+l'+1
 	    map(字表.slice(索引+1, 索引+1+原詞.length), 字=>淨字表.push(字))
 	    索引 = (索引+1) + 原詞.length + 1 + 對應詞.length + 1
 	    continue
@@ -405,6 +411,9 @@ class 字位 extends CompatEventTarget {
    *    ・disable: (void) => void
    *    ・[private] 生成介面 (void) => HTMLElement
    *    ・[private] 更新介面 (void) => void
+   *
+   *  【事件】
+   *    ・選字更改: 一對多選詞更改時觸發
    */
   constructor ( 待轉換字, 文章, 已確定對應字=undefined, 附加字=false ) {
     super()
@@ -526,6 +535,7 @@ class 字位 extends CompatEventTarget {
 
 
 class 選項 {
+  // only a data structure
   constructor ( 候選字, 例詞表 ) {
     var 選項 = this
     選項.候選字 = 候選字
@@ -535,6 +545,26 @@ class 選項 {
 
 
 class 選擇面板 {
+  /**
+   *  【描述說明】
+   *    ・地區詞選單 和 （一對多）選擇器 的 base class
+   *    ・實現切換顯示和隠藏的功能
+   *
+   *  【構造器】
+   *    ・定位基準取得函式: Function (void) => HTMLElement
+   *
+   *  【注】
+   *    ・顯示的面板需要依附在一個指定的元素旁邊，這個元素即是定位基準
+   *
+   *  【屬性】
+   *    ・取得基準: @constructor<定位基準取得函式>
+   *
+   *  【方法】
+   *    ・顯示介面: (void) => void
+   *    ・隠藏介面: (void) => void
+   *    ・切換介面: (void) => void // toggle
+   *    ・[static] 隠藏全部: (void) => void
+   */
   constructor (定位基準取得函式) {
     var 選擇面板 = this
     選擇面板.取得基準 = 定位基準取得函式
@@ -571,10 +601,25 @@ class 選擇面板 {
       介面 => update(介面, {display: 'none'})
     )
   }
+  // END［選擇面板］
 }
 
 
 class 選擇器 extends 選擇面板 {
+  /**
+   *  【描述說明】
+   *    ・一對多選字器，用於存儲資訊和生成介面
+   *
+   *  【構造器】
+   *    ・字位: 字位 // 所屬的字位
+   *    ・選項表: array<選項>
+   *    ・預設選項: char // 預設對應字
+   *    ・注解: string
+   *
+   *  【方法】
+   *    ・存在候選字: (候選字) => bool
+   *    ・[private] 生成介面: (void) => HTMLElement
+   */
   constructor ( 字位, 選項表, 預設選項, 注解 ) {
     super(() => 字位.介面)
     var 選擇器 = this
@@ -625,11 +670,16 @@ class 選擇器 extends 選擇面板 {
       ] }
     );
   }
+  // END［選擇器］
 }
 
 
 class 地區詞選項 {
   /**
+   *  【描述說明】
+   *    ・地區詞轉換的一個選項（一種可能）
+   *    ・與具體文章綁定
+   *
    *  【構造器】
    *    ・原詞: string // 被轉換的詞，如「操作系统」
    *    ・對應詞: string // 對應的詞，如「作業系統」
@@ -637,8 +687,20 @@ class 地區詞選項 {
    *    ・終點位置: int // 被轉換詞的最後一個字元在文章中的索引 + 1
    *    ・文章: 文章 // 被轉換的當前文章
    *    ・附加資訊: hash // 如 {'英文': 'Operating System'}
+   *
    *  【注】
    *    ・左閉右開區間 [起點位置, 終點位置) 表示原詞在文章中的位置
+   *
+   *  【屬性】
+   *    ・構造器引數
+   *    ・被選擇: bool // 表示該選項是否被使用者選擇（或是預設值）
+   *    ・字位組: array<字位> // 對應詞的字位（類型=附加字）
+   *
+   *  【方法】
+   *    ・選擇此項: (void) => void
+   *    ・取消選擇: (void) => void
+   *    ・[private] 生成字位組: (void) => @constructor<字位組>
+   *    ・[static] 有重合: (選項一, 選項二) => bool // 判斷衝突
    */
   constructor ( 原詞, 對應詞, 起點位置, 終點位置, 文章, 附加資訊 = {} ) {
     var 地區詞選項 = this
@@ -693,10 +755,29 @@ class 地區詞選項 {
       選項一.終點位置 > 選項二.起點位置 && 選項一.起點位置 < 選項二.終點位置
     )
   }
+  // END［地區詞選項］
 }
 
 
 class 地區詞提示位 extends CompatEventTarget {
+  /**
+   *  【描述說明】
+   *    ・插入文章之中的標記，提示此處有地區詞選項，點選之可彈出選單
+   *
+   *  【構造器】
+   *    ・地區詞選項表: array<地區詞選項>
+   *
+   *  【屬性】
+   *    ・選項表: @constructor<地區詞選項表>
+   *    ・選單: 地區詞選單
+   *    ・介面: HTMLElement
+   *
+   *  【方法】
+   *    ・[private] 生成介面: (void) => HTMLElement
+   *
+   *  【事件】
+   *    ・選詞更改: 用選單改變選詞時觸發
+   */
   constructor ( 地區詞選項表 ) {
     super()
     var 地區詞提示位 = this
@@ -709,14 +790,31 @@ class 地區詞提示位 extends CompatEventTarget {
     var 地區詞提示位 = this
     return create({
       tag: 'span', classList: ['地區詞提示位', '格子'],
-      textContent: '？', handlers: {
+      textContent: '▲', handlers: {
 	click: ev => 地區詞提示位.選單.切換介面() + ev.stopPropagation()
       } 
     })
   }
+  // END［地區詞提示位］
 }
 
 class 地區詞選單 extends 選擇面板 {
+  /**
+   *  【描述說明】
+   *    ・地區詞選擇器，基本只用於生成介面
+   *
+   *  【構造器】
+   *    ・地區詞提示位: 地區詞提示位
+   *
+   *  【屬性】
+   *    ・提示位: @constructor<地區詞提示位>
+   *    ・選項表: @constructor<地區詞提示位.選項表>
+   *     ・介面: HTMLElement
+   *
+   *  【方法】
+   *    ・[private] 清除選項 (void) => void
+   *    ・[private] 生成介面 (void) => HTMLElement
+   */
   constructor ( 地區詞提示位 ) {
     super(() => 地區詞提示位.介面)
     var 地區詞選單 = this
@@ -795,6 +893,7 @@ class 地區詞選單 extends 選擇面板 {
       } // root
     ) // create
   }
+  // END［地區詞選單］
 }
 
 
