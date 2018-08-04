@@ -10,6 +10,7 @@
     <script type="text/javascript" src="資料/地區用詞/M.js"></script>
     <script type="text/javascript" src="資料/地區用詞/C.js"></script>
     <script type="text/javascript" src="資料/地區用詞/P.js"></script>
+    <script type="text/javascript" src="資料/地區用詞/TO.js"></script>
     <script type="text/javascript" src="dom.js"></script>
     <script type="text/javascript" src="字處理.js"></script>
     <script type="text/javascript" src="繁化.js"></script>
@@ -94,7 +95,7 @@
       .選擇面板 { background-color: hsla(50, 1%, 97%, 0.97); }
       .選擇面板 { box-shadow: 0 4px 10px hsla(0, 0%, 35%, 0.4); }
       .選擇器 { width: 13.5em; }
-      .地區詞選單 { width: 16.5em; }
+      .地區詞選單 { width: 18.5em; }
       .選擇器 .選項 { display: flex; justify-content: space-between; }
       .地區詞選單 .上 { display: flex; justify-content: space-between; }
       .選項 { padding: 0.15em 0.6em; }
@@ -107,6 +108,7 @@
       .地區詞選項 .下 { margin-top: -0.36em; padding-bottom: 0.15em; }
       .地區詞選項 .英文 { font-size: 80%; color: hsl(0, 0%, 35%); }
       .地區詞選項 .英文::before { content: "・ "; visibility: hidden; }
+      .地區詞選項.港 .對應詞::after { content: "(HK)"; color: hsl(0, 0%, 30%); margin-left: 0.2em; }
       .候選字 { font-size: 120%; color: hsl(0, 0%, 2%); }
       .例詞表 { display: flex; align-items: center; }
       .例詞 { margin-left: 0.25em;  }

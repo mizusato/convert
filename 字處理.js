@@ -868,7 +868,11 @@ class 地區詞選單 extends 選擇面板 {
 	  map(
 	    選項表,
 	    選項 => ({
-	      tag: 'div', classList: ['地區詞選項', '選項'],
+	      tag: 'div', classList: [
+		'選項',
+		'地區詞選項',
+		選項.附加資訊['地區']
+	      ],
 	      dataset: {
 		selected: field(
 		  'selected', 選項.被選擇
