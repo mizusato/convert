@@ -34,6 +34,16 @@
 	localStorage.input = 修飾原文
 	result.value = 轉換文
       }
+      function local_word_setting_update() {
+	var 地區詞設定 = load_config('地區詞設定')
+	var 樣式字串 = ''
+	for ( let 類別 of Object.keys(地區詞設定) ) {
+	  if ( 地區詞設定[類別] == 'disabled') {
+	    樣式字串 += `.地區詞提示位[data-單一類別=${類別}], .地區詞選項[data-類別=${類別}] { display: none; } `
+	  }
+	}
+	local_word_dynamic_style.innerText = 樣式字串
+      }
       window.addEventListener('load', function() {
 	workspace = $('#workspace')
 	if ( localStorage.input ) {
@@ -56,8 +66,11 @@
 	input.addEventListener('change', ev => input_update())
 	document.body.addEventListener('click', ev => 選擇器.隠藏全部())
 	document.body.addEventListener('contextmenu', ev => 選擇器.隠藏全部())
+	local_word_wrapper.appendChild(生成地區詞設定介面())
 	choice_wrapper.appendChild(生成取捨設定介面())
+	local_word_wrapper.addEventListener('設定更改', ev => local_word_setting_update())
 	choice_wrapper.addEventListener('設定更改', ev => input_update())
+	local_word_setting_update()
       })
     </script>
     <style>
@@ -110,7 +123,7 @@
       .地區詞選項 .下 { margin-top: -0.36em; padding-bottom: 0.15em; }
       .地區詞選項 .英文 { font-size: 80%; color: hsl(0, 0%, 35%); }
       .地區詞選項 .英文::before { content: "・ "; visibility: hidden; }
-      .地區詞選項.港 .對應詞::after { content: "(HK)"; color: hsl(0, 0%, 30%); margin-left: 0.2em; }
+      .地區詞選項[data-地區=港] .對應詞::after { content: "(HK)"; color: hsl(0, 0%, 30%); margin-left: 0.2em; }
       .候選字 { font-size: 120%; color: hsl(0, 0%, 2%); }
       .例詞表 { display: flex; align-items: center; }
       .例詞 { margin-left: 0.25em;  }
@@ -130,19 +143,39 @@
       .字位[data-狀態=未選擇] { background-color: hsla(55, 90%, 60%, 0.9); }
       .字位[data-狀態=已選擇] { background-color: hsla(127, 90%, 70%, 0.8); }
       .字位[data-enabled=false] { display: none; }
+      .地區詞設定 { column-count: 5; }
+      .地區詞設定 { -moz-user-select: none; -webkit-user-select: none; }
+      .地區詞設定條目 { display: flex; }
+      .地區詞設定條目 { cursor: pointer; }
+      .地區詞設定條目 { font-size: 135%; text-align: center; }
+      .地區詞設定條目[data-enabled=false] > * {
+          color: hsl(0, 0%, 97%);
+          background-color: hsl(0, 0%, 60%);
+      }
+      .地區詞設定條目[data-enabled=true] > * {
+          background-color: hsl(55, 90%, 60%)
+      }
+      .地區詞設定條目 > * { flex-grow: 1; }
+      .地區詞設定條目 > * { padding: 0.3em 0em; margin: 0.3em 0em; }
+      .地區詞設定條目[data-enabled=false] > .啟用標記 { display: none; }
+      .地區詞設定條目[data-enabled=true] > *:first-child { padding-left: 0.6em; }
+      .地區詞設定條目[data-enabled=true] > *:last-child { padding-right: 0.6em; }
       .正異取捨設定 { column-count: 4; }
+      .正異取捨設定 { -moz-user-select: none; -webkit-user-select: none; }
       .正異條目 { display: flex; }
       .正異選項 { flex-grow: 1; padding: 0.3em 0em; margin: 0.3em 0em; }
-      .正異選項 { font-size: 1.35em; text-align: center; }
+      .正異選項 { font-size: 135%; text-align: center; }
       .正異選項 { cursor: pointer; }
       .正異選項[data-selected=true] {
-      color: hsl(0, 0%, 10%);
-      background-color: hsl(55, 90%, 60%);
+          color: hsl(0, 0%, 10%);
+          background-color: hsl(55, 90%, 60%);
       }
       .正異選項[data-selected=false] {
-      color: hsl(0, 0%, 97%);
-      background-color: hsl(0, 0%, 60%);
+          color: hsl(0, 0%, 97%);
+          background-color: hsl(0, 0%, 60%);
       }
+    </style>
+    <style id="local_word_dynamic_style">
     </style>
   </head>
   <body>
@@ -173,6 +206,9 @@
 	<textarea id="result" readonly="readonly"></textarea>
       </div>
       <div id="settingspace" style="display:none;">
+	<div id="local_word_wrapper">
+	  <h3>地區詞轉換開關</h3>
+	</div>
 	<div id="choice_wrapper">
 	  <h3>正異取捨</h3>
 	</div>

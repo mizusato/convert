@@ -782,6 +782,7 @@ class 地區詞提示位 extends CompatEventTarget {
   constructor ( 地區詞選項表 ) {
     super()
     var 地區詞提示位 = this
+    確認 ( 地區詞選項表.length > 0 )
     地區詞提示位.選項表 = 地區詞選項表
     地區詞提示位.選單 = new 地區詞選單(地區詞提示位)
     地區詞提示位.介面 = 地區詞提示位.生成介面()
@@ -789,8 +790,13 @@ class 地區詞提示位 extends CompatEventTarget {
 
   生成介面 () {
     var 地區詞提示位 = this
+    var 類別列表 = map(地區詞提示位.選項表, 選項 => 選項.附加資訊.類別)
+    var 單一類別 = any(類別列表, 類別 => 類別 == 類別列表[0])
     return create({
       tag: 'span', classList: ['地區詞提示位', '格子'],
+      dataset: {
+	單一類別: 單一類別? 類別列表[0]: undefined
+      },
       textContent: '▲', handlers: {
 	click: ev => 地區詞提示位.選單.切換介面() + ev.stopPropagation()
       } 
@@ -870,13 +876,12 @@ class 地區詞選單 extends 選擇面板 {
 	    選項 => ({
 	      tag: 'div', classList: [
 		'選項',
-		'地區詞選項',
-		選項.附加資訊['地區']
+		'地區詞選項'
 	      ],
 	      dataset: {
-		selected: field(
-		  'selected', 選項.被選擇
-		)
+		selected: field('selected', 選項.被選擇),
+		地區: 選項.附加資訊['地區'],
+		類別: 選項.附加資訊['類別']
 	      },
 	      children: [
 		{ tag: 'div', className: '上', children: [
