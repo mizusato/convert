@@ -52,7 +52,8 @@
 	    $('#'+btn.dataset.space).style.display = ''
 	  })
 	}
-	input.addEventListener('input', ev => input_update())
+	//input.addEventListener('input', ev => input_update())
+	input.addEventListener('change', ev => input_update())
 	document.body.addEventListener('click', ev => 選擇器.隠藏全部())
 	document.body.addEventListener('contextmenu', ev => 選擇器.隠藏全部())
 	choice_wrapper.appendChild(生成取捨設定介面())
