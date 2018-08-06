@@ -144,7 +144,7 @@ class 文章 extends CompatEventTarget {
 	}
       }
     }
-    文章.地區詞提示位表 = hash_map(
+    文章.地區詞提示位表 = map(
       文章.地區詞表.分組表, function (選項表) {
 	var 提示位 = new 地區詞提示位(選項表)
 	提示位.addEventListener(

@@ -36,13 +36,17 @@
       }
       function local_word_setting_update() {
 	var 地區詞設定 = load_config('地區詞設定')
-	var 樣式字串 = ''
-	for ( let 類別 of Object.keys(地區詞設定) ) {
-	  if ( 地區詞設定[類別] == 'disabled') {
-	    樣式字串 += `.地區詞提示位[data-單一類別=${類別}], .地區詞選項[data-類別=${類別}] { display: none; } `
+	var style_tag = create_style(map(地區詞設定, (類別, 設定) => [
+	  [
+	    `.地區詞提示位[data-單一類別=${類別}]`,
+	    `.地區詞選項[data-類別=${類別}]`
+	  ],
+	  {
+	    display: (設定 == 'disabled')? 'none': undefined
 	  }
-	}
-	local_word_dynamic_style.innerText = 樣式字串
+	]))
+	style_tag.id = 'local_word_dynamic_style'
+	document.head.replaceChild(style_tag, local_word_dynamic_style)
       }
       window.addEventListener('load', function() {
 	workspace = $('#workspace')
