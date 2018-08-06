@@ -37,7 +37,7 @@ function create(data) {
   ['style', 'dataset'].forEach(function(hash_property) {
     if (data[hash_property]) {
       for ( let key of Object.keys(data[hash_property]) ) {
-	if (data[hash_property][key]) {
+	if ( typeof data[hash_property][key] != 'undefined' ) {
 	  if ( data[hash_property][key] instanceof field )  {
 	    let field = data[hash_property][key];
 	    let current_key = key;
@@ -112,6 +112,11 @@ function exists(list, f) {
     }
   }
   return false;
+}
+
+
+function any(list, f) {
+  return !exists(list, x => !f(x))
 }
 
 
