@@ -1,13 +1,13 @@
 /**
- *  地區用詞: Chemistry (C)
+ *  地區用詞:  化學
  *
- *  由中文維基百科 CGroup/IT 整理修訂作成
+ *  由中文維基百科 CGroup/Chemistry 整理修訂作成
  *  採用 CC BY-SA 3.0 授權
  *
  */
 
 if ( typeof 地區用詞表 == 'undefined' ) { 地區用詞表 = {} }
-地區用詞表['C'] = [
+地區用詞表['化學'] = [
   {
     "英": "amino group",
     "中": "氨基",

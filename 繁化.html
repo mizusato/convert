@@ -6,11 +6,11 @@
     <script type="text/javascript" src="資料/繁化表.js"></script>
     <script type="text/javascript" src="資料/一簡多繁.js"></script>
     <script type="text/javascript" src="資料/正異取捨.js"></script>
-    <script type="text/javascript" src="資料/地區用詞/IT.js"></script>
-    <script type="text/javascript" src="資料/地區用詞/M.js"></script>
-    <script type="text/javascript" src="資料/地區用詞/C.js"></script>
-    <script type="text/javascript" src="資料/地區用詞/P.js"></script>
-    <script type="text/javascript" src="資料/地區用詞/TO.js"></script>
+    <script type="text/javascript" src="資料/地區用詞/電腦.js"></script>
+    <script type="text/javascript" src="資料/地區用詞/數學.js"></script>
+    <script type="text/javascript" src="資料/地區用詞/化學.js"></script>
+    <script type="text/javascript" src="資料/地區用詞/物理.js"></script>
+    <script type="text/javascript" src="資料/地區用詞/地名.js"></script>
     <script type="text/javascript" src="dom.js"></script>
     <script type="text/javascript" src="字處理.js"></script>
     <script type="text/javascript" src="繁化.js"></script>
@@ -96,6 +96,7 @@
       .選擇面板 { margin-top: 0.2em; }
       .選擇面板 { background-color: hsla(50, 1%, 97%, 0.97); }
       .選擇面板 { box-shadow: 0 4px 10px hsla(0, 0%, 35%, 0.4); }
+      .選擇面板 { -moz-user-select: none; -webkit-user-select: none; }
       .選擇器 { width: 13.5em; }
       .地區詞選單 { width: 18.5em; }
       .選擇器 .選項 { display: flex; justify-content: space-between; }
@@ -106,7 +107,6 @@
       .選項:hover { background-color: hsla(68, 91%, 75%, 0.97); }
       .地區詞選項 .條目名::before { content: "・"; visibility: hidden; }
       .地區詞選項[data-selected=true] .條目名::before { visibility: visible; }
-      .地區詞選項 .類別 { padding-top: 0.1em; }
       .地區詞選項 .下 { margin-top: -0.36em; padding-bottom: 0.15em; }
       .地區詞選項 .英文 { font-size: 80%; color: hsl(0, 0%, 35%); }
       .地區詞選項 .英文::before { content: "・ "; visibility: hidden; }

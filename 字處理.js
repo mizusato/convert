@@ -887,7 +887,7 @@ class 地區詞選單 extends 選擇面板 {
 		      textContent: 選項.對應詞 },
 		  ] },
 		  { tag: 'span', className: '類別',
-		    textContent: '[' + 選項.附加資訊['類別'] + '] '},
+		    textContent: '［' + 選項.附加資訊['類別'] + '］' },
 		] },
 		{ tag: 'div', className: '下', children: [
 		  { tag: 'span', className: '英文',
