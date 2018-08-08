@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8">    
     <title>繁化 - 繁簡轉換</title>
+    <link rel="stylesheet" href="共通樣式.css">
+    <link rel="stylesheet" href="轉換器.css">
+    <link rel="stylesheet" href="繁化.css">
     <script type="text/javascript" src="資料/繁化表.js"></script>
     <script type="text/javascript" src="資料/一簡多繁.js"></script>
     <script type="text/javascript" src="資料/正異取捨.js"></script>
@@ -12,110 +15,59 @@
     <script type="text/javascript" src="資料/地區用詞/物理.js"></script>
     <script type="text/javascript" src="資料/地區用詞/地名.js"></script>
     <script type="text/javascript" src="DOM.js"></script>
+    <script type="text/javascript" src="UI.js"></script>
     <script type="text/javascript" src="轉換器.js"></script>
     <script type="text/javascript" src="繁化.js"></script>
     <script type="text/javascript">
-      var workspace;
-      var 文;
-      function input_update() {
-	localStorage.input = input.value
-	文 = 繁化(input.value)
-	container.replaceChild(文.介面, workspace)
-	workspace = 文.介面
-	workspace.id = 'workspace'
-	workspace.style.display = 'none'
-	result.value = 文.取得轉換文()
-	文.addEventListener('選項更改', ev => machine_update())
-      }
-      function machine_update() {
-	var 修飾原文 = 文.取得修飾原文()
-	var 轉換文 = 文.取得轉換文()
-	input.value = 修飾原文
-	localStorage.input = 修飾原文
-	result.value = 轉換文
-      }
-      function local_word_setting_update() {
-	var 地區詞設定 = load_config('地區詞設定')
-	var style_tag = create_style(map(地區詞設定, (類別, 設定) => [
-	  [
-	    `.地區詞提示位[data-單一類別=${類別}]`,
-	    `.地區詞選項[data-類別=${類別}]`
-	  ],
-	  {
-	    display: (設定 == 'disabled')? 'none': undefined
-	  }
-	]))
-	style_tag.id = 'local_word_dynamic_style'
-	document.head.replaceChild(style_tag, local_word_dynamic_style)
-      }
       window.addEventListener('load', function() {
-	workspace = $('#workspace')
-	if ( localStorage.input ) {
-	  input.value = localStorage.input
-	  input_update()
-	}
-	var btns = $$('.tag_btn')
-	for ( let I of btns ) {
-	  let btn = I
-	  btn.addEventListener('click', function() {
-	    for ( let J of btns ) {
-	      J.href = 'javascript:void(0)'
-	      $('#'+J.dataset.space).style.display = 'none'
-	    }
-	    btn.removeAttribute('href')
-	    $('#'+btn.dataset.space).style.display = ''
-	  })
-	}
-	//input.addEventListener('input', ev => input_update())
-	input.addEventListener('change', ev => input_update())
-	document.body.addEventListener('click', ev => 選擇面板.隠藏全部())
-	document.body.addEventListener('contextmenu', ev => 選擇面板.隠藏全部())
-	local_word_wrapper.appendChild(生成地區詞設定介面())
-	choice_wrapper.appendChild(生成取捨設定介面())
-	local_word_wrapper.addEventListener('設定更改', ev => local_word_setting_update())
-	choice_wrapper.addEventListener('設定更改', ev => input_update())
-	local_word_setting_update()
+	初始化(繁化, input, output, workspace, {
+	  取捨設定: { 介面: $('.setting.choice') },
+	  地區詞設定: { 介面: $('.setting.local_word') }
+	})
+	activate_tabs(
+	  navbar.children,
+	  a => a.href = 'javascript: void(0)',
+	  a => a.removeAttribute('href')
+	)
       })
     </script>
-    <link rel="stylesheet" href="共通樣式.css">
-    <link rel="stylesheet" href="轉換器.css">
-    <link rel="stylesheet" href="繁化.css">
-    <style id="local_word_dynamic_style">
-    </style>
   </head>
   <body>
     <div id="container">
       <h1>繁化</h1>
       <hr/>
-      <div id="nav_bar">
-	<a class="tag_btn" data-space="inputspace">
+      <div id="navbar">
+	<a data-page=".page.input">
 	  【簡体原文】
 	</a>
-	<a class="tag_btn" data-space="workspace" href="javascript:void(0)">
+	<a data-page=".page.machine" href="javascript:void(0)">
 	  【繁化器】
 	</a>
-	<a class="tag_btn" data-space="resultspace" href="javascript:void(0)">
+	<a data-page=".page.output" href="javascript:void(0)">
 	  【繁化結果】
 	</a>
-	<a class="tag_btn" data-space="settingspace" href="javascript:void(0)">
+	<a data-page=".page.settings" href="javascript:void(0)">
 	  【設定】
 	</a>
       </div>
-      <div id="inputspace">
+      <div class="page input">
 	<textarea id="input" placeholder="鍵入簡體文章後點選上方【繁化器】以進行繁化。"></textarea>
 	<br/>
       </div>
-      <div id="workspace" style="display:none;">
+      <div class="page machine" style="display:none;">
+	<div id="workspace"></div>
       </div>
-      <div id="resultspace" style="display:none;">
-	<textarea id="result" readonly="readonly"></textarea>
+      <div class="page output" style="display:none;">
+	<textarea id="output" readonly="readonly"></textarea>
       </div>
-      <div id="settingspace" style="display:none;">
-	<div id="local_word_wrapper">
+      <div class="page settings" style="display:none;">
+	<div class="setting_wrapper local_word">
 	  <h3>地區詞轉換開關</h3>
+	  <div class="setting local_word"></div>
 	</div>
-	<div id="choice_wrapper">
+	<div class="setting_wrapper choice">
 	  <h3>正異取捨</h3>
+	  <div class="setting choice"></div>
 	</div>
       </div>
     </div>

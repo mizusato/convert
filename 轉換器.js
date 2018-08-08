@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 
 /**
@@ -109,7 +109,7 @@ class 文章 extends CompatEventTarget {
    *  【方法】
    *    ・取得原文 (void) => string // 原文
    *    ・取得修飾原文 (void) => string // 修飾過的原文用於保存狀態
-   *    ・取得轉換文 (void) => string // 轉換結果
+   *    ・取得轉換結果 (void) => string // 轉換結果
    *    ・[static] 生成字表 (字串, 轉換規則) => @constructor<待轉換字表>
    *    ・[private] 生成地區詞表 (void) => @property<地區詞表>
    *    ・[private] 生成擴展字位表 (void) => @property<擴展字位表>
@@ -280,7 +280,7 @@ class 文章 extends CompatEventTarget {
     })).join('')
   }
 
-  取得轉換文 () {
+  取得轉換結果 () {
     var 文章 = this
     return (map(文章.擴展字位表, function (字位或提示位) {
       if ( 字位或提示位 instanceof 字位 ) {
@@ -351,7 +351,7 @@ class 文章 extends CompatEventTarget {
 	括弧位置 = 索引 // 左括弧的索引
       }
     }
-    var 淨字表 = [] // 處理掉預設地區詞的字表
+    var 淨字表 = [] // 處理掉預設地區詞之後的字表
     for ( let 索引=0; 索引<字表.length; ) {
       if ( 括弧內容.存在(索引) ) {
 	let 內容 = 括弧內容[索引]

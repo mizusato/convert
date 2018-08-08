@@ -65,36 +65,6 @@ function 生成取捨表 (取捨設定) {
 }
 
 
-function 生成地區詞設定介面 () {
-  var 地區詞設定 = load_config('地區詞設定')
-  return create({
-    tag: 'div', className: '地區詞設定', children: map (
-      Object.keys(地區用詞表), function 生成選項介面 (類別) {
-	var enabled = ( 地區詞設定[類別] != 'disabled' )
-	function 切換開關 () {
-	  enabled = !enabled
-	  this.dataset.enabled = enabled
-	  地區詞設定[類別] = enabled? 'enabled': 'disabled'
-	  生成地區表(地區詞設定)
-	  save_config('地區詞設定', 地區詞設定)
-	  this.dispatchEvent( new Event('設定更改', {bubbles:true}) )
-	}
-	return {
-	  tag: 'div',
-	  className: '地區詞設定條目',
-	  dataset: { enabled: enabled },
-	  handlers: { click: function (ev) { 切換開關.call(this) } },
-	  children: [
-	    { tag: 'div', className: '啟用標記', textContent: '✓' },
-	    { tag: 'div', className: '類別名', textContent: 類別 }
-	  ]
-	}
-      }
-    )
-  })
-}
-
-
 function 生成取捨設定介面 () {
   var 取捨設定 = load_config('取捨設定')
   return create(

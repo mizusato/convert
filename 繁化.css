@@ -1,23 +1,6 @@
 .地區詞選項[data-地區=港] .對應詞::after {
     content: "(HK)"; color: hsl(0, 0%, 30%); margin-left: 0.2em;
 }
-.地區詞設定 { column-count: 5; }
-.地區詞設定 { -moz-user-select: none; -webkit-user-select: none; }
-.地區詞設定條目 { display: flex; }
-.地區詞設定條目 { cursor: pointer; }
-.地區詞設定條目 { font-size: 135%; text-align: center; }
-.地區詞設定條目[data-enabled=false] > * {
-    color: hsl(0, 0%, 97%);
-    background-color: hsl(0, 0%, 60%);
-}
-.地區詞設定條目[data-enabled=true] > * {
-    background-color: hsl(55, 90%, 60%)
-}
-.地區詞設定條目 > * { flex-grow: 1; }
-.地區詞設定條目 > * { padding: 0.3em 0em; margin: 0.3em 0em; }
-.地區詞設定條目[data-enabled=false] > .啟用標記 { display: none; }
-.地區詞設定條目[data-enabled=true] > *:first-child { padding-left: 0.6em; }
-.地區詞設定條目[data-enabled=true] > *:last-child { padding-right: 0.6em; }
 .正異取捨設定 { column-count: 4; }
 .正異取捨設定 { -moz-user-select: none; -webkit-user-select: none; }
 .正異條目 { display: flex; }
