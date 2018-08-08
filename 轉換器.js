@@ -3,7 +3,7 @@
 
 /**
  *  【檔名】
- *    ・字處理.js
+ *    ・轉換器.js
  *
  *  【描述說明】
  *    ・繁簡轉換器的主要程式檔，包含數個 class, 各司其職
@@ -687,7 +687,7 @@ class 地區詞選項 {
    *    ・起點位置: int // 被轉換詞的第一個字元在文章中的索引
    *    ・終點位置: int // 被轉換詞的最後一個字元在文章中的索引 + 1
    *    ・文章: 文章 // 被轉換的當前文章
-   *    ・附加資訊: hash // 如 {'英文': 'Operating System'}
+   *    ・附加資訊: hash // 如 {'原文': 'Operating System'}
    *
    *  【注】
    *    ・左閉右開區間 [起點位置, 終點位置) 表示原詞在文章中的位置
@@ -895,8 +895,8 @@ class 地區詞選單 extends 選擇面板 {
 		    textContent: '［' + 選項.附加資訊['類別'] + '］' },
 		] },
 		{ tag: 'div', className: '下', children: [
-		  { tag: 'span', className: '英文',
-		    textContent: 選項.附加資訊['英文'] }
+		  { tag: 'span', className: '原文',
+		    textContent: 選項.附加資訊['原文'] }
 		] }
 	      ], handlers: {
 		click: function (ev) {
