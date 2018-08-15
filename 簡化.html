@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">    
+    <title>簡化 - 繁簡轉換</title>
+    <link rel="stylesheet" href="共通樣式.css">
+    <link rel="stylesheet" href="轉換器.css">
+
+    <script type="text/javascript" src="資料/繁化表.js"></script>
+    <script type="text/javascript" src="資料/一簡多繁.js"></script>
+    <script type="text/javascript" src="資料/一繁多簡.js"></script>
+    <script type="text/javascript" src="資料/正異取捨.js"></script>
+    <script type="text/javascript" src="資料/地區用詞/電腦.js"></script>
+    <script type="text/javascript" src="資料/地區用詞/數學.js"></script>
+    <script type="text/javascript" src="資料/地區用詞/化學.js"></script>
+    <script type="text/javascript" src="資料/地區用詞/物理.js"></script>
+    <script type="text/javascript" src="資料/地區用詞/地名.js"></script>
+    <script type="text/javascript" src="DOM.js"></script>
+    <script type="text/javascript" src="UI.js"></script>
+    <script type="text/javascript" src="轉換器.js"></script>
+    <script type="text/javascript" src="簡化.js"></script>
+    <script type="text/javascript">
+      window.addEventListener('load', function() {
+	初始化(簡化, input, output, workspace, {
+	  地區詞設定: { 介面: $('.setting.local_word') }
+	})
+	activate_tabs(
+	  navbar.children,
+	  a => a.href = 'javascript: void(0)',
+	  a => a.removeAttribute('href')
+	)
+      })
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <h1>簡化</h1>
+      <hr/>
+      <div id="navbar">
+	<a data-page=".page.input">
+	  【繁體原文】
+	</a>
+	<a data-page=".page.machine" href="javascript:void(0)">
+	  【轉換器】
+	</a>
+	<a data-page=".page.output" href="javascript:void(0)">
+	  【簡化結果】
+	</a>
+	<a data-page=".page.settings" href="javascript:void(0)">
+	  【設定】
+	</a>
+      </div>
+      <div class="page input">
+	<textarea id="input" placeholder="鍵入繁體文章後點選上方【轉換器】以進行簡化。"></textarea>
+	<br/>
+      </div>
+      <div class="page machine" style="display:none;">
+	<div id="workspace"></div>
+      </div>
+      <div class="page output" style="display:none;">
+	<textarea id="output" readonly="readonly"></textarea>
+      </div>
+      <div class="page settings" style="display:none;">
+	<div class="setting_wrapper local_word">
+	  <h3>地區詞轉換開關</h3>
+	  <div class="setting local_word"></div>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
