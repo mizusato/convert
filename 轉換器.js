@@ -315,8 +315,8 @@ class 文章 extends CompatEventTarget {
 
   static 生成字表 (字串, 轉換規則) {
     var 字表 = []
+    字串 = getlist(字串) // 轉換成 array 以處理擴展區的字
     for ( let 索引=0; 索引<字串.length; ) {
-      // 暫不攷慮擴展區的字，直接取下標
       let 字 = 字串[索引]
       if ( 字串[索引+1] == '[' && 字串[索引+3] == ']' ) {
 	let 已確定對應字 = 字串[索引+2]
