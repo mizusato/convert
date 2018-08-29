@@ -76,11 +76,11 @@ class 文章 extends CompatEventTarget {
    *    ・被轉換文章的抽象，保存各種資訊，有 Controller 的作用
    *
    *  【構造器】
-   *    ・待轉換字表: array<{待轉換字,(已確定對應字,預設地區詞)}>
+   *    ・待轉換字表: array<{待轉換字,(已確定對應字,預設地區詞,不轉換)}>
    *    ・轉換規則: 轉換規則
    *
    *  【注】
-   *    ・這裡的引數「待轉換字表」指的是「字表」，即一種結構化資料
+   *    ・這裡的引數「待轉換字表」指的是「字表」，即一種結構化資料，非字串
    *    ・轉換字串需先用 static 生成字表 (字串, 轉換規則) 將字串轉為字表
    *
    *  【屬性】
@@ -125,7 +125,7 @@ class 文章 extends CompatEventTarget {
     文章.轉換規則 = 轉換規則
     文章.字位表 = map(
       待轉換字表, function (字) {
-	let 此字位 = new 字位(字.待轉換字, 文章, 字.已確定對應字)
+	let 此字位 = new 字位(字.待轉換字, 文章, 字.已確定對應字, false, 字.不轉換)
 	此字位.addEventListener(
 	  '選字更改',
 	  ev => 文章.dispatchEvent(new Event('選項更改'))
@@ -262,6 +262,12 @@ class 文章 extends CompatEventTarget {
     var 文章 = this
     var 起點表 = 文章.地區詞表.起點表
     return (map(文章.字位表, function (字位, 索引) {
+      if ( 字位.類型 == '不轉換字' ) {
+	return keep('不轉換', 字位.待轉換字, function change(before, after) {
+	  if ( after == '不轉換' ) { return '{' }
+	  if ( after == '' ) { return '}' }
+	})
+      }
       if ( 起點表.存在(索引) && exists(起點表[索引], 選項 => 選項.被選擇) ) {
 	for ( let 地區詞選項 of 起點表[索引] ) {
 	  if ( 地區詞選項.被選擇 ) {
@@ -313,31 +319,37 @@ class 文章 extends CompatEventTarget {
     })
   }
 
-  static 生成字表 (字串, 轉換規則) {
+  static 生成字表 (字串, 轉換規則, 標記 = {不轉換:'{}', 預設:'[]'}) {
     var 字表 = []
     字串 = getlist(字串) // 轉換成 array 以處理擴展區的字
+    var 不轉換 = false
     for ( let 索引=0; 索引<字串.length; ) {
       let 字 = 字串[索引]
-      if ( 字串[索引+1] == '[' && 字串[索引+3] == ']' ) {
+      if ( 字 == 標記.不轉換[0] ) { 不轉換 = true; 索引++; continue; }
+      if ( 字 == 標記.不轉換[1] ) { 不轉換 = false; 索引++; continue; }
+      if ( !不轉換
+	   && 字串[索引+1] == 標記.預設[0] && 字串[索引+3] == 標記.預設[1] ) {
 	let 已確定對應字 = 字串[索引+2]
 	if ( typeof 已確定對應字 != 'undefined' ) {
 	  if ( 轉換規則.一對多表.存在(字) ) {
 	    if ( 轉換規則.一對多表[字].對應字.存在(已確定對應字) ) {
-	      字表.添加({待轉換字: 字, 已確定對應字: 已確定對應字})
+	      字表.添加({
+		待轉換字: 字, 已確定對應字: 已確定對應字
+	      })
 	      索引 += 4
 	      continue
 	    }
 	  }
 	}
       }
-      字表.添加({待轉換字:字})
+      字表.添加({待轉換字:字, 不轉換:不轉換})
       索引 += 1
     }
     var 括弧內 = false
     var 括弧位置 = -1
     var 括弧內容 = {} // 左括弧索引 -> '[content]'
     for ( let 索引=0; 索引<字表.length; 索引++ ) {
-      if ( 字表[索引].待轉換字 == ']' ) {
+      if ( 字表[索引].待轉換字 == 標記.預設[1] ) {
 	括弧內 = false
       }
       if ( 括弧內 ) {
@@ -346,7 +358,7 @@ class 文章 extends CompatEventTarget {
 	}
 	括弧內容[括弧位置] += 字表[索引].待轉換字
       }
-      if ( 字表[索引].待轉換字 == '[' ) {
+      if ( 字表[索引].待轉換字 == 標記.預設[0] ) {
 	括弧內 = true
 	括弧位置 = 索引 // 左括弧的索引
       }
@@ -392,9 +404,10 @@ class 字位 extends CompatEventTarget {
    *    ・文章: 文章
    *    ・已確定對應字: char = undefined
    *    ・附加字: bool = false
+   *    ・不轉換字: bool = false
    *
    *  【屬性】
-   *    ・類型: enum {一對一字, 一對多字, 無對應字, 附加字}
+   *    ・類型: enum {一對一字, 一對多字, 無對應字, 附加字, 不轉換字}
    *    ・enabled: bool
    *    【一對一字】
    *      ・對應字: char 
@@ -415,7 +428,7 @@ class 字位 extends CompatEventTarget {
    *  【事件】
    *    ・選字更改: 一對多選詞更改時觸發
    */
-  constructor ( 待轉換字, 文章, 已確定對應字=undefined, 附加字=false ) {
+  constructor ( 待轉換字, 文章, 已確定對應字=undefined, 附加字=false, 不轉換=false ) {
     super()
     var 字位 = this
     字位.待轉換字 = 待轉換字
@@ -423,7 +436,7 @@ class 字位 extends CompatEventTarget {
     var 一對一表 = 文章.轉換規則.一對一表
     var 一對多表 = 文章.轉換規則.一對多表
     var 取捨表 = 文章.轉換規則.取捨表
-    if ( 附加字 == false ) {
+    if ( 附加字 == false && 不轉換 == false ) {
       if ( 取捨表.存在(待轉換字) ) {
 	字位.類型 = '一對一字'
 	字位.對應字 = 取捨表[待轉換字]
@@ -448,8 +461,13 @@ class 字位 extends CompatEventTarget {
       }
       字位.enabled = true
     } else {
-      字位.類型 = '附加字'
-      字位.enabled = false
+      if ( 附加字 ) {
+	字位.類型 = '附加字'
+	字位.enabled = false
+      } else if ( 不轉換 ) {
+	字位.類型 = '不轉換字'
+	字位.enabled = true
+      }
     }
     字位.介面 = 字位.生成介面()
     if ( typeof 已確定對應字 == 'string' ) {
