@@ -182,22 +182,53 @@ function map (arg, f) {
     let result = []
     let index = 0
     let jump_amount = 0
+    let status = ''
+    let onchange = null
     for ( let I of iterable ) {
       if ( jump_amount > 0 ) {
 	jump_amount--
 	index++
 	continue
       }
+      function push (value, insert_before = []) {
+	for ( let insert_value of insert_before ) {
+	  if ( typeof insert_value != 'undefined' ) {
+	    result.push(insert_value)
+	  }
+	}
+	result.push(value)
+      }
       let J = f(I, index)
-      if ( J instanceof jump ) {
-	jump_amount = J.amount
-	if ( typeof J.value != 'undefined' ) {
-	  result.push(J.value)
+      if ( J instanceof keep ) {
+	if ( status != J.status ) {
+	  let insert1 = onchange? onchange(status, J.status): undefined
+	  let insert2 = J.onchange(status, J.status)
+	  push(J.value, [insert1, insert2])
+	  status = J.status
+	  onchange = J.onchange
+	} else {
+	  push(J.value)
 	}
       } else {
-	result.push(J)
+	let insert = undefined
+	if ( status != '' ) {
+	  insert = onchange(status, '')
+	  status = ''
+	  onchange = null
+	}
+	if ( J instanceof jump ) {
+	  jump_amount = J.amount
+	  if ( typeof J.value != 'undefined' ) {
+	    push(J.value, [insert])
+	  }
+	} else {
+	  push(J, [insert])
+	}
       }
       index++
+    }
+    if ( status != '' ) {
+      result.push(onchange(status, ''))
     }
     return result
   } else {
@@ -216,6 +247,13 @@ function map (arg, f) {
       return result
     }
   }
+}
+
+
+function keep (status_name, value, onchange) {
+  var object = { status: status_name, value: value, onchange: onchange }
+  object.__proto__ = keep.prototype
+  return object
 }
 
 
