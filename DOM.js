@@ -304,6 +304,11 @@ function* concat (args) {
 }
 
 
+function extract (list_of_list) {
+  return concat.apply(this, list_of_list)
+}
+
+
 function* values (object) {
   for ( let key of Object.keys(object) ) {
     yield object[key]
@@ -314,7 +319,16 @@ function* values (object) {
 function getlist (iterable) {
   var result = []
   for ( let I of iterable ) {
-    result.push(I);    
+    result.push(I)
+  }
+  return result
+}
+
+
+function gethash (iterable, get_value = () => true) {
+  var result = {}
+  for ( let I of iterable ) {
+    result[I] = get_value(I)
   }
   return result
 }
