@@ -236,13 +236,19 @@ function map (arg, f) {
     if ( f.length >= 2 ) {
       let result = []
       for ( let key of Object.keys(hash) ) {
-	result.push(f(key, hash[key]))
+	let y = f(key, hash[key])
+	if ( !(y instanceof jump) ) {
+	  result.push(y)
+	}
       }
       return result
     } else {
       let result = {}
       for ( let key of Object.keys(hash) ) {
-	result[key] = f(hash[key])
+	let y = f(hash[key])
+	if ( !(y instanceof jump) ) {
+	  result[key] = y
+	}
       }
       return result
     }
