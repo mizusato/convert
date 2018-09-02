@@ -1,9 +1,11 @@
 .地區詞選項[data-地區=港] .對應詞::after {
     content: "(HK)"; color: hsl(0, 0%, 30%); margin-left: 0.2em;
 }
-.正異取捨設定 { column-count: 4; }
+/*.正異取捨設定 { column-count: 4; -webkit-column-break-inside: avoid; }*/
+.正異取捨設定 { display: flex; flex-wrap: wrap; }
 .正異取捨設定 { -moz-user-select: none; -webkit-user-select: none; }
 .正異條目 { display: flex; }
+.正異條目 { flex-basis: 23%; margin: 0% 1%; }
 .正異選項 { flex-grow: 1; padding: 0.3em 0em; margin: 0.3em 0em; }
 .正異選項 { font-size: 135%; text-align: center; }
 .正異選項 { cursor: pointer; }
