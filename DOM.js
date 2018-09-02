@@ -256,6 +256,29 @@ function map (arg, f) {
 }
 
 
+function filter (arg, f) {
+  if ( typeof arg[Symbol.iterator] == 'function' ) {
+    let iterable = arg
+    let result = []
+    for ( let element of iterable ) {
+      if( f(element) ) {
+	result.push(element)
+      }
+    }
+    return result
+  } else {
+    let hash = arg
+    let result = {}
+    for ( let key of Object.keys(hash) ) {
+      if( f(key, hash[key]) ) {
+	result[key] = hash[key]
+      }
+    }
+    return result
+  }
+}
+
+
 function keep (status_name, value, onchange) {
   var object = { status: status_name, value: value, onchange: onchange }
   object.__proto__ = keep.prototype
