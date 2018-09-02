@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
   <head>
     <meta charset="UTF-8">    
-    <title>簡化 - 繁簡轉換</title>
+    <title>简化 / 大陆化 - 繁簡轉換</title>
     <link rel="stylesheet" href="共通樣式.css">
     <link rel="stylesheet" href="轉換器.css">
-
     <script type="text/javascript" src="資料/繁化表.js"></script>
     <script type="text/javascript" src="資料/一簡多繁.js"></script>
     <script type="text/javascript" src="資料/一繁多簡.js"></script>
@@ -23,7 +22,10 @@
     <script type="text/javascript">
       window.addEventListener('load', function() {
 	初始化(簡化, input, output, workspace, {
-	  地區詞設定: { 介面: $('.setting.local_word') }
+	  地區詞設定: { 介面: $('.setting.local_word') },
+	  介面文字轉換: (
+	    字串 => join(map(字串, 字 => 簡化表.存在(字)? 簡化表[字]: 字))
+	  )
 	})
 	activate_tabs(
 	  navbar.children,
@@ -35,24 +37,24 @@
   </head>
   <body>
     <div id="container">
-      <h1>簡化</h1>
+      <h1>简化 / 大陆化</h1>
       <hr/>
       <div id="navbar">
 	<a data-page=".page.input">
-	  【繁體原文】
+	  【繁体原文】
 	</a>
 	<a data-page=".page.machine" href="javascript:void(0)">
-	  【轉換器】
+	  【人工修正】
 	</a>
 	<a data-page=".page.output" href="javascript:void(0)">
-	  【簡化結果】
+	  【简化结果】
 	</a>
 	<a data-page=".page.settings" href="javascript:void(0)">
-	  【設定】
+	  【设置】
 	</a>
       </div>
       <div class="page input">
-	<textarea id="input" placeholder="鍵入繁體文章後點選上方【轉換器】以進行簡化。"></textarea>
+	<textarea id="input" placeholder="输入繁体文章后点击上方【人工修正】以进行必要的修正。修正完成后再点击「简化结果」即可得到简体文章。"></textarea>
 	<br/>
       </div>
       <div class="page machine" style="display:none;">
@@ -63,7 +65,7 @@
       </div>
       <div class="page settings" style="display:none;">
 	<div class="setting_wrapper local_word">
-	  <h3>地區詞轉換開關</h3>
+	  <h3>词语转换开关</h3>
 	  <div class="setting local_word"></div>
 	</div>
       </div>

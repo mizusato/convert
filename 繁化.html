@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-tw">
   <head>
     <meta charset="UTF-8">    
-    <title>繁化 - 繁簡轉換</title>
+    <title>繁化 / 台灣化 - 繁簡轉換</title>
     <link rel="stylesheet" href="共通樣式.css">
     <link rel="stylesheet" href="轉換器.css">
     <link rel="stylesheet" href="繁化.css">
@@ -36,14 +36,14 @@
   </head>
   <body>
     <div id="container">
-      <h1>繁化</h1>
+      <h1>繁化 / 台灣化</h1>
       <hr/>
       <div id="navbar">
 	<a data-page=".page.input">
 	  【簡體原文】
 	</a>
 	<a data-page=".page.machine" href="javascript:void(0)">
-	  【轉換器】
+	  【人工修正】
 	</a>
 	<a data-page=".page.output" href="javascript:void(0)">
 	  【繁化結果】
@@ -53,7 +53,7 @@
 	</a>
       </div>
       <div class="page input">
-	<textarea id="input" placeholder="鍵入簡體文章後點選上方【轉換器】以進行繁化。"></textarea>
+	<textarea id="input" placeholder="鍵入簡體文章後點選上方【人工修正】以進行必要的修正。修正完畢後點選【繁化結果】即可得到繁體文章。"></textarea>
 	<br/>
       </div>
       <div class="page machine" style="display:none;">
@@ -64,7 +64,7 @@
       </div>
       <div class="page settings" style="display:none;">
 	<div class="setting_wrapper local_word">
-	  <h3>地區詞轉換開關</h3>
+	  <h3>用語轉換開關</h3>
 	  <div class="setting local_word"></div>
 	</div>
 	<div class="setting_wrapper choice">
