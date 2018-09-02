@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <meta charset="UTF-8">    
-    <title>日文復原 - 繁簡轉換</title>
+    <title>日本語の還元 - 繁簡轉換</title>
     <link rel="stylesheet" href="共通樣式.css">
     <link rel="stylesheet" href="轉換器.css">
     <script type="text/javascript" src="資料/繁化表.js"></script>
     <script type="text/javascript" src="資料/單向繁化表.js"></script>
     <script type="text/javascript" src="資料/一簡多繁.js"></script>
-    <script type="text/javascript" src="資料/日本新字體.js"></script>
+    <script type="text/javascript" src="資料/日文復原表.js"></script>
     <script type="text/javascript" src="DOM.js"></script>
     <script type="text/javascript" src="資料/檢驗資料.js"></script>
     <script type="text/javascript" src="UI.js"></script>
@@ -16,46 +16,33 @@
     <script type="text/javascript" src="日文復原.js"></script>
     <script type="text/javascript">
       window.addEventListener('load', function() {
-	/*
-	初始化(繁化, input, output, workspace, {
-	  取捨設定: { 介面: $('.setting.choice') },
-	  地區詞設定: { 介面: $('.setting.local_word') }
-	})
+	初始化(復原, input, output, workspace, {})
 	activate_tabs(
 	  navbar.children,
 	  a => a.href = 'javascript: void(0)',
 	  a => a.removeAttribute('href')
 	)
-	*/
       })
     </script>
   </head>
   <body>
-
-
-    <!-- TODO  -->
-
-    
-    <!--
     <div id="container">
-      <h1>繁化</h1>
+      <h1>簡体字日本語の還元ツール</h1>
       <hr/>
       <div id="navbar">
 	<a data-page=".page.input">
-	  【簡體原文】
+	  【簡体字の文章】
 	</a>
 	<a data-page=".page.machine" href="javascript:void(0)">
-	  【轉換器】
+	  【必要な修正】
 	</a>
 	<a data-page=".page.output" href="javascript:void(0)">
-	  【繁化結果】
+	  【還元された文章】
 	</a>
-	<a data-page=".page.settings" href="javascript:void(0)">
-	  【設定】
-	</a>
+	<!-- <a data-page=".page.settings" href="javascript:void(0)">【設定】</a> -->
       </div>
       <div class="page input">
-	<textarea id="input" placeholder="鍵入簡體文章後點選上方【轉換器】以進行繁化。"></textarea>
+	<textarea id="input" placeholder="簡体字で書いた日本語の文章をここに入力してください。そして「必要な修正」をクリックして修正を行ってください。修正を完成したあと、「還元された文章」をクリックしたら正しい日本語の文章が出てきます。"></textarea>
 	<br/>
       </div>
       <div class="page machine" style="display:none;">
@@ -64,17 +51,7 @@
       <div class="page output" style="display:none;">
 	<textarea id="output" readonly="readonly"></textarea>
       </div>
-      <div class="page settings" style="display:none;">
-	<div class="setting_wrapper local_word">
-	  <h3>地區詞轉換開關</h3>
-	  <div class="setting local_word"></div>
-	</div>
-	<div class="setting_wrapper choice">
-	  <h3>正異取捨</h3>
-	  <div class="setting choice"></div>
-	</div>
-      </div>
+      <!-- <div class="page settings" style="display:none;"></div> -->
     </div>
-    -->
   </body>
 </html>
