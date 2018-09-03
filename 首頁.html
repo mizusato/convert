@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8">    
+    <title>繁簡轉換</title>
+    <link rel="stylesheet" href="共通樣式.css">
+    <style>
+      a { color: inherit; }
+      .btn { padding: 0.2em 1.5em 0.5em 1.5em; }
+      .title { margin: 0.1em 0em 0.2em 0em; }
+      .example { font-size: 120%; }
+      .example { color: hsl(0, 0%, 20%); }
+      strong { font-weight: inherit; }
+      strong { color: hsl(0, 0%, 5%); }
+      strong { position: relative; }
+      strong::after { content: "・"; position: absolute; top: 0.65em; left: 0; }
+      .text { color: hsl(0, 0%, 8%); font-size: 110%; }
+      #feature_list hr { width: 97%; }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>精細繁簡轉換工具</h1>
+      <hr/>
+      <p class="text">請選擇轉換規則：</p>
+      <div id="feature_list">
+	<hr/>
+	<a href="s2t.html">
+	  <div class="btn" id="s2t_btn">
+	    <h2 class="title" lang="zh-tw">繁化 / 台灣化 / 香港化</h2>
+	    <div class="example" lang="zh-cn">有人驾驶船<strong>只</strong>在大海上航行。</div>
+	  </div>
+	</a>
+	<hr/>
+	<a href="t2s.html">
+	  <div class="btn" id="t2s_btn">
+	    <h2 class="title" lang="zh-cn">简化 / 中国大陆化</h2>
+	    <div class="example" lang="zh-tw">吃<strong>著</strong>餅<strong>乾</strong>，看<strong>著</strong><strong>乾</strong>隆的<strong>著</strong>作。</div>
+	  </div>
+	</a>
+	<hr/>
+	<a href="ja_fix.html">
+	  <div class="btn" id="ja_fix_btn">
+	    <h2 class="title" lang="ja">簡体字日本語の還元</h2>
+	    <div class="example" lang="zh-cn">简体日语はダメなのです！！！</div>
+	  </div>
+	</a>
+	<hr/>
+      </div>
+      <div id="powered_by">
+      </div>
+    </div>
+  </body>
+</html>
