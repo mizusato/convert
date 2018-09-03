@@ -192,6 +192,29 @@ function 檢驗資料 () {
       }
     }
   }
+  // 日文復原資料檢驗
+  if ( window.存在('繁化表') && window.存在('繁化表新字體交集表') ) {
+    let 其它表名 = filter(
+      ['日文復原增補一對一表', '日文復原一對多表'],
+      表名 => window.存在(表名)
+    )
+    let 表名 = getlist(concat(['繁化表'], 其它表名))
+    let 淨繁化表 = filter(繁化表, 簡化字 => 繁化表新字體交集表.不存在(簡化字))
+    let 其它表 = map(其它表名, 表名 => window[表名])
+    let 不可衝突表 = getlist(concat([淨繁化表], 其它表))
+    for ( let i=0; i<不可衝突表.length; i++ ) {
+      for ( let j=i+1; j<不可衝突表.length; j++ ) {
+	let 表1 = 不可衝突表[i]
+	let 表2 = 不可衝突表[j]
+	let 衝突簡化字表 = 檢測衝突(表1, 表2)
+	if ( 衝突簡化字表.length > 0 ) {
+	  錯誤表.push(
+	    `${表名[i]} 與 ${表名[j]} 衝突: [${衝突簡化字表}]`
+	  )
+	}
+      }
+    }
+  }
   // 提示錯誤
   if ( 錯誤表.length > 0 ) {
     while ( true ) {
