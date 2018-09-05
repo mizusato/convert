@@ -5,24 +5,30 @@
     <title>繁簡轉換</title>
     <link rel="stylesheet" href="共通樣式.css">
     <style>
-      a { color: inherit; }
       .btn { padding: 0.2em 1.5em 0.5em 1.5em; }
       .title { margin: 0.1em 0em 0.2em 0em; }
       .example { font-size: 120%; }
-      .example { color: hsl(0, 0%, 20%); }
+      .example { color: hsl(0, 0%, 20%); }      
       strong { font-weight: inherit; }
+      /*
       strong { color: hsl(0, 0%, 5%); }
       strong { position: relative; }
-      strong::after { content: "・"; position: absolute; top: 0.65em; left: 0; }
-      .text { color: hsl(0, 0%, 8%); font-size: 110%; }
+      strong::after { content: "・"; position: absolute; top: 0.55em; left: 0; }
+     */
       #feature_list hr { width: 97%; }
+      #feature_list a { color: inherit; }
+      h3 { font-size: 120%; }
+      .image_link_list { display: flex; justify-content: space-between; }
+      .image_link_list img { height: 7em; }
+      #copyleft { text-align: center; font-size: 90%; }
+      .c { display: inline-block; transform: matrix(-1, 0, 0, 1, 0, 0); }
     </style>
   </head>
   <body>
     <div id="container">
       <h1>精細繁簡轉換工具</h1>
       <hr/>
-      <p class="text">請選擇轉換規則：</p>
+      <h3>功能項目</h3>
       <div id="feature_list">
 	<hr/>
 	<a href="s2t.html">
@@ -47,8 +53,27 @@
 	</a>
 	<hr/>
       </div>
-      <div id="powered_by">
+      <div id="about">
+	<h3>關於本軟體</h3>
+	<p>「精細繁簡轉換」是為了節省繁簡轉換的人工校對時間而開發的新型繁簡轉換工具，通過提供選項和註解的方式，將一字對多字和用語轉換的問題輕鬆解決。</p>
+	<p>本軟體是開放原始碼軟體，由原始碼與資料構成。原始碼在 MIT 授權條款之下發佈；所用資料的一部分修改自中文維基百科，仍遵循 CC BY-SA 3.0 授權條款發佈；其它注明來源的資料，版權歸原作者所有；其餘的資料，發佈在公有領域。</p>
+	<p>本軟體之原始碼發佈在 <a href="https://notabug.org/mizusato/convert/" target="_blank">NotABug.org</a> 原始碼托管網站 (由 Peers Community 運營). 如果您在使用本軟體的過程中發現問題或 Bug, 請在該托管網站注冊帳號，然後向本軟體提交問題。</p>
       </div>
+      <div id="powered_by">
+	<h3>Powered by</h3>
+	<div class="image_link_list">
+	  <a href="http://es6-features.org" target="_blank">
+	    <img src="images/es6.png">
+	  </a>
+	  <a href="https://zh.wikipedia.org/wiki/Template:CGroup">
+	    <img src="images/cgroup.png" target="_blank">
+	  </a>
+	  <a href="https://github.com/BYVoid/OpenCC" target="_blank">
+	    <img src="images/opencc.png">
+	  </a>
+	</div>
+      </div>
+      <p id="copyleft">Copyleft <span class="c">©</span> 2018 Sinograph Studio</p>
     </div>
   </body>
 </html>
