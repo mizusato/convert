@@ -98,6 +98,16 @@ a, a:visited { color: color: hsl(233, 81%, 48%); }
 
 
 
-@media only screen and (max-width: 800px) {
-    
+@media only screen and (max-width: 999px) {
+    html {
+	overflow-y: auto;
+    }
+    body {
+	margin: 0px;
+    }
+    #container {
+	box-sizing: border-box;
+	margin: 0px;
+	width: 100%;
+    }
 }
