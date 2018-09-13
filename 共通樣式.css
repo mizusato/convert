@@ -72,15 +72,24 @@ a, a:visited { color: color: hsl(233, 81%, 48%); }
 .地區詞設定條目 { flex-basis: 18%; margin: 0% 1%; }
 .地區詞設定條目 { cursor: pointer; }
 .地區詞設定條目 { font-size: 135%; text-align: center; }
-.地區詞設定條目[data-enabled=false] > * {
-    color: hsl(0, 0%, 97%);
-    background-color: hsl(0, 0%, 60%);
+.地區詞設定條目[data-enabled=false] {
+    color: hsl(0, 0%, 90%);
+    background-color: hsl(0, 0%, 63%);
+    background-image: linear-gradient(to right, hsl(0, 0%, 60%), hsl(0, 0%, 64%));
 }
-.地區詞設定條目[data-enabled=true] > * {
-    background-color: hsl(55, 90%, 60%)
+.地區詞設定條目[data-enabled=true] {
+    color: hsl(0, 0%, 10%);
+    background-color: hsl(52, 90%, 60%);
+    background-image: linear-gradient(to right, hsl(50, 90%, 60%), hsl(54, 90%, 60%));
 }
 .地區詞設定條目 > * { flex-grow: 1; }
-.地區詞設定條目 > * { padding: 0.3em 0em; margin: 0.3em 0em; }
+.地區詞設定條目 > * { padding: 0.3em 0em; margin: 0.1em 0em; }
 .地區詞設定條目[data-enabled=false] > .啟用標記 { display: none; }
 .地區詞設定條目[data-enabled=true] > *:first-child { padding-left: 0.6em; }
 .地區詞設定條目[data-enabled=true] > *:last-child { padding-right: 0.6em; }
+
+
+
+@media only screen and (max-width: 800px) {
+    
+}

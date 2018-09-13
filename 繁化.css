@@ -11,9 +11,11 @@
 .正異選項 { cursor: pointer; }
 .正異選項[data-selected=true] {
     color: hsl(0, 0%, 10%);
-    background-color: hsl(55, 90%, 60%);
+    background-color: hsl(52, 90%, 60%);
+    background-image: linear-gradient(to right, hsl(50, 90%, 60%), hsl(54, 90%, 60%));
 }
 .正異選項[data-selected=false] {
-    color: hsl(0, 0%, 97%);
-    background-color: hsl(0, 0%, 60%);
+    color: hsl(0, 0%, 90%);
+    background-color: hsl(0, 0%, 63%);
+    background-image: linear-gradient(to right, hsl(0, 0%, 60%), hsl(0, 0%, 64%));
 }
