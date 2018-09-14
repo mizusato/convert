@@ -5,7 +5,7 @@
  *  採用 CC BY-SA 3.0 授權
  *
  *  【格式】
- *    ・英: 英語原文
+ *    ・原: 西文原文
  *    ・中: 中國大陸譯語
  *    ・台: 台灣譯語
  *    ・港: 香港獨有譯語
@@ -15,2777 +15,2777 @@
 if ( typeof 地區用詞表 == 'undefined' ) { 地區用詞表 = {} }
 地區用詞表['電腦'] = [
   {
-    "英": "AI",
+    "原": "AI",
     "中": "人工智能",
     "台": "人工智慧"
   },
   {
-    "英": "access",
+    "原": "access",
     "中": "访问",
     "台": "存取"
   },
   {
-    "英": "access control list",
+    "原": "access control list",
     "中": "访问控制表",
     "台": "存取控制串列"
   },
   {
-    "英": "access point",
+    "原": "access point",
     "中": "接入点",
     "台": "存取點"
   },
   {
-    "英": "account",
+    "原": "account",
     "中": "账号",
     "港": "賬號",
     "台": "帳號"
   },
   {
-    "英": "account",
+    "原": "account",
     "中": "账户",
     "港": "賬戶",
     "台": "帳戶"
   },
   {
-    "英": "activation",
+    "原": "activation",
     "中": "激活",
     "台": "啟用"
   },
   {
-    "英": "adapter",
+    "原": "adapter",
     "中": "适配器",
     "台": "介面卡"
   },
   {
-    "英": "plugin",
+    "原": "plugin",
     "中": "插件",
     "台": ["外掛程式", "外掛模組"]
   },
   {
-    "英": "add-on / extension",
+    "原": "add-on / extension",
     "中": "扩展",
     "台": ["擴充套件", "擴充功能", "附加元件"]
   },
   {
-    "英": "address bar",
+    "原": "address bar",
     "中": "地址栏",
     "台": "位址列", 
     "港": "網址列"
   },
   {
-    "英": "address",
+    "原": "address",
     "中": "地址",
     "台": "位址"
   },
   {
-    "英": "advanced",
+    "原": "advanced",
     "中": "高级",
     "台": "進階"
   },
   {
-    "英": "ad area",
+    "原": "ad area",
     "中": "广告位",
     "台": "廣告區"
   },
   {
-    "英": "album",
+    "原": "album",
     "中": "相册",
     "台": "相簿"
   },
   {
-    "英": "algorithm",
+    "原": "algorithm",
     "中": "算法",
     "台": "演算法"
   },
   {
-    "英": "analog",
+    "原": "analog",
     "中": "模拟",
     "台": "類比"
   },
   {
-    "英": "antivirus",
+    "原": "antivirus",
     "中": "杀毒",
     "台": "防毒"
   },
   {
-    "英": "antivirus software",
+    "原": "antivirus software",
     "中": ["杀毒软件", "反病毒软件"],
     "台": "防毒軟體"
   },
   {
-    "英": "array",
+    "原": "array",
     "中": "数组",
     "台": "陣列"
   },
   {
-    "英": "assemble",
+    "原": "assemble",
     "中": "汇编",
     "台": ["組譯", "組合", "組語"]
   },
   {
-    "英": "assemble language",
+    "原": "assemble language",
     "中": "汇编語言",
     "台": "組語"
   },
   {
-    "英": "assembly mnemonic",
+    "原": "assembly mnemonic",
     "中": "助记符",
     "台": "助憶碼"
   },
   {
-    "英": "assign",
+    "原": "assign",
     "中": "赋值",
     "台": "設定"
   },
   {
-    "英": "average bitarte",
+    "原": "average bitarte",
     "中": "平均码率",
     "台": "平均位元速率"
   },
   {
-    "英": "AOL",
+    "原": "AOL",
     "中": "美国在线",
     "台": "美國線上"
   },
   {
-    "英": "asynchronous",
+    "原": "asynchronous",
     "中": "异步",
     "台": "非同步"
   },
   {
-    "英": "audio",
+    "原": "audio",
     "中": "音频",
     "台": "音訊"
   },
   {
-    "英": "audio profiles",
+    "原": "audio profiles",
     "中": "情景模式",
     "台": "音訊設定檔"
   },
   {
-    "英": "audit",
+    "原": "audit",
     "中": "审核",
     "台": "稽核"
   },
   {
-    "英": "backward compatible",
+    "原": "backward compatible",
     "台": "回溯相容",
     "中": "向后兼容"
   },
   {
-    "英": "band width",
+    "原": "band width",
     "中": "带宽",
     "台": "頻寬"
   },
   {
-    "英": "baseband",
+    "原": "baseband",
     "中": "基带",
     "台": "基頻"
   },
   {
-    "英": "base class",
+    "原": "base class",
     "中": "基类",
     "台": "基礎類別"
   },
   {
-    "英": "base name",
+    "原": "base name",
     "中": "文件主名",
     "台": "主檔名"
   },
   {
-    "英": "batch",
+    "原": "batch",
     "中": "批量",
     "台": "批次"
   },
   {
-    "英": "batch file",
+    "原": "batch file",
     "中": ["批处理文件", "批处理"],
     "台": "批次檔"
   },
   {
-    "英": "Bill Gates",
+    "原": "Bill Gates",
     "中": "盖茨",
     "台": "蓋茲"
   },
   {
-    "英": "binary function",
+    "原": "binary function",
     "中": "双参函数",
     "台": "二元函式"
   },
   {
-    "英": "binary tree",
+    "原": "binary tree",
     "中": "二叉树",
     "台": "二元樹"
   },
   {
-    "英": "binding",
+    "原": "binding",
     "台": "繫結",
     "中": "绑定"
   },
   {
-    "英": "bitmap",
+    "原": "bitmap",
     "中": "位图",
     "台": ["點陣圖","柵格圖"]
   },
   {
-    "英": "bitrate",
+    "原": "bitrate",
     "中": "比特率",
     "台": ["位元率", "位元速率"]
   },
   {
-    "英": "bit",
+    "原": "bit",
     "中": "比特",
     "台": "位元"
   },
   {
-    "英": "(n)-bit",
+    "原": "(n)-bit",
     "中": "位",
     "台": "位元"
   },
   {
-    "英": "Bitcoin",
+    "原": "Bitcoin",
     "中": "比特币",
     "台": "位元幣"
   },
   {
-    "英": "Bitcent",
+    "原": "Bitcent",
     "中": "比特分",
     "台": "位元分"
   },
   {
-    "英": "Milli-Bitcoin",
+    "原": "Milli-Bitcoin",
     "中": "毫比特",
     "台": "毫位元"
   },
   {
-    "英": "Micro-Bitcoins",
+    "原": "Micro-Bitcoins",
     "中": "微比特",
     "台": "微位元"
   },
   {
-    "英": "Blade Server",
+    "原": "Blade Server",
     "台": "刀鋒伺服器",
     "中": "刀片服务器"
   },
   {
-    "英": "block",
+    "原": "block",
     "台": "遮蔽",
     "中": "屏蔽"
   },
   {
-    "英": "blog",
+    "原": "blog",
     "中": "博客",
     "台": ["部落格", "網誌"]
   },
   {
-    "英": "Blue Screen of Death",
+    "原": "Blue Screen of Death",
     "中": "蓝屏",
     "台": "藍白當機",
   },
   {
-    "英": "Bluetooth",
+    "原": "Bluetooth",
     "中": "蓝牙",
     "台": "藍芽",
   },
   {
-    "英":"boot",
+    "原":"boot",
     "中":"引导",
     "台":"啟動"
   },
   {
-    "英": "boot disk",
+    "原": "boot disk",
     "中": "启动盘",
     "台": "啟動碟"
   },
   {
-    "英": "Boyce-Codd normal form",
+    "原": "Boyce-Codd normal form",
     "台": "BC正規化",
     "中": "BC范式"
   },
   {
-    "英": "Broadband",
+    "原": "Broadband",
     "中": "宽带",
     "台": "寬頻"
   },
   {
-    "英": "Bubble sort",
+    "原": "Bubble sort",
     "中": "冒泡排序",
     "台": "氣泡排序"
   },
   {
-    "英": "buffer",
+    "原": "buffer",
     "中": "缓存",
     "台": "緩衝區"
   },
   {
-    "英": "build-in",
+    "原": "build-in",
     "中": ["内置", "自带"],
     "台": "內建"
   },
   {
-    "英": "burn",
+    "原": "burn",
     "中": "刻录",
     "台": "燒錄"
   },
   {
-    "英": "Bus",
+    "原": "Bus",
     "中": "总线",
     "台": "匯流排"
   },
   {
-    "英": "byte",
+    "原": "byte",
     "中": "字节",
     "台": "位元組"
   },
   {
-    "英": "cache",
+    "原": "cache",
     "中": "缓存",
     "台": "快取"
   },
   {
-    "英": "cached webpage",
+    "原": "cached webpage",
     "中": "网页快照",
     "台": "頁庫存檔"
   },
   {
-    "英": "cacluator",
+    "原": "cacluator",
     "中": "计算器",
     "台": "計算機"
   },
   {
-    "英": "call",
+    "原": "call",
     "中": "调用",
     "台": "呼叫"
   },
   {
-    "英": "level / layer",
+    "原": "level / layer",
     "中": "层",
     "台": ["層級", "層次"]
   },
   {
-    "英": "callback",
+    "原": "callback",
     "中": "回调",
     "台": "回呼"
   },
   {
-    "英": "Campus Area Network",
+    "原": "Campus Area Network",
     "中": "校园网",
     "台": "校園網路"
   },
   {
-    "英": "cellular data",
+    "原": "cellular data",
     "中": "蜂窝数据",
     "港": "蜂巢式數據",
     "台": "蜂巢式資料"
   },
   {
-    "英": "cellular network",
+    "原": "cellular network",
     "台": "蜂巢式網路",
     "中": "蜂窝网络",
     "港": "蜂巢式網絡"
   },
   {
-    "英": "CD driver",
+    "原": "CD driver",
     "中": "光盘驱动器",
     "台": "光碟機"
   },
   {
-    "英": "component",
+    "原": "component",
     "中": "组件",
     "台": "元件"
   },
   {
-    "英": "check button",
+    "原": "check button",
     "中": "复选按钮",
     "台": ["覈取按鈕", "核取按鈕"]
   },
   {
-    "英": "checkbox",
+    "原": "checkbox",
     "中": "复选框",
     "台": ["覈取方塊", "核取方塊"]
   },
   {
-    "英": "child class",
+    "原": "child class",
     "中": "子类",
     "台": "子類別"
   },
   {
-    "英": "class",
+    "原": "class",
     "中": "类",
     "台": "類別"
   },
   {
-    "英": "declare",
+    "原": "declare",
     "中": "声明",
     "台": "宣告"
   },
   {
-    "英": "class library",
+    "原": "class library",
     "中": "类库",
     "台": "類別庫"
   },
   {
-    "英": "class template",
+    "原": "class template",
     "中": "类模板",
     "台": "類別範本"
   },
   {
-    "英": "click",
+    "原": "click",
     "中": "点击",
     "台": "點選"
   },
   {
-    "英": "client",
+    "原": "client",
     "中": "客户端",
     "台": "用戶端"
   },
   {
-    "英": "clipboard",
+    "原": "clipboard",
     "中": "剪贴板",
     "台": "剪貼簿"
   },
   {
-    "英": "clock rate",
+    "原": "clock rate",
     "中": "时钟频率",
     "台": ["時脈頻率", "批次檔"]
   },
   {
-    "英": "cloud",
+    "原": "cloud",
     "中": "云",
     "台": "雲端"
   },
   {
-    "英": "cluster",
+    "原": "cluster",
     "中": "簇",
     "台": "叢集"
   },
   {
-    "英": "combobox",
+    "原": "combobox",
     "中": "组合框",
     "台": "下拉式方塊"
   },
   {
-    "英": "command line",
+    "原": "command line",
     "中": "命令行",
     "台": "命令列"
   },
   {
-    "英": "communication",
+    "原": "communication",
     "中": "通信",
     "台": "通訊"
   },
   {
-    "英": "community",
+    "原": "community",
     "中": "社区",
     "台": "社群"
   },
   {
-    "英": "compact disc",
+    "原": "compact disc",
     "中": "光盘",
     "台": ["光碟", "光碟片"]
   },
   {
-    "英": "compatible",
+    "原": "compatible",
     "中": "兼容",
     "台": "相容"
   },
   {
-    "英": "computer",
+    "原": "computer",
     "中": "计算机",
     "台": "電腦",
   },
   {
-    "英": "monitor",
+    "原": "monitor",
     "中": ["显示器", "显示屏"],
     "台": ["顯示器", "螢幕"]
   },
   {
-    "英": "computer security",
+    "原": "computer security",
     "中": "计算机安全",
     "台": "電腦保安"
   },
   {
-    "英": "concurrency",
+    "原": "concurrency",
     "中": "并发",
     "台": "並行"
   },
   {
-    "英": "concurrency-oriented",
+    "原": "concurrency-oriented",
     "中": "面向并发",
     "台": "並行導向"
   },
   {
-    "英": "connection",
+    "原": "connection",
     "中": "连接",
     "台": "連線"
   },
   {
-    "英": "constant bitrate",
+    "原": "constant bitrate",
     "中": "固定码率",
     "台": "固定位元速率"
   },
   {
-    "英": "constructor",
+    "原": "constructor",
     "中": ["构造函数", "构造器"],
     "台": ["建構函式", "建構子"]
   },
   {
-    "英": "control",
+    "原": "control",
     "中": "控件",
     "台": "控制項"
   },
   {
-    "英": "cost-effective",
+    "原": "cost-effective",
     "中": "性价比",
     "台": "價效比"
   },
   {
-    "英": "crash",
+    "原": "crash",
     "中": "死机",
     "台": ["宕機", "當機"]
   },
   {
-    "英": "create",
+    "原": "create",
     "中": "创建",
     "台": "建立"
   },
   {
-    "英": "CRT",
+    "原": "CRT",
     "中": "显像管",
     "台": "映像管"
   },
   {
-    "英": "current version",
+    "原": "current version",
     "中": "当前版本",
     "台": "目前版本"
   },
   {
-    "英": "custom",
+    "原": "custom",
     "中": "自定义",
     "台": "自訂"
   },
   {
-    "英": "customization",
+    "原": "customization",
     "中": "定制",
     "台": "客製"
   },
   {
-    "英": "cut",
+    "原": "cut",
     "中": "剪切",
     "台": "剪下"
   },
   {
-    "英": "daemon",
+    "原": "daemon",
     "中": "守护进程",
     "台": "守護行程"
   },
   {
-    "英": "data",
+    "原": "data",
     "中": "数据",
     "台": "資料"
   },
   {
-    "英": "data dredging",
+    "原": "data dredging",
     "中": "数据捕捞",
     "台": "資料挖泥"
   },
   {
-    "英": "data execution protection",
+    "原": "data execution protection",
     "中": "数据执行保护",
     "台": "系統記憶體保護"
   },
   {
-    "英": "data member",
+    "原": "data member",
     "中": "数据成员",
     "台": "成員變數"
   },
   {
-    "英": "data warehouse",
+    "原": "data warehouse",
     "中": "数据仓库",
     "台": "資料倉儲"
   },
   {
-    "英": "data mining",
+    "原": "data mining",
     "中": "数据挖掘",
     "台": "資料探勘"
   },
   {
-    "英": "data source",
+    "原": "data source",
     "中": "数据源",
     "台": "資料來源"
   },
   {
-    "英": "database",
+    "原": "database",
     "中": "数据库",
     "台": "資料庫"
   },
   {
-    "英": "normalization",
+    "原": "normalization",
     "中": "规范化",
     "台": "正規化"
   },
   {
-    "英": "datagram",
+    "原": "datagram",
     "中": ["数据报", "数据报文"],
     "台": "資料包"
   },
   {
-    "英": "DDoS",
+    "原": "DDoS",
     "中": "分布式拒绝服务攻击",
     "台": "分散式阻斷服務攻擊"
   },
   {
-    "英": "deadlock",
+    "原": "deadlock",
     "中": "死锁",
     "台": "死結"
   },
   {
-    "英": "debug",
+    "原": "debug",
     "中": "调试",
     "台": "偵錯"
   },
   {
-    "英": "debugger",
+    "原": "debugger",
     "中": "调试器",
     "台": "偵錯程式"
   },
   {
-    "英": "default",
+    "原": "default",
     "中": ["默认", "缺省"],
     "台": "預設"
   },
   {
-    "英": "denormalization",
+    "原": "denormalization",
     "中": "反规范化",
     "台": "反正規化"
   },
   {
-    "英": "derivation list",
+    "原": "derivation list",
     "中": "继承列表",
     "台": "衍化列"
   },
   {
-    "英": "derive",
+    "原": "derive",
     "中": "派生",
     "台": "衍生"
   },
   {
-    "英": "desktop computer",
+    "原": "desktop computer",
     "中": "台式机",
     "台": ["桌上電腦", "桌上型電腦"]
   },
   {
-    "英": "destructor",
+    "原": "destructor",
     "中": "析构函数",
     "台": ["解構函式", "解構子"]
   },
   {
-    "英": "device",
+    "原": "device",
     "中": "设备",
     "台": "裝置"
   },
   {
-    "英": "dialog",
+    "原": "dialog",
     "中": "对话框",
     "台": "對話方塊"
   },
   {
-    "英": "digital",
+    "原": "digital",
     "中": "数字",
     "港": "數碼",
     "台": "數位"
   },
   {
-    "英": "diskette Drive",
+    "原": "diskette Drive",
     "中": ["软盘驱动器", "软驱"],
     "台": "軟碟機"
   },
   {
-    "英": "document",
+    "原": "document",
     "中": "文档",
     "台": "文件"
   },
   {
-    "英": "domain/key normal form",
+    "原": "domain/key normal form",
     "中": "DK范式",
     "台": "DK正規化"
   },
   {
-    "英": "domain name",
+    "原": "domain name",
     "中": "域名",
     "台": "網域名稱"
   },
   {
-    "英": "harddisk drive",
+    "原": "harddisk drive",
     "中": ["磁盘驱动器", "硬盘驱动器"],
     "台": ["磁碟機", "硬碟機"]
   },
   {
-    "英": "(A-Z) drive",
+    "原": "(A-Z) drive",
     "中": "盘",
     "台": "槽",
     "港": "磁碟機"
   },
   {
-    "英": "drive letter",
+    "原": "drive letter",
     "中": "盘符",
     "台": "碟符"
   },
   {
-    "英": "driver",
+    "原": "driver",
     "中": "驱动程序",
     "台": "驅動程式"
   },
   {
-    "英": "dual-link",
+    "原": "dual-link",
     "中": "双通道",
     "台": "雙鍊結"
   },
   {
-    "英": "dynamic binding",
+    "原": "dynamic binding",
     "中": "动态绑定",
     "台": "動態繫結"
   },
   {
-    "英": "distributed",
+    "原": "distributed",
     "中": "分布式",
     "台": "分散式"
   },
   {
-    "英": "edit bar",
+    "原": "edit bar",
     "中": "编辑栏",
     "台": "編輯列"
   },
   {
-    "英": "email",
+    "原": "email",
     "中": ["电子邮箱", "邮箱"],
     "台": ["電子信箱", "信箱"]
   },
   {
-    "英": "end user",
+    "原": "end user",
     "中": "最终用户",
     "台": "終端使用者"
   },
   {
-    "英": "enter key",
+    "原": "enter key",
     "中": ["回车键", "回车"],
     "台": "確認鍵"
   },
   {
-    "英": "enumeration",
+    "原": "enumeration",
     "中": "枚举",
     "台": "列舉"
   },
   {
-    "英": "enumerators",
+    "原": "enumerators",
     "中": "枚举器",
     "台": "列舉元"
   },
   {
-    "英": "enumerators",
+    "原": "enumerators",
     "中": "枚举成员",
     "台": "列舉元"
   },
   {
-    "英": "ethernet",
+    "原": "ethernet",
     "中": "以太网",
     "台": ["乙太網路", "乙太網"]
   },
   {
-    "英": "exception",
+    "原": "exception",
     "中": "异常",
     "台": "例外"
   },
   {
-    "英": "executable",
+    "原": "executable",
     "中": "可执行文件",
     "台": "可執行檔"
   },
   {
-    "英": "exit",
+    "原": "exit",
     "中": "退出",
     "台": "結束"
   },
   {
-    "英": "export",
+    "原": "export",
     "中": "导出",
     "台": "匯出"
   },
   {
-    "英": "expression",
+    "原": "expression",
     "中": "表达式",
     "台": "運算式"
   },
   {
-    "英": "firmware",
+    "原": "firmware",
     "中": "固件",
     "台": "韌體"
   },
   {
-    "英": "extensible",
+    "原": "extensible",
     "中": "可扩展",
     "台": "可延伸"
   },
   {
-    "英": "extension name",
+    "原": "extension name",
     "中": "扩展名",
     "台": "副檔名"
   },
   {
-    "英": "external link",
+    "原": "external link",
     "中": "外链",
     "台": "外連"
   },
   {
-    "英": "fairchild semiconductor",
+    "原": "fairchild semiconductor",
     "中": "飞兆半导体",
     "台": "快捷半導體"
   },
   {
-    "英": "field",
+    "原": "field",
     "中": "字段",
     "台": "欄位"
   },
   {
-    "英": "fifth normal form",
+    "原": "fifth normal form",
     "中": "第五范式",
     "台": "第五正規化"
   },
   {
-    "英": "file",
+    "原": "file",
     "中": "文件",
     "台": ["檔案", "檔"]
   },
   {
-    "英": "find",
+    "原": "find",
     "中": "查找",
     "台": "尋找"
   },
   {
-    "英": "first normal form",
+    "原": "first normal form",
     "中": "第一范式",
     "台": "第一正規化"
   },
   {
-    "英": "flash memory",
+    "原": "flash memory",
     "中": "闪存",
     "台": "快閃記憶體"
   },
   {
-    "英": "flight mode",
+    "原": "flight mode",
     "中": "飞行模式",
     "台": "飛航模式"
   },
   {
-    "英": "floppy disk",
+    "原": "floppy disk",
     "中": "软盘",
     "台": "軟碟"
   },
   {
-    "英": "folder",
+    "原": "folder",
     "中": "文件夹",
     "台": "資料夾"
   },
   {
-    "英": "font",
+    "原": "font",
     "中": "字体",
     "台": "字型"
   },
   {
-    "英": "footnotes",
+    "原": "footnotes",
     "中": ["脚注", "尾注"],
     "台": ["註腳", "章節附註"]
   },
   {
-    "英": "foreign key",
+    "原": "foreign key",
     "中": "外键",
     "台": "外來鍵"
   },
   {
-    "英": "form (VB6)",
+    "原": "form (VB6)",
     "中": "窗体",
     "台": "表單"
   },
   {
-    "英": "forward error correction",
+    "原": "forward error correction",
     "中": "前向纠错",
     "台": "前向錯誤更正"
   },
   {
-    "英": "fourth normal form",
+    "原": "fourth normal form",
     "中": "第四范式",
     "台": "第四正規化"
   },
   {
-    "英": "frame",
+    "原": "frame",
     "中": "帧",
     "台": "影格"
   },
   {
-    "英": "frame synchronization",
+    "原": "frame synchronization",
     "台": "訊框同步",
     "中": "帧同步"
   },
   {
-    "英": "full screen",
+    "原": "full screen",
     "中": "全屏",
     "台": "全螢幕"
   },
   {
-    "英": "fullwidth",
+    "原": "fullwidth",
     "中": "全角",
     "台": "全形"
   },
   {
-    "英": "function",
+    "原": "function",
     "中": "函数",
     "台": "函式"
   },
   {
-    "英": "functional",
+    "原": "functional",
     "中": "函数式",
     "台": "函數式"
   },
   {
-    "英": "function library",
+    "原": "function library",
     "中": "函数库",
     "台": "函式庫"
   },
   {
-    "英": "functional programming",
+    "原": "functional programming",
     "中": "函数式编程",
     "台": "函數語言程式設計"
   },
   {
-    "英": "functional programming language",
+    "原": "functional programming language",
     "中": ["函数编程语言", "函数式编程语言"],
     "台": "函數程式語言"
   },
   {
-    "英": "garbage",
+    "原": "garbage",
     "中": "无用信息",
     "台": "廢料"
   },
   {
-    "英": "gateway",
+    "原": "gateway",
     "中": "网关",
     "台": "閘道器"
   },
   {
-    "英": "Gateway, Inc.",
+    "原": "Gateway, Inc.",
     "中": "捷威",
     "台": "桀威"
   },
   {
-    "英": "global",
+    "原": "global",
     "中": "全局",
     "台": "全域"
   },
   {
-    "英": "graphing calculator",
+    "原": "graphing calculator",
     "中": "图形计算器",
     "台": "繪圖計算機"
   },
   {
-    "英": "gridlines",
+    "原": "gridlines",
     "中": "网格线",
     "台": "格線"
   },
   {
-    "英": "group (chat)",
+    "原": "group (chat)",
     "中": "群",
     "台": "群組"
   },
   {
-    "英": "hacker",
+    "原": "hacker",
     "中": "黑客",
     "台": "駭客"
   },
   {
-    "英": "hack",
+    "原": "hack",
     "中": "黑",
     "台": "駭"
   },
   {
-    "英": "halfwidth",
+    "原": "halfwidth",
     "中": "半角",
     "台": "半形"
   },
   {
-    "英": "handler",
+    "原": "handler",
     "中": ["处理函数", "处理程序"],
     "台": "處理常式"
   },
   {
-    "英": "handle",
+    "原": "handle",
     "中": "句柄",
     "台": "控制代碼"
   },
   {
-    "英": "hard disk",
+    "原": "hard disk",
     "中": "硬盘",
     "台": ["硬碟", "磁碟"]
   },
   {
-    "英": "hard-coded",
+    "原": "hard-coded",
     "中": "硬编码",
     "台": "寫死"
   },
   {
-    "英": "hardware",
+    "原": "hardware",
     "中": "硬件",
     "台": "硬體"
   },
   {
-    "英": "hash",
+    "原": "hash",
     "中": ["散列", "哈希"],
     "台": "雜湊"
   },
   {
-    "英": "header (packet, etc.)",
+    "原": "header (packet, etc.)",
     "中": ["标头", "头", "头字段"],
     "台": ["檔頭", "表頭", "首部"]
   },
   {
-    "英": "header (document)",
+    "原": "header (document)",
     "中": "页眉",
     "台": "頁首"
   },
   {
-    "英": "header (C/C++)",
+    "原": "header (C/C++)",
     "中": "头文件",
     "台": ["標頭檔", "標頭檔案"]
   },
   {
-    "英": "footer (document)",
+    "原": "footer (document)",
     "中": "页脚",
     "台": "頁尾"
   },
   {
-    "英": "hearts",
+    "原": "hearts",
     "中": "红心大战",
     "台": "傷心小棧"
   },
   {
-    "英": "Help and Support",
+    "原": "Help and Support",
     "中": "帮助与支持",
     "台": "説明與支援"
   },
   {
-    "英": "view",
+    "原": "view",
     "中": "视图",
     "台": "介面"
   },
   {
-    "英": "hierarchical",
+    "原": "hierarchical",
     "中": "树形",
     "台": "樹狀"
   },
   {
-    "英": "hierarchy",
+    "原": "hierarchy",
     "中": "层次结构",
     "台": "階層"
   },
   {
-    "英": "high level",
+    "原": "high level",
     "中": "高级",
     "台": "高階"
   },
   {
-    "英": "homepage",
+    "原": "homepage",
     "中": ["首页", "主页"],
     "台": "首頁"
   },
   {
-    "英": "hook",
+    "原": "hook",
     "中": "钩子",
     "台": "勾點"
   },
   {
-    "英": "hypertext",
+    "原": "hypertext",
     "中": "超文本",
     "台": "超文件"
   },
   {
-    "英": "markup language",
+    "原": "markup language",
     "中": ["标记语言", "置标语言"],
     "台": "標示語言"
   },
   {
-    "英": "hyperthreading",
+    "原": "hyperthreading",
     "中": "超线程",
     "台": "超執行緒"
   },
   {
-    "英": "icon",
+    "原": "icon",
     "中": "图标",
     "台": "圖示"
   },
   {
-    "英": "IDE",
+    "原": "IDE",
     "中": "集成开发环境",
     "台": "整合式開發環境"
   },
   {
-    "英": "identifier",
+    "原": "identifier",
     "中": "标识符",
     "台": "識別元"
   },
   {
-    "英": "if and only if",
+    "原": "if and only if",
     "中": "当且仅当",
     "台": "若且唯若"
   },
   {
-    "英": "image (picture)",
+    "原": "image (picture)",
     "中": "图像",
     "台": "影像"
   },
   {
-    "英": "image (abstract)",
+    "原": "image (abstract)",
     "中": "镜像",
     "台": "映像"
   },
   {
-    "英": "image file",
+    "原": "image file",
     "中": ["图像文件", "图片文件"],
     "台": "圖檔"
   },
   {
-    "英": "implement",
+    "原": "implement",
     "中": "实现",
     "台": "實作"
   },
   {
-    "英": "imperative programming",
+    "原": "imperative programming",
     "中": "命令式编程",
     "台": "指令式編程"
   },
   {
-    "英": "import",
+    "原": "import",
     "中": "导入",
     "台": "匯入"
   },
   {
-    "英": "indent",
+    "原": "indent",
     "中": "缩进",
     "台": "縮排"
   },
   {
-    "英": "information",
+    "原": "information",
     "中": "信息",
     "台": "資訊"
   },
   {
-    "英": "information security",
+    "原": "information security",
     "中": "信息安全",
     "台": "資訊保安"
   },
   {
-    "英": "information technology",
+    "原": "information technology",
     "中": "信息技术",
     "台": "資訊科技"
   },
   {
-    "英": "inline",
+    "原": "inline",
     "中": ["内联", "行內"],
     "台": "行內"
   },
   {
-    "英": "instance",
+    "原": "instance",
     "中": "实例",
     "台": "例項"
   },
   {
-    "英": "integrate",
+    "原": "integrate",
     "中": "集成",
     "台": "整合"
   },
   {
-    "英": "integrated circuit",
+    "原": "integrated circuit",
     "中": "集成电路",
     "台": "積體電路"
   },
   {
-    "英": "intellectual property",
+    "原": "intellectual property",
     "中": "知识产权",
     "台": "智慧財產權"
   },
   {
-    "英": "intelligent / smart",
+    "原": "intelligent / smart",
     "中": "智能",
     "台": ["智慧", "智慧型"]
   },
   {
-    "英": "interacts",
+    "原": "interacts",
     "中": "交互",
     "台": "互動"
   },
   {
-    "英": "interface",
+    "原": "interface",
     "中": ["接口", "界面"],
     "台": "介面"
   },
   {
-    "英": "Internet",
+    "原": "Internet",
     "中": ["互联网", "英特网", "因特网"],
     "港": "互聯網",
     "台": ["網際網路", "互聯網"]
   },
   {
-    "英": "netcafe",
+    "原": "netcafe",
     "中": "网吧",
     "台": "網咖"
   },
   {
-    "英": "Internet Content Provider (ICP)",
+    "原": "Internet Content Provider (ICP)",
     "中": "互联网内容提供商",
     "台": "線上內容提供者",
     "港": "互聯網內容供應商"
   },
   {
-    "英": "Internet Service Provider (ISP)",
+    "原": "Internet Service Provider (ISP)",
     "中": "互联网服务提供商",
     "台": "網際網路服務提供者",
     "港": "互聯網服務供應商"
   },
   {
-    "英": "interpreter",
+    "原": "interpreter",
     "中": "解释器",
     "台": "直譯器"
   },
   {
-    "英": "Intranet",
+    "原": "Intranet",
     "中": "内部网",
     "台": "企業網路",
     "港": "內聯網"
   },
   {
-    "英": "Jelly Bean",
+    "原": "Jelly Bean",
     "中": "果冻豆",
     "台": "雷根糖",
     "港": "啫喱豆"
   },
   {
-    "英": "key",
+    "原": "key",
     "中": "密钥",
     "台": "金鑰"
   },
   {
-    "英": "keygen",
+    "原": "keygen",
     "中": "注册机",
     "台": "序號產生器"
   },
   {
-    "英": "kernel",
+    "原": "kernel",
     "中": "内核",
     "台": "核心"
   },
   {
-    "英": "landscape",
+    "原": "landscape",
     "中": ["横屏", "横屏幕"],
     "台": "橫螢幕"
   },
   {
-    "英": "laser",
+    "原": "laser",
     "中": "激光",
     "港": "鐳射",
     "台": "雷射"
   },
   {
-    "英": "linked list",
+    "原": "linked list",
     "中": "链表",
     "台": "連結串列"
   },
   {
-    "英": "linker",
+    "原": "linker",
     "中": "连接器",
     "台": "連結器"
   },
   {
-    "英": "鏈接",
+    "原": "鏈接",
     "中": "链接",
     "台": "連結"
   },
   {
-    "英": "load",
+    "原": "load",
     "中": "加载",
     "台": "載入"
   },
   {
-    "英": "LAN",
+    "原": "LAN",
     "中": "局域网",
     "台": "區域網路"
   },
   {
-    "英": "localization",
+    "原": "localization",
     "中": "本地化",
     "台": "在地化"
   },
   {
-    "英": "log in",
+    "原": "log in",
     "中": "登录",
     "台": "登入"
   },
   {
-    "英": "log out",
+    "原": "log out",
     "中": "注销",
     "台": "登出"
   },
   {
-    "英": "logic device",
+    "原": "logic device",
     "中": "逻辑器件",
     "台": "邏輯裝置"
   },
   {
-    "英": "logic gate",
+    "原": "logic gate",
     "中": "逻辑门",
     "台": "邏輯閘"
   },
   {
-    "英": "loop",
+    "原": "loop",
     "中": "循环",
     "台": "迴圈"
   },
   {
-    "英": "lossless",
+    "原": "lossless",
     "中": "无损",
     "台": "無失真"
   },
   {
-    "英": "lossy",
+    "原": "lossy",
     "中": "有损",
     "台": "失真"
   },
   {
-    "英": "lost",
+    "原": "lost",
     "中": "丢失",
     "台": "遺失"
   },
   {
-    "英": "low level",
+    "原": "low level",
     "中": "低级",
     "台": "低階"
   },
   {
-    "英": "Laptop",
+    "原": "Laptop",
     "中": "笔记本电脑",
     "港": "筆記電腦",
     "台": "膝上型電腦"
   },
   {
-    "英":"library",
+    "原":"library",
     "中":"库",
     "台":"函式庫"
   },
   {
-    "英": "license",
+    "原": "license",
     "中": "许可协议",
     "台": "授權條款"
   },
   {
-    "英": "machine code",
+    "原": "machine code",
     "中": "机器代码",
     "台": "機器碼",
     "港": "機械碼"
   },
   {
-    "英": "machine code",
+    "原": "machine code",
     "中": "机器码",
     "台": "機器碼",
     "港": "機械碼"
   },
   {
-    "英": "macro",
+    "原": "macro",
     "中": "宏",
     "台": "巨集"
   },
   {
-    "英": "macroblock",
+    "原": "macroblock",
     "中": "宏塊",
     "台": "大區塊"
   },
   {
-    "英": "main memory",
+    "原": "main memory",
     "中": ["主存", "主存储器"],
     "台": "主記憶體"
   },
   {
-    "英": "memory",
+    "原": "memory",
     "中": ["內存", "存储器"],
     "台": "記憶體"
   },
   {
-    "英": "mainframe",
+    "原": "mainframe",
     "中": "大型机",
     "台": "大型電腦"
   },
   {
-    "英": "marketing",
+    "原": "marketing",
     "中": "营销",
     "台": "行銷"
   },
   {
-    "英": "Master Boot Record",
+    "原": "Master Boot Record",
     "中": "主引导记录",
     "台": "主開機紀錄"
   },
   {
-    "英": "Material Design",
+    "原": "Material Design",
     "中": "材质设计",
     "台": "質感設計"
   },
   {
-    "英": "media streamming",
+    "原": "media streamming",
     "中": "流媒体",
     "台": "串流媒體"
   },
   {
-    "英": "memory card",
+    "原": "memory card",
     "中": "存储卡",
     "台": "記憶卡"
   },
   {
-    "英": "menu",
+    "原": "menu",
     "中": "菜单",
     "台": "選單"
   },
   {
-    "英": "message",
+    "原": "message",
     "中": ["消息", "信息"],
     "台": "訊息"
   },
   {
-    "英": "message box",
+    "原": "message box",
     "中": ["消息框", "信息框"],
     "台": "訊息方塊"
   },
   {
-    "英": "meta-programming",
+    "原": "meta-programming",
     "中": "元编程",
     "台": "超編程"
   },
   {
-    "英": "metadata",
+    "原": "metadata",
     "中": "元数据",
     "台": "後設資料"
   },
   {
-    "英": "Metal Oxide Semiconductor",
+    "原": "Metal Oxide Semiconductor",
     "中": "金属氧化物半导体",
     "台": "金氧半導體"
   },
   {
-    "英": "Metropolitan Area Network",
+    "原": "Metropolitan Area Network",
     "中": "城域网",
     "台": "都會網路"
   },
   {
-    "英": "Micro-blog(ging)",
+    "原": "Micro-blog(ging)",
     "中": "微博客",
     "台": "微網誌"
   },
   {
-    "英": "Micro-blog(ging)",
+    "原": "Micro-blog(ging)",
     "中": "微型博客",
     "台": "微型網誌"
   },
   {
-    "英": "microcontroller",
+    "原": "microcontroller",
     "中": "单片机",
     "台": "微控制器"
   },
   {
-    "英": "middleware",
+    "原": "middleware",
     "中": "中间件",
     "台": "中介軟體"
   },
   {
-    "英": "minesweeper",
+    "原": "minesweeper",
     "中": "扫雷",
     "台": "踩地雷"
   },
   {
-    "英": "mobile",
+    "原": "mobile",
     "中": "移动",
     "港": "流動",
     "台": "行動"
   },
   {
-    "英": "mobile communication",
+    "原": "mobile communication",
     "中": "移动通信",
     "港": "流動通訊",
     "台": "行動通訊"
   },
   {
-    "英": "mobile data",
+    "原": "mobile data",
     "中": "移动数据",
     "港": "流動數據",
     "台": "行動資料"
   },
   {
-    "英": "mobile device",
+    "原": "mobile device",
     "中": "移动设备",
     "港": "流動裝置",
     "台": "行動裝置"
   },
   {
-    "英": "mobile Internet",
+    "原": "mobile Internet",
     "中": "移动互联网",
     "港": "流動互聯網",
     "台": "行動網際網路"
   },
   {
-    "英": "operator",
+    "原": "operator",
     "中": "运营商",
     "港": "經營商",
     "台": "業者"
   },
   {
-    "英": "telecom",
+    "原": "telecom",
     "中": "电信",
     "港": "電訊",
     "台": "電信",
   },
   {
-    "英": "mobility",
+    "原": "mobility",
     "中": "便携式",
     "台": "行動式",
     "港": "流動式"
   },
   {
-    "英": "modem",
+    "原": "modem",
     "中": ["调制解调器", "猫"],
     "台": ["數據機", "調變解調器"]
   },
   {
-    "英": "modifier",
+    "原": "modifier",
     "中": "修饰符",
     "台": "修飾詞"
   },
   {
-    "英": "module",
+    "原": "module",
     "中": "模块",
     "台": "模組"
   },
   {
-    "英": "modulation",
+    "原": "modulation",
     "中": "调制",
     "台": "調變"
   },
   {
-    "英": "monolithic kernel",
+    "原": "monolithic kernel",
     "中": "宏内核",
     "港": "整塊性核心",
     "台": "單核心"
   },
   {
-    "英": "microkernel",
+    "原": "microkernel",
     "中": "微內核",
     "台": "微核心"
   },
   {
-    "英": "motherboard",
+    "原": "motherboard",
     "中": "主板",
     "台": "主機板"
   },
   {
-    "英": "mouse",
+    "原": "mouse",
     "中": "鼠标",
     "台": "滑鼠"
   },
   {
-    "英": "multi-tasking",
+    "原": "multi-tasking",
     "中": "多任务",
     "台": "多工"
   },
   {
-    "英": "multihoming",
+    "原": "multihoming",
     "中": "多主",
     "台": "內送流量備援容錯機制"
   },
   {
-    "英": "multithreading",
+    "原": "multithreading",
     "中": "多线程",
     "台": ["多執行緒", "多緒"]
   },
   {
-    "英": "My Document",
+    "原": "My Document",
     "中": "我的文档",
     "台": "我的文件"
   },
   {
-    "英": "namespace",
+    "原": "namespace",
     "中": "命名空间",
     "台": "名稱空間"
   },
   {
-    "英": "native",
+    "原": "native",
     "中": ["本地", "固有"],
     "台": "原生"
   },
   {
-    "英": "navigation bar",
+    "原": "navigation bar",
     "中": "导航条",
     "台": "導覽列"
   },
   {
-    "英": "nested",
+    "原": "nested",
     "中": "嵌套",
     "台": "巢狀"
   },
   {
-    "英": "netbook",
+    "原": "netbook",
     "中": "上网本",
     "台": "小筆電"
   },
   {
-    "英": "network",
+    "原": "network",
     "中": "网络",
     "台": "網路"
   },
   {
-    "英": "network card",
+    "原": "network card",
     "中": "网卡",
     "台": "網路卡"
   },
   {
-    "英": "network database",
+    "原": "network database",
     "中": "网状数据库",
     "台": "網狀式資料庫"
   },
   {
-    "英": "Network Neighbourhood",
+    "原": "Network Neighbourhood",
     "中": "网上邻居",
     "台": "網路上的芳鄰"
   },
   {
-    "英": "notebook computer",
+    "原": "notebook computer",
     "中": "笔记本电脑",
     "台": "筆記型電腦",
     "港": "手提電腦"
   },
   {
-    "英": "NVIDIA",
+    "原": "NVIDIA",
     "中": "英伟达",
     "台": "輝達"
   },
   {
-    "英": "object code",
+    "原": "object code",
     "中": "目标代码",
     "台": "目的碼",
     "港": "目標碼"
   },
   {
-    "英": "object file",
+    "原": "object file",
     "中": "目标文件",
     "台": "目的檔"
   },
   {
-    "英": "object-oriented",
+    "原": "object-oriented",
     "中": "面向对象",
     "台": "物件導向"
   },
   {
-    "英": "object",
+    "原": "object",
     "中": "对象",
     "台": "物件"
   },
   {
-    "英": "offline",
+    "原": "offline",
     "中": "脱机",
     "台": "離線"
   },
   {
-    "英": "online",
+    "原": "online",
     "中": ["在线", "联机"],
     "台": "線上"
   },
   {
-    "英": "open",
+    "原": "open",
     "中": "打开",
     "台": "開啟"
   },
   {
-    "英": "open source",
+    "原": "open source",
     "中": ["开源", "开放源码", "开放源代码"],
     "台": "開放原始碼"
   },
   {
-    "英": "operand",
+    "原": "operand",
     "中": ["操作数", "运算对象"],
     "台": "運算元"
   },
   {
-    "英": "operating system",
+    "原": "operating system",
     "中": "操作系统",
     "台": "作業系統"
   },
   {
-    "英": "operator",
+    "原": "operator",
     "中": "运算符",
     "台": "運算子"
   },
   {
-    "英": "optimization",
+    "原": "optimization",
     "中": "优化",
     "台": "最佳化"
   },
   {
-    "英": "outport",
+    "原": "outport",
     "中": "导出",
     "台": "匯出"
   },
   {
-    "英": "overflow",
+    "原": "overflow",
     "中": "溢出",
     "台": "溢位"
   },
   {
-    "英": "overload",
+    "原": "overload",
     "中": "重载",
     "台": ["過載", "多載"]
   },
   {
-    "英": "override",
+    "原": "override",
     "中": ["改写", "覆盖"],
     "台": "覆寫"
   },
   {
-    "英": "package",
+    "原": "package",
     "中": ["软件包", "包"],
     "台": "套件"
   },
   {
-    "英": "packet",
+    "原": "packet",
     "中": "数据包",
     "台": "封包"
   },
   {
-    "英":"mspaint",
+    "原":"mspaint",
     "中":"画图",
     "台":"小畫家"
   },
   {
-    "英": "palette",
+    "原": "palette",
     "中": "调色板",
     "台": "調色盤"
   },
   {
-    "英": "paradigm",
+    "原": "paradigm",
     "中": "范型",
     "台": "典範"
   },
   {
-    "英": "parallel",
+    "原": "parallel",
     "中": "并行",
     "台": "平行"
   },
   {
-    "英": "parallel port",
+    "原": "parallel port",
     "中": ["并行端口", "并口"],
     "台": "並列埠"
   },
   {
-    "英": "parameter list",
+    "原": "parameter list",
     "中": ["参数列表", "参数表"],
     "台": "參數列"
   },
   {
-    "英": "parenthesis",
+    "原": "parenthesis",
     "中": "括号",
     "台": "括弧"
   },
   {
-    "英": "partition / volume",
+    "原": "partition / volume",
     "中": ["分区", "卷"],
     "台": ["分割", "分割區"]
   },
   {
-    "英": "paste",
+    "原": "paste",
     "中": "粘贴",
     "台": "貼上"
   },
   {
-    "英": "patch",
+    "原": "patch",
     "中": "补丁",
     "台": "修補程式"
   },
   {
-    "英": "performance",
+    "原": "performance",
     "中": "性能",
     "台": "效能"
   },
   {
-    "英": "permission",
+    "原": "permission",
     "中": "权限",
     "台": ["權限", "許可權"]
   },
   {
-    "英": "persistence",
+    "原": "persistence",
     "中": "持久性",
     "台": "永續性"
   },
   {
-    "英": "photocopy",
+    "原": "photocopy",
     "中": "复印",
     "台": "影印"
   },
   {
-    "英": "physical layer",
+    "原": "physical layer",
     "中": "物理层",
     "台": "實體層"
   },
   {
-    "英": "physical address",
+    "原": "physical address",
     "中": "物理地址",
     "台": "實體位址"
   },
   {
-    "英": "physical memory",
+    "原": "physical memory",
     "中": "物理内存",
     "台": "實體記憶體"
   },
   {
-    "英": "picture viewer",
+    "原": "picture viewer",
     "中": ["图像查看器", "图片浏览器"],
     "台": "圖片檢視器"
   },
   {
-    "英": "pixel",
+    "原": "pixel",
     "中": "像素",
     "台": "畫素"
   },
   {
-    "英": "Plug and Play",
+    "原": "Plug and Play",
     "中": "即插即用",
     "台": "隨插即用"
   },
   {
-    "英": "pointer",
+    "原": "pointer",
     "中": "指针",
     "台": "指標"
   },
   {
-    "英": "polymorphism",
+    "原": "polymorphism",
     "中": "多态",
     "台": "多型"
   },
   {
-    "英": "port",
+    "原": "port",
     "中": "端口",
     "台": "埠"
   },
   {
-    "英": "portable",
+    "原": "portable",
     "中": "便携式",
     "台": "可攜式"
   },
   {
-    "英": "portable edition",
+    "原": "portable edition",
     "中": "便携版",
     "台": "可攜版"
   },
   {
-    "英": "portal",
+    "原": "portal",
     "中": ["门户系统", "门戶"],
     "台": "入口系統",
     "港": "入門系統"
   },
   {
-    "英": "portal",
+    "原": "portal",
     "中": "门户网站",
     "台": "入口網站",
     "港": "入門網站"
   },
   {
-    "英": "post",
+    "原": "post",
     "中": "帖子",
     "台": "貼文"
   },
   {
-    "英": "preference",
+    "原": "preference",
     "中": "首选项",
     "台": "偏好設定"
   },
   {
-    "英": "prefix",
+    "原": "prefix",
     "中": "前缀",
     "台": "字首"
   },
   {
-    "英": "presentation",
+    "原": "presentation",
     "中": "演示文稿",
     "台": "簡報"
   },
   {
-    "英": "print",
+    "原": "print",
     "中": "打印",
     "台": "列印"
   },
   {
-    "英": "printer preview",
+    "原": "printer preview",
     "中": "打印机",
     "台": "印表機"
   },
   {
-    "英": "print preview",
+    "原": "print preview",
     "中": "打印预览",
     "台": "預覽列印"
   },
   {
-    "英": "procedural programming",
+    "原": "procedural programming",
     "中": "过程式",
     "台": "程序式"
   },
   {
-    "英": "procedural programming",
+    "原": "procedural programming",
     "中": "过程化",
     "台": "程序化"
   },
   {
-    "英": "procedural programming",
+    "原": "procedural programming",
     "中": "面向过程",
     "台": "程序導向"
   },
   {
-    "英": "process",
+    "原": "process",
     "中": "进程",
     "台": "行程"
   },
   {
-    "英": "Process Control Block",
+    "原": "Process Control Block",
     "中": "进程控制块",
     "台": "行程控制表"
   },
   {
-    "英": "product key",
+    "原": "product key",
     "中": ["产品密钥", "序列号"],
     "台": ["產品金鑰", "序號"]
   },
   {
-    "英": "program",
+    "原": "program",
     "中": "程序",
     "台": "程式"
   },
   {
-    "英": "programmer",
+    "原": "programmer",
     "中": ["程序员", "码农"],
     "台": "程式設計師"
   },
   {
-    "英": "programmable",
+    "原": "programmable",
     "中": "可编程",
     "台": "可程式"
   },
   {
-    "英": "programming language",
+    "原": "programming language",
     "中": "编程语言",
     "台": "程式語言"
   },
   {
-    "英": "project",
+    "原": "project",
     "中": "项目",
     "台": ["專案", "計畫", "計劃"]
   },
   {
-    "英": "protocol",
+    "原": "protocol",
     "中": "协议",
     "台": "協定"
   },
   {
-    "英": "pseudocode",
+    "原": "pseudocode",
     "中": "伪代码",
     "台": "虛擬碼"
   },
   {
-    "英": "Public land mobile network",
+    "原": "Public land mobile network",
     "中": "公共陆基移动网",
     "台": "公眾行動電話網路",
     "港": "公地流動網路"
   },
   {
-    "英": "pull-down lists",
+    "原": "pull-down lists",
     "中": "下拉列表",
     "台": "下拉選單"
   },
   {
-    "英": "purge",
+    "原": "purge",
     "中": "刷新缓存",
     "台": "清除快取"
   },
   {
-    "英": "push",
+    "原": "push",
     "中": "推送",
     "台": "推播"
   },
   {
-    "英": "queue",
+    "原": "queue",
     "中": "队列",
     "台": "佇列"
   },
   {
-    "英": "Quick Launch bar",
+    "原": "Quick Launch bar",
     "中": "快速启动栏",
     "台": "快速啟動列"
   },
   {
-    "英": "quality",
+    "原": "quality",
     "中": "质量",
     "台": "品質",
     "港": "質素"
   },
   {
-    "英": "radio button",
+    "原": "radio button",
     "中": "单选按钮",
     "台": "圓鈕"
   },
   {
-    "英": "read-only",
+    "原": "read-only",
     "中": "只读",
     "台": "唯讀"
   },
   {
-    "英": "real-time",
+    "原": "real-time",
     "中": "实时",
     "台": "即時"
   },
   {
-    "英": "real mode",
+    "原": "real mode",
     "中": "实模式",
     "台": "真實模式"
   },
   {
-    "英": "reboot",
+    "原": "reboot",
     "中": "重启",
     "台": ["重新啟動", "重新開機"]
   },
   {
-    "英": "recovery disc",
+    "原": "recovery disc",
     "中": "恢复光盘",
     "台": "還原光碟"
   },
   {
-    "英": "recursion",
+    "原": "recursion",
     "中": "递归",
     "台": "遞迴"
   },
   {
-    "英": "recycle bin",
+    "原": "recycle bin",
     "中": "回收站",
     "台": ["資源回收桶", "垃圾桶"]
   },
   {
-    "英": "redirect",
+    "原": "redirect",
     "中": "重定向",
     "台": "重新導向"
   },
   {
-    "英": "reference",
+    "原": "reference",
     "中": "参考资料",
     "台": "參考資料"
   },
   {
-    "英": "reference",
+    "原": "reference",
     "中": "引用",
     "台": "參照"
   },
   {
-    "英": "reference",
+    "原": "reference",
     "中": "引用",
     "台": "參考"
   },
   {
-    "英": "dereference",
+    "原": "dereference",
     "中": "解引用",
     "台": "反參考"
   },
   {
-    "英": "refresh",
+    "原": "refresh",
     "中": "刷新",
     "台": "重新整理"
   },
   {
-    "英": "registry",
+    "原": "registry",
     "中": "注册表",
     "台": "登錄檔"
   },
   {
-    "英": "regular expression",
+    "原": "regular expression",
     "中": "正则表达式",
     "台": "正規表示式"
   },
   {
-    "英": "relational",
+    "原": "relational",
     "中": "关系",
     "台": "關聯"
   },
   {
-    "英": "relational database",
+    "原": "relational database",
     "中": "关系数据库",
     "台": "關聯式資料庫"
   },
   {
-    "英": "release",
+    "原": "release",
     "中": "发布",
     "台": "釋出"
   },
   /*
   {
-    "英": "distro",
+    "原": "distro",
     "中": "发行版",
     "台": "distribution"
   },
   */
   {
-    "英": "remote",
+    "原": "remote",
     "中": "远程",
     "台": "遠端"
   },
   {
-    "英": "remote",
+    "原": "remote",
     "中": "远程",
     "台": "遠端"
   },
   {
-    "英": "rename",
+    "原": "rename",
     "中": "重命名",
     "台": "重新命名"
   },
   {
-    "英": "reset",
+    "原": "reset",
     "中": "重置",
     "台": "重設"
   },
   {
-    "英": "routine",
+    "原": "routine",
     "中": "例程",
     "台": "常式"
   },
   {
-    "英": "run",
+    "原": "run",
     "中": "运行",
     "台": "執行"
   },
   {
-    "英": "background",
+    "原": "background",
     "中": "后台",
     "台": "背景"
   },
   {
-    "英": "sample",
+    "原": "sample",
     "中": "示例",
     "台": "範例"
   },
   {
-    "英": "sampling rate",
+    "原": "sampling rate",
     "中": "采样率",
     "台": ["取樣率", "取樣頻率"],
   },
   {
-    "英": "scanner",
+    "原": "scanner",
     "中": "扫描仪",
     "台": ["掃描器", "掃瞄器"]
   },
   {
-    "英": "scheduler",
+    "原": "scheduler",
     "中": "调度程序",
     "台": "排程器"
   },
   {
-    "英": "schedule",
+    "原": "schedule",
     "中": "调度",
     "台": "排程"
   },
   {
-    "英": "screen",
+    "原": "screen",
     "中": ["屏幕", "显示屏"],
     "台": "螢幕"
   },
   {
-    "英": "screensaver",
+    "原": "screensaver",
     "中": "屏保",
     "台": "螢幕保護程式"
   },
   {
-    "英": "desktop screenshot",
+    "原": "desktop screenshot",
     "中": "桌面截图",
     "台": ["螢幕擷圖", "螢幕快照"]
   },
   {
-    "英": "screenshot",
+    "原": "screenshot",
     "中": ["截屏", "截图"],
     "台": ["螢幕擷圖", "擷圖", "抓圖", "擷取畫面"]
   },
   {
-    "英": "script",
+    "原": "script",
     "中": "脚本",
     "台": "指令碼"
   },
   {
-    "英": "scripting language",
+    "原": "scripting language",
     "中": "脚本语言",
     "台": "手稿語言"
   },
   {
-    "英": "scroll bar",
+    "原": "scroll bar",
     "中": "滚动条",
     "台": "捲軸"
   },
   {
-    "英": "scroll bar",
+    "原": "scroll bar",
     "中": "滚动栏",
     "台": "捲軸"
   },
   {
-    "英": "scroll box",
+    "原": "scroll box",
     "中": "滚动框",
     "台": "捲動方塊"
   },
   {
-    "英": "scroll",
+    "原": "scroll",
     "中": "滚动",
     "台": "捲動"
   },
   {
-    "英": "SDK",
+    "原": "SDK",
     "中": "软件开发工具包",
     "台": "軟體開發套件"
   },
   {
-    "英": "search key",
+    "原": "search key",
     "中": "搜索关键字",
     "台": "搜尋鍵碼"
   },
   {
-    "英": "search",
+    "原": "search",
     "中": "搜索",
     "台": "搜尋"
   },
   {
-    "英": "second normal form",
+    "原": "second normal form",
     "中": "第二范式",
     "台": "第二正規化"
   },
   {
-    "英": "sector",
+    "原": "sector",
     "中": "扇区",
     "台": "磁區"
   },
   {
-    "英": "segment fault",
+    "原": "segment fault",
     "中": "段错误",
     "台": "記憶體區段錯誤"
   },
   {
-    "英": "core dump",
+    "原": "core dump",
     "中": "吐核",
     "台": "核心轉儲"
   },
   {
-    "英": "Semantic Web",
+    "原": "Semantic Web",
     "中": "语义网",
     "台": "語意網"
   },
   {
-    "英": "semantics",
+    "原": "semantics",
     "中": "语义",
     "台": "語意"
   },
   {
-    "英": "semaphore",
+    "原": "semaphore",
     "中": "信号量",
     "台": "號誌"
   },
   {
-    "英": "send",
+    "原": "send",
     "中": "发送",
     "台": "傳送"
   },
   {
-    "英": "Serial",
+    "原": "Serial",
     "中": "串行",
     "台": "序列"
   },
   {
-    "英": "Serial port",
+    "原": "Serial port",
     "中": ["串口", "串行接口"],
     "台": "串列埠"
   },
   {
-    "英": "server",
+    "原": "server",
     "中": "服务端",
     "台": "伺服端"
   },
   {
-    "英": "server",
+    "原": "server",
     "中": "服务器",
     "台": "伺服器"
   },
   {
-    "英": "session hijacking",
+    "原": "session hijacking",
     "中": "会话劫持",
     "台": "連線劫持"
   },
   {
-    "英": "setting",
+    "原": "setting",
     "中": "设置",
     "台": "設定"
   },
   {
-    "英": "shared",
+    "原": "shared",
     "中": "共享",
     "台": "共用"
   },
   {
-    "英": "shortcut",
+    "原": "shortcut",
     "中": "快捷方式",
     "台": "捷徑"
   },
   {
-    "英": "Single Link",
+    "原": "Single Link",
     "中": "单通道",
     "台": "單鍊結"
   },
   {
-    "英": "signal",
+    "原": "signal",
     "中": "信号",
     "台": "訊號"
   },
   {
-    "英": "silicon",
+    "原": "silicon",
     "中": "硅",
     "台": "矽"
   },
   {
-    "英": "sixth normal form",
+    "原": "sixth normal form",
     "中": "第六范式",
     "台": "第六正規化"
   },
   {
-    "英": "slider",
+    "原": "slider",
     "中": "滑块",
     "台": "滾軸"
   },
   {
-    "英": "smart phone",
+    "原": "smart phone",
     "中": "智能手机",
     "台": "智慧型手機",
     "港": "智能電話"
   },
   {
-    "英": "SMS",
+    "原": "SMS",
     "中": "短信",
     "港": "短訊",
     "台": "簡訊"
   },
   {
-    "英": "social network",
+    "原": "social network",
     "中": "社交网络",
     "台": "社群網路"
   },
   {
-    "英": "social site",
+    "原": "social site",
     "中": "社交网站",
     "台": "社群網站"
   },
   {
-    "英": "software",
+    "原": "software",
     "中": "软件",
     "台": "軟體"
   },
   {
-    "英": "software engineering",
+    "原": "software engineering",
     "中": "软件工程",
     "台": "軟體工程"
   },
   {
-    "英": "software process",
+    "原": "software process",
     "中": "软件过程",
     "台": "軟體流程"
   },
   {
-    "英": "sound card",
+    "原": "sound card",
     "中": "声卡",
     "台": "音效卡"
   },
   {
-    "英": "source code",
+    "原": "source code",
     "中": ["源代码", "源码", "代码"],
     "台": "原始碼"
   },
   {
-    "英": "source file",
+    "原": "source file",
     "中": "源文件",
     "台": "原始檔"
   },
   {
-    "英": "spreadsheet",
+    "原": "spreadsheet",
     "中": "电子表格",
     "台": "電子試算表"
   },
   {
-    "英": "spider solitaire",
+    "原": "spider solitaire",
     "中": "蜘蛛纸牌",
     "台": "連環新接龍"
   },
   {
-    "英": "SQL injection",
+    "原": "SQL injection",
     "中": "注入",
     "台": ["資料隱碼", "隱碼"]
   },
   {
-    "英": "stack",
+    "原": "stack",
     "中": ["堆栈", "栈"],
     "台": "堆疊"
   },
   {
-    "英": "status bar",
+    "原": "status bar",
     "中": "状态栏",
     "台": "狀態列"
   },
   {
-    "英": "storage",
+    "原": "storage",
     "中": "存储",
     "台": "儲存"
   },
   {
-    "英": "stream",
+    "原": "stream",
     "中": ["流", "流式"],
     "台": "串流"
   },
   {
-    "英": "string",
+    "原": "string",
     "中": "字符串",
     "台": "字串"
   },
   {
-    "英": "submit",
+    "原": "submit",
     "中": "提交",
     "台": "送出"
   },
   {
-    "英": "subnet",
+    "原": "subnet",
     "中": "子网",
     "台": "子網路"
   },
   {
-    "英": "subnet mask",
+    "原": "subnet mask",
     "中": "子网掩码",
     "台": "子網路遮罩"
   },
   {
-    "英": "suffix",
+    "原": "suffix",
     "中": "后缀",
     "台": "字尾"
   },
   {
-    "英": "support",
+    "原": "support",
     "中": "支持",
     "台": "支援"
   },
   {
-    "英": "tab",
+    "原": "tab",
     "中": "标签页",
     "台": "分頁"
   },
   {
-    "英": "tab",
+    "原": "tab",
     "中": "选项卡",
     "台": "索引標籤"
   },
   {
-    "英": "target",
+    "原": "target",
     "中": "目标",
     "台": "標的"
   },
   {
-    "英": "task bar",
+    "原": "task bar",
     "中": "任务栏",
     "台": "工作列"
   },
   {
-    "英": "task manager",
+    "原": "task manager",
     "中": "任务管理器",
     "台": "工作管理員"
   },
   {
-    "英": "task switch",
+    "原": "task switch",
     "中": "任务切换",
     "台": "工作切換"
   },
   {
-    "英": "template",
+    "原": "template",
     "中": "模板",
     "台": "樣版"
   },
   {
-    "英": "terminator",
+    "原": "terminator",
     "中": "终结器",
     "台": "終端子"
   }, 
   {
-    "英": "text",
+    "原": "text",
     "中": "文本",
     "台": "文字"
   },
   {
-    "英": "textbox",
+    "原": "textbox",
     "中": "文本框",
     "台": "文字域"
   },
   {
-    "英": "third normal form",
+    "原": "third normal form",
     "中": "第三范式",
     "台": "第三正規化"
   },
   {
-    "英": "thread",
+    "原": "thread",
     "中": "线程",
     "台": "執行緒"
   },
   {
-    "英": "thread safe",
+    "原": "thread safe",
     "中": "多线程安全",
     "台": "多緒安全"
   },
   {
-    "英": "through",
+    "原": "through",
     "中": "通过",
     "台": "透過"
   },
   {
-    "英": "throw",
+    "原": "throw",
     "中": "抛出",
     "台": "丟擲",
     "港": "投擲"
   },
   {
-    "英": "thumbnail",
+    "原": "thumbnail",
     "中": "缩略图",
     "台": "縮圖"
   },
   {
-    "英": "title bar",
+    "原": "title bar",
     "中": "标题栏",
     "台": "標題列"
   },
   {
-    "英": "toolbar",
+    "原": "toolbar",
     "中": "工具栏",
     "台": "工具列"
   },
   {
-    "英": "Touchscreen",
+    "原": "Touchscreen",
     "中": ["触摸屏", "触屏"],
     "港": "輕觸式熒幕",
     "台": "觸控式螢幕"
   },
   {
-    "英": "TouchPad",
+    "原": "TouchPad",
     "中": "触摸板",
     "台": "觸控板"
   },
   {
-    "英": "track",
+    "原": "track",
     "中": "磁道",
     "台": "磁軌"
   },
   {
-    "英": "type",
+    "原": "type",
     "中": "类型",
     "台": "型別",
     "港": "類別"
   },
   {
-    "英": "unary",
+    "原": "unary",
     "中": "单参",
     "台": "一元"
   },
   {
-    "英": "underflow",
+    "原": "underflow",
     "中": "下溢",
     "台": "下限溢位"
   },
   {
-    "英": "underline",
+    "原": "underline",
     "中": "下划线",
     "台": "底線"
   },
   {
-    "英": "undo",
+    "原": "undo",
     "中": "撤消",
     "台": "復原"
   },
   {
-    "英": "uninstall",
+    "原": "uninstall",
     "中": "卸载",
     "台": ["移除", "解除安裝"]
   },
   {
-    "英": "USB flash drive",
+    "原": "USB flash drive",
     "中": ["U盘", "优盘"],
     "台": ["隨身碟", "快閃碟", "快閃隨身碟"]
   },
   {
-    "英": "user",
+    "原": "user",
     "中": "用户",
     "台": "使用者"
   },
   {
-    "英": "user name",
+    "原": "user name",
     "中": "用户名",
     "台": "使用者名稱"
   },
   {
-    "英": "variable bitrate",
+    "原": "variable bitrate",
     "中": "可变码率",
     "台": "可變位元速率",
     "港": "動態編碼率"
   },
   {
-    "英": "vector",
+    "原": "vector",
     "中": "矢量",
     "台": "向量"
   },
   {
-    "英": "VGA connector",
+    "原": "VGA connector",
     "中": "视频接口",
     "台": "視訊接頭",
     "港": "視訊端子"
   },
   {
-    "英": "video memory",
+    "原": "video memory",
     "中": "显存",
     "台": "視訊記憶體"
   },
   {
-    "英": "video",
+    "原": "video",
     "中": "视频",
     "台": ["影片", "視訊"]
   },
   {
-    "英": "view",
+    "原": "view",
     "中": ["视图", "查看"],
     "台": "檢視"
   },
   {
-    "英": "virtual function",
+    "原": "virtual function",
     "中": "虚函数",
     "台": "虛擬函式"
   },
   {
-    "英": "virtual machine",
+    "原": "virtual machine",
     "中": "虚拟机",
     "台": "虛擬機器"
   },
   {
-    "英": "virtual memory",
+    "原": "virtual memory",
     "中": "虚拟内存",
     "台": "虛擬記憶體"
   },
   {
-    "英": "visual",
+    "原": "visual",
     "中": "可视化",
     "台": "視覺化"
   },
   {
-    "英": "volatile (memory)",
+    "原": "volatile (memory)",
     "中": "易失性",
     "台": "揮發性"
   },
   {
-    "英": "Virtual Private Network",
+    "原": "Virtual Private Network",
     "中": "虚拟专用网络",
     "台": "虛擬私人網路"
   },
   {
-    "英": "von Neumann",
+    "原": "von Neumann",
     "中": ["冯·诺伊曼", "冯诺伊曼"],
     "台": ["馮·紐曼", "馮紐曼"]
   },
   {
-    "英": "wallpaper",
+    "原": "wallpaper",
     "中": ["壁纸", "墙纸"],
     "台": "桌布"
   },
   {
-    "英": "watermark",
+    "原": "watermark",
     "中": "水印",
     "台": "浮水印"
   },
   {
-    "英": "webcam",
+    "原": "webcam",
     "中": "摄像头",
     "台": "網路攝影機"
   },
   {
-    "英": "Wide Area Network",
+    "原": "Wide Area Network",
     "中": "广域网",
     "台": "廣域網路"
   },
   {
-    "英": "window manager",
+    "原": "window manager",
     "中": "窗口管理器",
     "台": "視窗管理員"
   },
   {
-    "英": "Western Digital",
+    "原": "Western Digital",
     "中": "西部数据",
     "台": "威騰電子"
   },
   {
-    "英": "Windows Explorer",
+    "原": "Windows Explorer",
     "中": "资源管理器",
     "台": "檔案總管"
   },
   {
-    "英": "wizard",
+    "原": "wizard",
     "中": "向导",
     "台": "精靈"
   },
   {
-    "英": "word process",
+    "原": "word process",
     "中": "文字处理",
     "台": "文書處理"
   },
   {
-    "英": "word processor",
+    "原": "word processor",
     "中": "文字处理器",
     "台": "文書處理器"
   },
   {
-    "英": "workgroup",
+    "原": "workgroup",
     "中": "工作组",
     "台": "工作群組"
   },
   {
-    "英": "World Wide Web",
+    "原": "World Wide Web",
     "中": "万维网",
     "台": "全球資訊網"
   },
   {
-    "英": "World Wide Web Consortium",
+    "原": "World Wide Web Consortium",
     "中": "万维网联盟",
     "台": "全球資訊網協會"
   },
   {
-    "英": "write protection",
+    "原": "write protection",
     "中": "写保护",
     "台": "防寫"
   },
   {
-    "英": "wubi",
+    "原": "wubi",
     "中": "五笔字型",
     "台": "五筆字型"
   },
   {
-    "英": "Wind River",
+    "原": "Wind River",
     "中": "风河",
     "台": "溫瑞爾"
   },
   {
-    "英": "Xerox",
+    "原": "Xerox",
     "中": "施乐",
     "台": "全錄"
   }

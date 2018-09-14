@@ -5,7 +5,7 @@
  *  採用 CC BY-SA 3.0 授權
  *
  *  【格式】
- *    ・英: 英語原文
+ *    ・原: 西文原文
  *    ・中: 中國大陸譯語
  *    ・台: 台灣譯語
  *    ・港: 香港獨有譯語
@@ -15,239 +15,239 @@
 if ( typeof 地區用詞表 == 'undefined' ) { 地區用詞表 = {} }
 地區用詞表['化學'] = [
   {
-    "英": "amino group",
+    "原": "amino group",
     "中": "氨基",
     "台": "胺基"
   },
   {
-    "英": "amount of substance",
+    "原": "amount of substance",
     "中": "物质的量",
     "台": "物量"
   },
   {
-    "英": "bomb calorimeter",
+    "原": "bomb calorimeter",
     "中": "弹式量热器",
     "台": "彈卡計"
   },
   {
-    "英": "chemical affinity",
+    "原": "chemical affinity",
     "中": "化学亲和势",
     "台": "化學親和力"
   },
   {
-    "英": "complex-",
+    "原": "complex-",
     "中": ["络合", "配合"],
     "台": "錯合"
   },
   {
-    "英": "dynamite",
+    "原": "dynamite",
     "台": "矽藻土炸藥",
     "中": "硝酸甘油炸药"
   },
   {
-    "英": "electron negativity",
+    "原": "electron negativity",
     "中": "电负性",
     "台": "電負度"
   },
   {
-    "英": "energy level",
+    "原": "energy level",
     "中": "能级",
     "台": "能階"
   },
   {
-    "英": "Halon",
+    "原": "Halon",
     "中": "哈龙",
     "台": "海龍"
   },
   {
-    "英": "hybridization",
+    "原": "hybridization",
     "中": "杂化",
     "台": "混成"
   },
   {
-    "英": "ionizing radiation",
+    "原": "ionizing radiation",
     "中": "电离辐射",
     "台": "游離輻射"
   },
   {
-    "英": "matrix isolation",
+    "原": "matrix isolation",
     "中": "基体分离",
     "台": "間質隔離"
   },
   {
-    "英": "mole",
+    "原": "mole",
     "中": "摩尔",
     "台": "莫耳"
   },
   {
-    "英": "mole fraction",
+    "原": "mole fraction",
     "中": "摩尔分数",
     "台": "莫耳分率"
   },
   {
-    "英": "nitroglycerin",
+    "原": "nitroglycerin",
     "台": "硝化甘油",
     "中": "硝酸甘油"
   },
   {
-    "英": "nuclear magnetic resonance",
+    "原": "nuclear magnetic resonance",
     "中": "核磁共振",
     "台": "核磁諧振"
   },
   {
-    "英": "orbital",
+    "原": "orbital",
     "中": "轨道",
     "台": "軌域"
   },
   {
-    "英": "pressure",
+    "原": "pressure",
     "中": "压强",
     "台": "壓力"
   },
   {
-    "英": "residual error",
+    "原": "residual error",
     "中": "误差",
     "台": "殘留誤差"
   },
   {
-    "英": "sequence rule",
+    "原": "sequence rule",
     "中": "顺序规则",
     "台": "序列法則"
   },
   {
-    "英": "shield",
+    "原": "shield",
     "中": "屏蔽",
     "台": "遮蔽"
   },
   {
-    "英": "watch glass",
+    "原": "watch glass",
     "中": "表面皿",
     "台": "錶玻璃"
   },
   {
-    "英": "xanthoproteic reaction",
+    "原": "xanthoproteic reaction",
     "中": "黄蛋白反应",
     "台": "薑黃反應"
   },
   {
-    "英": "Arrhenius",
+    "原": "Arrhenius",
     "中": "阿伦尼乌斯",
     "台": "阿瑞尼士"
   },
   {
-    "英": "Avogadro",
+    "原": "Avogadro",
     "中": "阿伏伽德罗",
     "港": "阿佛加德羅",
     "台": "亞佛加厥"
   },
   {
-    "英": "Hess",
+    "原": "Hess",
     "中": "盖斯",
     "台": ["赫斯", "赫士"]
   },
   {
-    "英": "Lavoisier",
+    "原": "Lavoisier",
     "中": "拉瓦锡",
     "台": "拉瓦節"
   },
   {
-    "英": "Lewis",
+    "原": "Lewis",
     "中": "路易斯",
     "台": "路易士"
   },
   {
-    "英": "Markovnikov",
+    "原": "Markovnikov",
     "中": "马尔科夫尼科夫",
     "台": "馬可尼可夫"
   },
   {
-    "英": "Mendeleev",
+    "原": "Mendeleev",
     "中": "门捷列夫",
     "台": "門得列夫"
   },
   {
-    "英": "Raoult",
+    "原": "Raoult",
     "中": "拉乌尔",
     "台": "拉午耳"
   },
   {
-    "英": "Zaitsev",
+    "原": "Zaitsev",
     "中": "查依采夫",
     "台": "柴瑟夫"
   },
   {
-    "英": "americium",
+    "原": "americium",
     "中": "镅",
     "台": "鋂"
   },
   {
-    "英": "astatine",
+    "原": "astatine",
     "中": "砹",
     "台": "砈"
   },
   {
-    "英": "berkelium",
+    "原": "berkelium",
     "中": "锫",
     "台": "鉳"
   },
   {
-    "英": "californium",
+    "原": "californium",
     "中": "锎",
     "台": "鉲"
   },
   {
-    "英": "darmstadtium",
+    "原": "darmstadtium",
     "中": "𫟼",
     "台": "鐽"
   },
   {
-    "英": "rinsteinium",
+    "原": "rinsteinium",
     "中": "锿",
     "台": "鑀"
   },
   {
-    "英": "francium",
+    "原": "francium",
     "中": "钫",
     "台": "鍅"
   },
   {
-    "英": "lutetium",
+    "原": "lutetium",
     "中": "镥",
     "台": "鎦"
   },
   {
-    "英": "livermorium",
+    "原": "livermorium",
     "中": "𫟷",
     "台": "鉝"
   },
   {
-    "英": "meitnerium",
+    "原": "meitnerium",
     "中": "鿏",
     "台": "䥑"
   },
   {
-    "英": "neptunium",
+    "原": "neptunium",
     "中": "镎",
     "台": "錼"
   },
   {
-    "英": "plutonium",
+    "原": "plutonium",
     "中": "钚",
     "台": "鈽"
   },
   {
-    "英": "silicon",
+    "原": "silicon",
     "中": "硅",
     "台": "矽"
   },
   {
-    "英": "technetium",
+    "原": "technetium",
     "台": "鎝",
     "中": "锝"
   },
   /*
   {
-    "英": "nihonium",
+    "原": "nihonium",
     "中": "鿭",
     "台": "鉨"
   }
