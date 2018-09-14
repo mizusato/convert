@@ -77,7 +77,7 @@ a, a:visited { color: color: hsl(233, 81%, 48%); }
 .地區詞設定 { display: flex; flex-wrap: wrap; }
 .地區詞設定 { -moz-user-select: none; -webkit-user-select: none; }
 .地區詞設定條目 { display: flex; }
-.地區詞設定條目 { flex-basis: 18%; margin: 0% 1%; }
+.地區詞設定條目 { flex-basis: 18%; margin: 0.25em 1%; }
 .地區詞設定條目 { cursor: pointer; }
 .地區詞設定條目 { font-size: 135%; text-align: center; }
 .地區詞設定條目[data-enabled=false] {
