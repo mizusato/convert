@@ -322,12 +322,24 @@ class 文章 extends CompatEventTarget {
   static 生成字表 (字串, 轉換規則, 標記 = {不轉換:'{}', 預設:'[]'}) {
     var 字表 = []
     字串 = getlist(字串) // 轉換成 array 以處理擴展區的字
-    var 不轉換 = false
+    var 不轉換 = 0
     for ( let 索引=0; 索引<字串.length; ) {
       let 字 = 字串[索引]
-      if ( 字 == 標記.不轉換[0] ) { 不轉換 = true; 索引++; continue; }
-      if ( 字 == 標記.不轉換[1] ) { 不轉換 = false; 索引++; continue; }
-      if ( !不轉換
+      if ( 字 == 標記.不轉換[0] ) {
+	不轉換++;
+	if (不轉換==0+1) {
+	  索引++;
+	  continue;
+	}  
+      }
+      if ( 字 == 標記.不轉換[1] ) {
+	不轉換--;
+	if (不轉換==1-1) {
+	  索引++;
+	  continue;
+	}  
+      }
+      if ( (不轉換 <= 0)
 	   && 字串[索引+1] == 標記.預設[0] && 字串[索引+3] == 標記.預設[1] ) {
 	let 已確定對應字 = 字串[索引+2]
 	if ( typeof 已確定對應字 != 'undefined' ) {
