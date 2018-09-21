@@ -71,6 +71,7 @@ textarea { box-sizing: border-box; }
 a { text-decoration: none; outline: none; }
 a, h1, h3 { -moz-user-select: none; -webkit-user-select: none; }
 a, a:visited { color: color: hsl(233, 81%, 48%); }
+a[data-page] { display: inline-block; }
 
 
 /*.地區詞設定 { column-count: 5; -webkit-column-break-inside: avoid; }*/
@@ -107,7 +108,22 @@ a, a:visited { color: color: hsl(233, 81%, 48%); }
     }
     #container {
 	box-sizing: border-box;
-	margin: 0px;
+	margin: 0px;	
 	width: 100%;
+	min-height: 100vh;
+	padding: 0.4em 1em 0.4em 1em;
+    }
+    .選擇面板 {	
+	left: 50% !important;
+	transform: translateX(-50%);
+	width: 77vw !important;
+	font-size: 120%;
+    }
+    .地區詞設定條目 .啟用標記 {
+	display: none;
+    }
+    .地區詞設定條目 .類別名 {
+	padding-right: 0px !important;
+	font-size: 90%;
     }
 }

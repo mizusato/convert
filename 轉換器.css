@@ -1,8 +1,8 @@
+.文章 * { -moz-user-select: none; -webkit-user-select: none; }
 .選擇面板 { border: 1px solid hsl(0, 0%, 85%); }
 .選擇面板 { margin-top: 0.2em; }
 .選擇面板 { background-color: hsla(50, 1%, 97%, 0.97); }
 .選擇面板 { box-shadow: 0 4px 10px hsla(0, 0%, 35%, 0.4); }
-.選擇面板 { -moz-user-select: none; -webkit-user-select: none; }
 .選擇器 { width: 13.5em; }
 .地區詞選單 { width: 18.5em; }
 .選擇器 .選項 { display: flex; justify-content: space-between; }
