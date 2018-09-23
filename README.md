@@ -19,3 +19,4 @@
 
 <p lang="ja">このプログラムは、繁体字中国語と簡体字中国語の相互変換のほか、「簡体字日本語の還元」という機能も持っています。（中国本土の掲示板などのサイトのなか、繁体字のスレを自動的に簡体字に変換する機能を持つものが沢山あります。そのせいで、日本語の漢字が簡体字に変換されてしまった場合も多いと言われています。そのような日本語を「簡体字日本語」と呼ぶとします。）</p>
 
+<p lang="en">Online Test: <a target="_blank" href="https://sinograph.neocities.org/convert/">https://sinograph.neocities.org/convert/</a></p>
