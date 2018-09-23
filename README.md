@@ -11,7 +11,7 @@
 
 <p lang="ja">このプログラムは、変換の正確性を保つように、人工的な修正を行うことができる仕組みになっています。また、台湾華語と普通話の語彙の相互変換にも対応しています。</p>
 
-![ExampleImage](圖檔/s2t_example.png)
+![ExampleImage](images/s2t_example.png)
 
 （示例文章為：中文維基百科 "Linux" 詞條 ）
 
