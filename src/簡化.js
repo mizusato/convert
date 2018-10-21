@@ -33,7 +33,7 @@ function 生成地區表 () {
   const 中國大陸 = '中'
   const 香港 = '港'
   const 台灣 = '台'
-  const 原文 = '原文'
+  const 原文 = '原'
   地區表 = {}
   function 生成用語列表 (字串或列表) {
     if ( typeof 字串或列表 == 'string' ) {
