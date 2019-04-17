@@ -6,6 +6,8 @@
     <title>简化 / 大陆化 - 繁簡轉換</title>
     <link rel="stylesheet" href="共通樣式.css">
     <link rel="stylesheet" href="轉換器.css">
+    <script type="text/javascript" src="es6_test.js"></script>
+    <script type="text/javascript" src="es6_required.js"></script>
     <script type="text/javascript" src="資料/繁化表.js"></script>
     <script type="text/javascript" src="資料/一簡多繁.js"></script>
     <script type="text/javascript" src="資料/一繁多簡.js"></script>
@@ -25,17 +27,17 @@
     <script type="text/javascript" src="簡化.js"></script>
     <script type="text/javascript">
       window.addEventListener('load', function() {
-	初始化(簡化, input, output, workspace, {
-	  地區詞設定: { 介面: $('.setting.local_word') },
-	  介面文字轉換: (
-	    字串 => join(map(字串, 字 => 簡化表.存在(字)? 簡化表[字]: 字))
-	  )
-	})
-	activate_tabs(
-	  navbar.children,
-	  a => a.href = 'javascript: void(0)',
-	  a => a.removeAttribute('href')
-	)
+	      初始化(簡化, input, output, workspace, {
+	          地區詞設定: { 介面: $('.setting.local_word') },
+	          介面文字轉換: (
+	              字串 => join(map(字串, 字 => 簡化表.存在(字)? 簡化表[字]: 字))
+	          )
+	      })
+	      activate_tabs(
+	          navbar.children,
+	          a => a.href = 'javascript: void(0)',
+	          a => a.removeAttribute('href')
+	      )
       })
     </script>
   </head>
