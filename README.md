@@ -13,7 +13,11 @@
 
 ![ExampleImage](images/s2t_example.png)
 
-（示例文章為：中文維基百科 "Linux" 詞條 ）
+（示例文章為：中文維基百科 "Linux" 詞條）
+
+![SetttingsImage](images/settings.png)
+
+（專門用語轉換收錄類別暫時較少）
 
 <p lang="zh-tw">另外，除了繁體和簡體之間的轉換，本程式還提供了「日文復原」這一功能，可以復原日文漢字被自動轉換成簡體字的日文文章。</p>
 
@@ -24,3 +28,7 @@
 <p lang="ja">このプログラムのすべてのソースコードは MIT License の下で公開されています。このプログラムの中で使用されるデータの一部は Wikipedia 中国語版からダンロードして JSON フォーマットに変換されたもので、CC BY-SA 3.0 License を保っています。他のデータの版権はファイルの中で記されている著者にあります。著者が記されていないデータは public domain で公開されています。</p>
 
 <p lang="en">Online Test: <a target="_blank" href="https://sinograph.club/convert/">https://sinograph.club/convert/</a></p>
+
+<p lang="zh-tw">** 本程式中的 JavaScript 未經 Babel 轉換，故要求瀏覧器支援 ECMAScript 2015 (ES6) 才可以正常使用。</p>
+
+<p lang="ja">** このプログラムを利用するには、ブラウザの ECMAScript 2015 (ES6) の対応は不可欠となっています。</p>
