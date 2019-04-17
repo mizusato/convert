@@ -4,5 +4,6 @@
     let c = [...b, (()=>4)()]
     class A {}
     let d = new A()
+    ;(function* () { yield 1 })()
     window.es6_ok = true
 })(window)
