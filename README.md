@@ -31,4 +31,4 @@
 
 <p lang="zh-tw">** 本程式中的 JavaScript 未經 Babel 轉換，故要求瀏覧器支援 ECMAScript 2015 (ES6) 才可以正常使用。</p>
 
-<p lang="ja">** このプログラムを利用するには、ブラウザの ECMAScript 2015 (ES6) の対応は不可欠となっています。</p>
+<p lang="ja">** このプログラムを利用するには、ブラウザの ECMAScript 2015 (ES6) の対応は不可欠となります。</p>
