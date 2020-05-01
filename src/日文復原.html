@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>日本語の還元 - 繁簡轉換</title>
+    <title>簡体字 → 新字体 - 繁簡轉換</title>
     <link rel="stylesheet" href="共通樣式.css">
     <link rel="stylesheet" href="轉換器.css">
     <script type="text/javascript" src="es6_test.js"></script>
@@ -30,31 +30,31 @@
   </head>
   <body>
     <div id="container">
-      <h1>簡体字日本語の還元ツール</h1>
+      <h1>簡体字 → 新字体</h1>
       <hr/>
       <div id="navbar">
-	<a data-page=".page.input">
-	  【簡体字の文章】
-	</a>
-	<a data-page=".page.machine" href="javascript:void(0)">
-	  【必要な修正】
-	</a>
-	<a data-page=".page.output" href="javascript:void(0)">
-	  【還元された文章】
-	</a>
-	<!-- <a data-page=".page.settings" href="javascript:void(0)">【設定】</a> -->
+        <a data-page=".page.input">
+          【簡体字の文章】
+        </a>
+        <a data-page=".page.machine" href="javascript:void(0)">
+          【必要な修正】
+        </a>
+        <a data-page=".page.output" href="javascript:void(0)">
+          【還元された文章】
+        </a>
+        <!-- <a data-page=".page.settings" href="javascript:void(0)">【設定】</a> -->
       </div>
       <div class="page input">
-	<textarea id="input" spellcheck="false" placeholder="簡体字で書いた日本語の文章をここに貼り付けてください。還元したくない部分があれば（例えば簡体字中国語の文句が混じっている場合）その部分を波括弧 {} でくくってください。そして「必要な修正」をクリックして修正を行ってください。修正を完成したあと、「還元された文章」をクリックしたら正しい日本語の文章が出てきます。"></textarea>
-	<br/>
+        <textarea id="input" spellcheck="false" placeholder="簡体字で書いた日本語の文章をここに貼り付けてください。還元したくない部分があれば（例えば簡体字中国語の文句が混じっている場合）その部分を波括弧 {} でくくってください。そして「必要な修正」をクリックして修正を行ってください。修正を完成したあと、「還元された文章」をクリックしたら正しい日本語の文章が出てきます。"></textarea>
+        <br/>
       </div>
       <div class="page machine" style="display:none;">
-	<div class="tip">簡体字には複数の繁体字が一つの漢字に統合されてしまったという場合があります。このような人工的に修正する必要がある漢字はすべて黄色い背景で示されています。これらの漢字をクリックして文脈によって正しい繁体字を選んで下さい。</div>
-	<div class="tip">大変申し訳ございませんが、このアプリの中の日本語で書いた説明文などは、日本語のネイティブ・スピーカーが書いたものとは限りません。もし説明文に改正する必要があると思われたら、<a href="https://notabug.org/mizusato/convert/" target="_blank">こちら</a>に連絡してください。</div>
-	<div id="workspace"></div>
+        <div class="tip">簡体字には複数の繁体字が一つの漢字に統合されてしまったという場合があります。このような人工的に修正する必要がある漢字はすべて黄色い背景で示されています。これらの漢字をクリックして文脈によって正しい繁体字を選んで下さい。</div>
+        <div class="tip">大変申し訳ございませんが、このアプリの中の日本語で書いた説明文などは、日本語のネイティブ・スピーカーが書いたものとは限りません。もし説明文に改正する必要があると思われたら、<a href="https://notabug.org/mizusato/convert/" target="_blank">こちら</a>に連絡してください。</div>
+        <div id="workspace"></div>
       </div>
       <div class="page output" style="display:none;">
-	<textarea id="output" readonly="readonly"></textarea>
+        <textarea id="output" readonly="readonly"></textarea>
       </div>
       <!-- <div class="page settings" style="display:none;"></div> -->
       <div id="top_right"><a href="index.html">ホーム</a></div>

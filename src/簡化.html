@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>简化 / 大陆化 - 繁簡轉換</title>
+    <title>繁体字 → 简化字 - 繁簡轉換</title>
     <link rel="stylesheet" href="共通樣式.css">
     <link rel="stylesheet" href="轉換器.css">
     <script type="text/javascript" src="es6_test.js"></script>
@@ -43,39 +43,39 @@
   </head>
   <body>
     <div id="container">
-      <h1>简化 / 大陆化</h1>
+      <h1>繁体字 → 简化字</h1>
       <hr/>
       <div id="navbar">
-	<a data-page=".page.input">
-	  【繁体原文】
-	</a>
-	<a data-page=".page.machine" href="javascript:void(0)">
-	  【人工修正】
-	</a>
-	<a data-page=".page.output" href="javascript:void(0)">
-	  【简化结果】
-	</a>
-	<a data-page=".page.settings" href="javascript:void(0)">
-	  【设置】
-	</a>
+        <a data-page=".page.input">
+          【繁体原文】
+        </a>
+        <a data-page=".page.machine" href="javascript:void(0)">
+          【人工修正】
+        </a>
+        <a data-page=".page.output" href="javascript:void(0)">
+          【简化结果】
+        </a>
+        <a data-page=".page.settings" href="javascript:void(0)">
+          【设置】
+        </a>
       </div>
       <div class="page input">
-	<textarea id="input" spellcheck="false" placeholder="输入繁体文章后点击上方【人工修正】以进行必要的修正。修正完成后再点击「简化结果」即可得到简体文章。不希望被转换的部分请用花括号 {} 括起来。"></textarea>
-	<br/>
+        <textarea id="input" spellcheck="false" placeholder="输入繁体文章后点击上方【人工修正】以进行必要的修正。修正完成后再点击「简化结果」即可得到简体文章。不希望被转换的部分请用花括号 {} 括起来。"></textarea>
+        <br/>
       </div>
       <div class="page machine" style="display:none;">
-	<div class="tip">系统会将一繁对多简的字用黄色标出。点击这些字，系统会给出所有可能的对应字，请根据上下文选择正确的对应字。选择完成的字会被标为绿色，以避免遗漏。如果默认显示的对应字是正确的，也可用鼠标右击该字，该字会直接被标为绿色。</div>
-	<div class="tip">系统会在可能需要转换的词语之前添加一个三角形的符号。点击它，系统会给出所有可能的转换选项，请根据语义选择最合适的转换选项，或选择不进行转换。词语转换的分类取舍可在【设置】中调整。</div>
-	<div id="workspace"></div>
+        <div class="tip">系统会将一繁对多简的字用黄色标出。点击这些字，系统会给出所有可能的对应字，请根据上下文选择正确的对应字。选择完成的字会被标为绿色，以避免遗漏。如果默认显示的对应字是正确的，也可用鼠标右击该字，该字会直接被标为绿色。</div>
+        <div class="tip">系统会在可能需要转换的词语之前添加一个三角形的符号。点击它，系统会给出所有可能的转换选项，请根据语义选择最合适的转换选项，或选择不进行转换。词语转换的分类取舍可在【设置】中调整。</div>
+        <div id="workspace"></div>
       </div>
       <div class="page output" style="display:none;">
-	<textarea id="output" readonly="readonly"></textarea>
+        <textarea id="output" readonly="readonly"></textarea>
       </div>
       <div class="page settings" style="display:none;">
-	<div class="setting_wrapper local_word">
-	  <h3>词语转换开关</h3>
-	  <div class="setting local_word"></div>
-	</div>
+        <div class="setting_wrapper local_word">
+          <h3>词语转换开关</h3>
+          <div class="setting local_word"></div>
+        </div>
       </div>
       <div id="top_right"><a href="index.html">返回首页</a></div>
     </div>

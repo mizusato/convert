@@ -114,14 +114,14 @@ function create_style (rules) {
       let styles = rule[1]
       let selectors_str = selectors.join(', ')
       let styles_str = join(map(
-	styles,	(property, value) =>
-	  (typeof value != 'undefined')?
-	  `${convert_property_name(property)}: ${value}; `: ''
+        styles,	(property, value) =>
+          (typeof value != 'undefined')?
+          `${convert_property_name(property)}: ${value}; `: ''
       ))
       if ( styles_str != '' ) {
-	yield `${selectors_str} { ${styles_str}}\n`
+        yield `${selectors_str} { ${styles_str}}\n`
       } else {
-	yield ''
+        yield ''
       }
     }
   })()) })
@@ -133,7 +133,7 @@ function inject_style (name, style_tag) {
     var existing = $(`style.injected.${name}`)
     if ( !existing ) {
       existing = create(
-	{ tag: 'style', classList: ['injected', name] }
+	      { tag: 'style', classList: ['injected', name] }
       )
       document.head.appendChild(existing)
     }
@@ -186,44 +186,44 @@ function map (arg, f) {
     let onchange = null
     for ( let I of iterable ) {
       if ( jump_amount > 0 ) {
-	jump_amount--
-	index++
-	continue
+        jump_amount--
+        index++
+        continue
       }
       function push (value, insert_before = []) {
-	for ( let insert_value of insert_before ) {
-	  if ( typeof insert_value != 'undefined' ) {
-	    result.push(insert_value)
-	  }
-	}
-	result.push(value)
+        for ( let insert_value of insert_before ) {
+          if ( typeof insert_value != 'undefined' ) {
+            result.push(insert_value)
+          }
+        }
+	      result.push(value)
       }
       let J = f(I, index)
       if ( J instanceof keep ) {
-	if ( status != J.status ) {
-	  let insert1 = onchange? onchange(status, J.status): undefined
-	  let insert2 = J.onchange(status, J.status)
-	  push(J.value, [insert1, insert2])
-	  status = J.status
-	  onchange = J.onchange
-	} else {
-	  push(J.value)
-	}
+        if ( status != J.status ) {
+          let insert1 = onchange? onchange(status, J.status): undefined
+          let insert2 = J.onchange(status, J.status)
+          push(J.value, [insert1, insert2])
+          status = J.status
+          onchange = J.onchange
+        } else {
+          push(J.value)
+        }
       } else {
-	let insert = undefined
-	if ( status != '' ) {
-	  insert = onchange(status, '')
-	  status = ''
-	  onchange = null
-	}
-	if ( J instanceof jump ) {
-	  jump_amount = J.amount
-	  if ( typeof J.value != 'undefined' ) {
-	    push(J.value, [insert])
-	  }
-	} else {
-	  push(J, [insert])
-	}
+        let insert = undefined
+        if ( status != '' ) {
+          insert = onchange(status, '')
+          status = ''
+          onchange = null
+        }
+        if ( J instanceof jump ) {
+          jump_amount = J.amount
+          if ( typeof J.value != 'undefined' ) {
+            push(J.value, [insert])
+          }
+        } else {
+          push(J, [insert])
+        }
       }
       index++
     }
@@ -236,19 +236,19 @@ function map (arg, f) {
     if ( f.length >= 2 ) {
       let result = []
       for ( let key of Object.keys(hash) ) {
-	let y = f(key, hash[key])
-	if ( !(y instanceof jump) ) {
-	  result.push(y)
-	}
+        let y = f(key, hash[key])
+        if ( !(y instanceof jump) ) {
+          result.push(y)
+        }
       }
       return result
     } else {
       let result = {}
       for ( let key of Object.keys(hash) ) {
-	let y = f(hash[key])
-	if ( !(y instanceof jump) ) {
-	  result[key] = y
-	}
+        let y = f(hash[key])
+        if ( !(y instanceof jump) ) {
+          result[key] = y
+        }
       }
       return result
     }
@@ -262,7 +262,7 @@ function filter (arg, f) {
     let result = []
     for ( let element of iterable ) {
       if( f(element) ) {
-	result.push(element)
+	      result.push(element)
       }
     }
     return result
@@ -271,7 +271,7 @@ function filter (arg, f) {
     let result = {}
     for ( let key of Object.keys(hash) ) {
       if( f(key, hash[key]) ) {
-	result[key] = hash[key]
+	      result[key] = hash[key]
       }
     }
     return result
@@ -390,9 +390,9 @@ function activate_tabs (tabs, enable, disable) {
   for ( let tab of tabs ) {
     tab.addEventListener('click', function tab_click (ev) {
       for ( let tab of tabs ) {
-	if (!tab) { throw Error('tab_click(): Invalid Page Selector') }
-	enable(tab)
-	$(tab.dataset.page).style.display = 'none'
+        if (!tab) { throw Error('tab_click(): Invalid Page Selector') }
+        enable(tab)
+        $(tab.dataset.page).style.display = 'none'
       }
       disable(this)
       $(this.dataset.page).style.display = ''
@@ -409,7 +409,7 @@ class CompatEventTarget {
   addEventListener (name, callback) {
     if ( typeof callback != 'function' ) {
       throw Error(
-	'CompatEventTarget.prototype.addEventListener(): Invalid Argument'
+	      'CompatEventTarget.prototype.addEventListener(): Invalid Argument'
       )
     }
     if ( !this.$handlers[name] ) {
@@ -417,7 +417,7 @@ class CompatEventTarget {
     }
     for ( let handler of this.$handlers[name] ) {
       if ( handler == callback ) {
-	return false
+	      return false
       }
     }
     this.$handlers[name].push(callback)
@@ -427,7 +427,7 @@ class CompatEventTarget {
   removeEventListener (name, callback) {
     if ( this.$handlers[name] ) {
       this.$handlers[name] = this.$handlers[name].filter(
-	handler => handler != callback
+	      handler => handler != callback
       )
       return true
       // return true does not mean there must exist a handler == callback
@@ -439,7 +439,7 @@ class CompatEventTarget {
   dispatchEvent (event) {
     if ( this.$handlers[event.type] ) {
       for ( let handler of this.$handlers[event.type] ) {
-	handler.call(this, event)
+	      handler.call(this, event)
       }
     }
   }
@@ -463,7 +463,7 @@ function add_iterator (class_constructor) {
   if (!class_constructor.prototype[Symbol.iterator]) {
     class_constructor.prototype[Symbol.iterator] = function* () {
       for ( let i=0; i<this.length; i++ ) {
-	yield this[i]
+	      yield this[i]
       }
     }
   }

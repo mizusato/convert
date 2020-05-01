@@ -11,11 +11,6 @@
       .example { font-size: 120%; }
       .example { color: hsl(0, 0%, 20%); }      
       strong { font-weight: inherit; }
-      /*
-      strong { color: hsl(0, 0%, 5%); }
-      strong { position: relative; }
-      strong::after { content: "・"; position: absolute; top: 0.55em; left: 0; }
-     */
       #feature_list hr { width: 97%; }
       #feature_list a { color: inherit; }
       h3 { font-size: 120%; }
@@ -34,51 +29,51 @@
       <hr/>
       <h3>功能項目</h3>
       <div id="feature_list">
-	<hr/>
-	<a href="繁化.html">
-	  <div class="btn" id="s2t_btn">
-	    <h2 class="title" lang="zh-tw">繁化 / 台灣化 / 香港化</h2>
-	    <div class="example" lang="zh-cn">有人驾驶船<strong>只</strong>在大海上航行。</div>
-	  </div>
-	</a>
-	<hr/>
-	<a href="簡化.html">
-	  <div class="btn" id="t2s_btn">
-	    <h2 class="title" lang="zh-cn">简化 / 中国大陆化</h2>
-	    <div class="example" lang="zh-tw">吃<strong>著</strong>餅<strong>乾</strong>，看<strong>著</strong><strong>乾</strong>隆的<strong>著</strong>作。</div>
-	  </div>
-	</a>
-	<hr/>
-	<a href="日文復原.html">
-	  <div class="btn" id="ja_fix_btn">
-	    <h2 class="title" lang="ja">簡体字日本語の還元</h2>
-	    <div class="example" lang="zh-cn">简体日语はダメなのです！！！</div>
-	  </div>
-	</a>
-	<hr/>
+        <hr/>
+        <a href="繁化.html">
+          <div class="btn" id="s2t_btn">
+            <h2 class="title" lang="zh-tw">簡化字 → 繁體字</h2>
+            <div class="example" lang="zh-cn">支援【異體字偏好設定】以及【普通話 → 台灣華語】名詞轉換</div>
+          </div>
+        </a>
+        <hr/>
+        <a href="簡化.html">
+          <div class="btn" id="t2s_btn">
+            <h2 class="title" lang="zh-cn">繁体字 → 简化字</h2>
+            <div class="example" lang="zh-tw">支持【台湾华语 → 普通话】名词转换</div>
+          </div>
+        </a>
+        <hr/>
+        <a href="日文復原.html">
+          <div class="btn" id="ja_fix_btn">
+            <h2 class="title" lang="ja">簡体字 → 新字体</h2>
+            <div class="example" lang="ja">簡体字に変換されてしまった日本語の文章を還元する</div>
+          </div>
+        </a>
+        <hr/>
       </div>
       <div id="about">
-	<h3>關於本軟體</h3>
-	<p>「精細繁簡轉換」是為了節省繁簡轉換的人工校對時間而開發的新型繁簡轉換工具，通過提供選項和註解的方式，將一字對多字和用語轉換的問題輕鬆解決。</p>
-	<p>本軟體是開放原始碼軟體，由原始碼與資料構成。原始碼在 MIT 授權條款之下釋出；所用資料的一部分修改自中文維基百科，仍遵循 CC BY-SA 3.0 授權條款釋出；其它註明來源的資料，版權歸原作者所有；其餘資料屬公眾領域。</p>
-	<p>本軟體之原始碼發佈於 <a href="https://notabug.org/mizusato/convert/" target="_blank">NotABug.org</a> 原始碼代管網站 (由 Peers Community 營運). 如果您在使用本軟體的過程中發現問題或 Bug, 請在該網站注冊帳號，然後向本軟體提交問題。</p>
-	<p style="color: hsl(0,90%,60%);">目前本軟體尚處於線上測試階段，用語轉換覆蓋的領域較少。如果想要添加詞語或類別，請聯繫開發者。</p>
+        <h3>關於本軟體</h3>
+        <p>「精細繁簡轉換」是為了節省繁簡轉換的人工校對時間而開發的新型繁簡轉換工具，通過提供選項和註解的方式，將一字對多字和用語轉換的問題輕鬆解決。</p>
+        <p>本軟體是開放原始碼軟體，由原始碼與資料構成。原始碼在 MIT 授權條款之下釋出；所用資料的一部分修改自中文維基百科，仍遵循 CC BY-SA 3.0 授權條款釋出；其它註明來源的資料，版權歸原作者所有；其餘資料屬公眾領域。</p>
+        <p>本軟體之原始碼發佈於 <a href="https://notabug.org/mizusato/convert/" target="_blank">NotABug.org</a> 原始碼代管網站 (由 Peers Community 營運). 如果您在使用本軟體的過程中發現問題或 Bug, 請在該網站注冊帳號，然後向本軟體提交問題。</p>
+        <p style="color: hsl(0,90%,60%);">目前本軟體尚處於線上測試階段，用語轉換覆蓋的領域較少。如果想要添加詞語或類別，請聯繫開發者。</p>
       </div>
       <div id="powered_by">
-	<h3>Powered by</h3>
-	<div class="image_link_list">
-	  <a href="http://es6-features.org" target="_blank">
-	    <img src="圖檔/es6.png">
-	  </a>
-	  <a href="https://zh.wikipedia.org/wiki/Template:CGroup" target="_blank">
-	    <img src="圖檔/cgroup.png">
-	  </a>
-	  <a href="https://github.com/BYVoid/OpenCC" target="_blank">
-	    <img src="圖檔/opencc.png">
-	  </a>
-	</div>
+        <h3>Powered by</h3>
+        <div class="image_link_list">
+          <a href="http://es6-features.org" target="_blank">
+            <img src="圖檔/es6.png">
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/Template:CGroup" target="_blank">
+            <img src="圖檔/cgroup.png">
+          </a>
+          <a href="https://github.com/BYVoid/OpenCC" target="_blank">
+            <img src="圖檔/opencc.png">
+          </a>
+        </div>
       </div>
-      <p id="copyleft">MIT License <span class="c">©</span> 2018 Sinograph Studio</p>
+      <p id="copyleft">MIT License <span class="c">©</span> 2018-2020 Sinograph Studio</p>
     </div>
   </body>
 </html>

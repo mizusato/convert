@@ -46,22 +46,22 @@ function 生成地區表 () {
     for ( let 用語 of 地區用詞表[類別] ) {
       let 內地用語表 = 生成用語列表(用語[中國大陸])
       for ( let 內地用語 of 內地用語表 ) {
-	if ( 地區表.不存在(內地用語) ) {
-	  地區表[內地用語] = []
-	}
-	for ( let 其它地區 of [台灣, 香港] ) {
-	  if ( 用語.存在(其它地區) ) {
-	    let 對應用語表 = 生成用語列表(用語[其它地區])
-	    for ( let 對應用語 of 對應用語表 ) {
-	      地區表[內地用語].添加({
-		'用語': 對應用語,
-		'地區': 其它地區,
-		'原文': 用語[原文],
-		'類別': 類別
-	      }) // 添加之
-	    } // 遍歷對應用語
-	  } // 有對應？
-	} // 遍歷其它地區
+        if ( 地區表.不存在(內地用語) ) {
+          地區表[內地用語] = []
+        }
+        for ( let 其它地區 of [台灣, 香港] ) {
+          if ( 用語.存在(其它地區) ) {
+            let 對應用語表 = 生成用語列表(用語[其它地區])
+            for ( let 對應用語 of 對應用語表 ) {
+              地區表[內地用語].添加({
+                '用語': 對應用語,
+                '地區': 其它地區,
+                '原文': 用語[原文],
+                '類別': 類別
+	           }) // 添加之
+            } // 遍歷對應用語
+          } // 有對應？
+        } // 遍歷其它地區
       } // 遍歷內地用語
     } // 遍歷用語條目
   } // 遍歷分表
@@ -94,35 +94,35 @@ function 生成取捨設定介面 () {
   return create(
     { tag: 'div', className: '正異取捨設定', children: map (
       Object.keys(正異取捨表), function 生成選項介面 (條目) {
-	var 字組表 = 正異取捨表[條目]
-	var 條目字 = 字組表[0][0]
-	var 選項 = 字組表[0] // 同上
-	var 取字 = 1
-	if ( 取捨設定[條目字] && 取捨設定[條目字] == 選項[2] ) {
-	  取字 = 2
-	}
-	function 更改選擇 (新取字) {
-	  取捨設定[條目字] = 選項[新取字]
-	  生成取捨表(取捨設定)
-	  save_config('取捨設定', 取捨設定)	    
-	}
-	return {
-	  tag: 'div', className: '正異條目', children: map(
-	    [1,2], 選項號 => ({
-	      tag: 'span', classList: ['正異選項', 選項號],
-	      dataset: { selected: field('已選標記', 取字==選項號) },
-	      textContent: 選項[選項號],
-	      handlers: {
-		click: function (ev) {
-		  update( this.parentElement, {已選標記: String(false)} )
-		  update( this, {已選標記: String(true)} )
-		  更改選擇(選項號)
-		  this.dispatchEvent(new Event('設定更改', {bubbles:true}))
-		}
-	      }
-	    }) // 選項
-	  ) // 選項列表
-	} // 條目
+        var 字組表 = 正異取捨表[條目]
+        var 條目字 = 字組表[0][0]
+        var 選項 = 字組表[0] // 同上
+        var 取字 = 1
+        if ( 取捨設定[條目字] && 取捨設定[條目字] == 選項[2] ) {
+          取字 = 2
+        }
+        function 更改選擇 (新取字) {
+          取捨設定[條目字] = 選項[新取字]
+          生成取捨表(取捨設定)
+          save_config('取捨設定', 取捨設定)	    
+        }
+        return {
+          tag: 'div', className: '正異條目', children: map(
+            [1,2], 選項號 => ({
+              tag: 'span', classList: ['正異選項', 選項號],
+              dataset: { selected: field('已選標記', 取字==選項號) },
+              textContent: 選項[選項號],
+              handlers: {
+                click: function (ev) {
+                  update( this.parentElement, {已選標記: String(false)} )
+                  update( this, {已選標記: String(true)} )
+                  更改選擇(選項號)
+                  this.dispatchEvent(new Event('設定更改', {bubbles:true}))
+                }
+              }
+            }) // 選項
+          ) // 選項列表
+        } // 條目
       } // 生成條目
     ) } // 條目列表
   )

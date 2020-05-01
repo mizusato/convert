@@ -59,11 +59,11 @@ function 地區詞設定更新 () {
   inject_style('地區詞設定樣式', create_style(
     map(地區詞分類開關, (類別, 開關) => [
       [
-	`.地區詞提示位[data-單一類別=${類別}]`,
-	`.地區詞選項[data-類別=${類別}]`
+      `.地區詞提示位[data-單一類別=${類別}]`,
+      `.地區詞選項[data-類別=${類別}]`
       ],
       {
-	display: (開關 == 'disabled')? 'none': undefined
+	      display: (開關 == 'disabled')? 'none': undefined
       }
     ])
   ))
@@ -81,24 +81,24 @@ function 生成地區詞設定介面 (類別名轉換 = x=>x) {
   return create({
     tag: 'div', className: '地區詞設定', children: map (
       Object.keys(地區用詞表), function 生成選項介面 (類別) {
-	var enabled = ( 地區詞分類開關[類別] != 'disabled' )
-	function 切換開關 () {
-	  enabled = !enabled
-	  this.dataset.enabled = enabled
-	  地區詞分類開關[類別] = enabled? 'enabled': 'disabled'
-	  save_config('地區詞分類開關', 地區詞分類開關)
-	  地區詞設定更新()
-	}
-	return {
-	  tag: 'div',
-	  className: '地區詞設定條目',
-	  dataset: { enabled: enabled },
-	  handlers: { click: function (ev) { 切換開關.call(this) } },
-	  children: [
-	    { tag: 'div', className: '啟用標記', textContent: '✓' },
-	    { tag: 'div', className: '類別名', textContent: 類別名轉換(類別) }
-	  ]
-	}
+        var enabled = ( 地區詞分類開關[類別] != 'disabled' )
+        function 切換開關 () {
+          enabled = !enabled
+          this.dataset.enabled = enabled
+          地區詞分類開關[類別] = enabled? 'enabled': 'disabled'
+          save_config('地區詞分類開關', 地區詞分類開關)
+          地區詞設定更新()
+        }
+        return {
+          tag: 'div',
+          className: '地區詞設定條目',
+          dataset: { enabled: enabled },
+          handlers: { click: function (ev) { 切換開關.call(this) } },
+          children: [
+            { tag: 'div', className: '啟用標記', textContent: '✓' },
+            { tag: 'div', className: '類別名', textContent: 類別名轉換(類別) }
+          ]
+        }
       }
     )
   })
